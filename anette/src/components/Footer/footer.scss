@@ -1,0 +1,22 @@
+.footer-section {
+    background-color: #708DC7;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .footer-item-container {
+        align-self: baseline;
+    }
+
+    .logo-container {
+        display: flex;
+        justify-content: center;
+
+        .icon-button {
+            color: #FAFAFA
+        }
+    }
+
+    .footer-subtitle {
+        margin-top: 20px;
+    }
+}
