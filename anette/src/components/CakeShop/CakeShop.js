@@ -4,45 +4,56 @@ import {
   Grid,
 } from '@mui/material';
 import './cake-shop.scss';
-import Image3 from '../../assets/anette-carousel-3.jpg';
 import CustomCard from '../Card/CustomCard';
+import CookiesImage from '../../assets/anette-cookies-card.jpg';
+import TortasImage from '../../assets/anette-tortas-card.jpg';
+import MacaronsImage from '../../assets/anette-macarons-card.jpg';
+import TravelImage from '../../assets/anette-travel-card.jpg';
+import TartasImage from '../../assets/anette-carousel-2.jpg';
+import * as Routes from '../../constants/routes';
 
 const CakeShop = () => {
   const cards = [
     {
       id: 1,
       title: 'TORTAS',
-      image: Image3,
+      image: TortasImage,
+      to: Routes.TORTAS,
     },
     {
       id: 2,
-      title: 'TARTAS CLASICAS Y DE VITRINAS',
-      image: Image3,
+      title: 'TARTAS CLASICAS',
+      image: TartasImage,
+      to: Routes.TARTAS_CLASICAS,
     },
     {
       id: 3,
       title: 'MACARONS',
-      image: Image3,
+      image: MacaronsImage,
+      to: Routes.MACARONS,
     },
     {
       id: 4,
       title: 'COOKIES',
-      image: Image3,
+      image: CookiesImage,
+      to: Routes.COOKIES,
     },
     {
       id: 5,
       title: 'TRAVEL CAKES',
-      image: Image3,
+      image: TravelImage,
+      to: Routes.TRAVEL_CAKES,
     },
     {
       id: 6,
-      title: 'NOUGATS',
-      image: Image3,
+      title: 'TARTAS DE VITRINA',
+      image: TartasImage,
+      to: Routes.TARTAS_VITRINA,
     },
   ];
 
   return (
-    <div className="cake-shop-container">
+    <div className="cake-shop-container" id="patisserie">
       <Typography
         color="secondary"
         gutterBottom
@@ -68,7 +79,7 @@ const CakeShop = () => {
             spacing={3}
             key={card.id}
           >
-            <CustomCard image={card.image} title={card.title} />
+            <CustomCard image={card.image} title={card.title} to={card.to} />
           </Grid>
         ))}
       </Grid>

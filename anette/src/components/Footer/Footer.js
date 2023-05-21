@@ -7,6 +7,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import Image from '../../assets/anette-logo-white.png';
 
 const Footer = () => {
+  const textColor='#FAFAFA';
   return (
     <section className="footer-section">
       <Grid
@@ -15,7 +16,7 @@ const Footer = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item md={3} className="logo-container">
+        <Grid item md={3} xs={6} className="logo-container">
           <div>
             <Avatar
               src={Image}
@@ -41,7 +42,7 @@ const Footer = () => {
               target="_blank"
             >
 
-              <InstagramIcon color="#FAFAFA" />
+              <InstagramIcon color={textColor} />
             </IconButton>
             <IconButton
               className="icon-button"
@@ -51,20 +52,20 @@ const Footer = () => {
               target="_blank"
             >
 
-              <WhatsAppIcon color="#FAFAFA" />
+              <WhatsAppIcon color={textColor} />
             </IconButton>
           </div>
         </Grid>
-        <Grid item md={3}>
+        <Grid item md={3} xs={6}>
           <Typography
-            color="#FAFAFA"
+            color={textColor}
             align='left'
             gutterBottom
           >
-                        CONTACTO
+            CONTACTO
           </Typography>
           <Typography
-            color="#FAFAFA"
+            color={textColor}
             align='left'
             variant='body2'
             className="footer-subtitle"
@@ -72,29 +73,14 @@ const Footer = () => {
             <strong>Retiro en:</strong>
           </Typography>
           <Typography
-            color="#FAFAFA"
+            color={textColor}
             align='left'
             variant='body2'
           >
-                        Vitacura
+            Vitacura
           </Typography>
           <Typography
-            color="#FAFAFA"
-            align='left'
-            variant='body2'
-            className="footer-subtitle"
-          >
-            <strong>Horarios:</strong>
-          </Typography>
-          <Typography
-            color="#FAFAFA"
-            align='left'
-            variant='body2'
-          >
-                        Lunes a Viernes de 10:00 a 19:00 hrs
-          </Typography>
-          <Typography
-            color="#FAFAFA"
+            color={textColor}
             align='left'
             variant='body2'
             className="footer-subtitle"
@@ -102,14 +88,36 @@ const Footer = () => {
             <strong>Horarios:</strong>
           </Typography>
           <Typography
-            color="#FAFAFA"
+            color={textColor}
             align='left'
             variant='body2'
           >
-                        Lunes a Viernes de 10:00 a 19:00 hrs
+            Lunes a Viernes de 10:00 a 19:00 hrs
           </Typography>
           <Typography
-            color="#FAFAFA"
+            color={textColor}
+            align='left'
+            variant='body2'
+            className="footer-subtitle"
+          >
+            <strong>Contacto:</strong>
+          </Typography>
+          <Typography
+            color={textColor}
+            align='left'
+            variant='body2'
+          >
+            +56 9 5453 1193
+          </Typography>
+          <Typography
+            color={textColor}
+            align='left'
+            variant='body2'
+          >
+            annete.patisserie@gmail.com
+          </Typography>
+          <Typography
+            color={textColor}
             align='left'
             variant='body2'
             className="footer-subtitle"
@@ -117,24 +125,24 @@ const Footer = () => {
             <strong>Despachos:</strong>
           </Typography>
           <Typography
-            color="#FAFAFA"
+            color={textColor}
             align='left'
             variant='body2'
           >
-                        Se realizan de Lunes a Sábado entre 10:00 a 18:30hrs.
+            Se realizan de Lunes a Sábado entre 10:00 a 18:30hrs.
 
           </Typography>
         </Grid>
-        <Grid item md={3} className="footer-item-container">
+        <Grid item md={3} xs={6} className="footer-item-container">
           <Typography
-            color="#FAFAFA"
+            color={textColor}
             align='left'
             gutterBottom
           >
-                        INFORMACION
+            INFORMACION
           </Typography>
           <Typography
-            color="#FAFAFA"
+            color={textColor}
             align='left'
             variant='body2'
             className="footer-subtitle"
@@ -142,16 +150,16 @@ const Footer = () => {
             <strong>Retiro y Despacho</strong>
           </Typography>
         </Grid>
-        <Grid item md={3} className="footer-item-container">
+        <Grid item md={3} xs={6} className="footer-item-container">
           <Typography
-            color="#FAFAFA"
+            color={textColor}
             align='left'
             gutterBottom
           >
-                        POLITICAS
+            POLITICAS
           </Typography>
           <Typography
-            color="#FAFAFA"
+            color={textColor}
             align='left'
             variant='body2'
             className="footer-subtitle"
@@ -159,7 +167,7 @@ const Footer = () => {
             <strong>Politicas de Privacidad</strong>
           </Typography>
           <Typography
-            color="#FAFAFA"
+            color={textColor}
             align='left'
             variant='body2'
             className="footer-subtitle"

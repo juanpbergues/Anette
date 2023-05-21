@@ -7,15 +7,25 @@ import {
   CardMedia,
   Typography,
 } from '@mui/material';
+import './custom-card.scss';
 
-const CustomCard = ({title, image}) => {
+const CustomCard = ({title, image, to}) => {
   return (
-    <Card sx={{borderRadius: 0, border: 'solid #708DC7', boxShadow: 0}}>
-      <CardActionArea>
+    <Card
+      sx={{
+        borderRadius: 0,
+        border: 'solid #708DC7',
+        boxShadow: 0,
+        width: '400px',
+        height: '525px',
+      }}
+      className="custom-card"
+    >
+      <CardActionArea href={to}>
         <CardMedia
           component="img"
-          height="300"
-          width="100"
+          height="400"
+          width="400"
           image={image}
           alt="macarons"
         />
@@ -25,12 +35,14 @@ const CustomCard = ({title, image}) => {
             color="#708DC7"
             width="40%"
             style={{marginBottom: '20px', marginTop: '30px'}}
+            className="card-separator"
           />
           <Typography
             color="secondary"
             gutterBottom
             variant="h5"
             component="div"
+            className="card-title"
           >
             {title}
           </Typography>
@@ -43,6 +55,7 @@ const CustomCard = ({title, image}) => {
 CustomCard.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
+  to: PropTypes.string,
 };
 
 export default CustomCard;
