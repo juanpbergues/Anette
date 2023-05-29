@@ -13,7 +13,7 @@ const DetailView = ({matches, imageTop, imageDown, title, children}) => {
     <div className="detail-view-section">
       <div className="detail-view-container">
         <div className="image-container">
-          <Page image={imageTop} />
+          <Page image={imageTop} matches={matches} />
         </div>
       </div>
       <Typography

@@ -8,10 +8,10 @@ import ContactUs from '../../components/ContactUs/ContactUs';
 const Home = ({matches}) => {
   return (
     <>
-      <Carousel />
-      <CakeShop />
+      <Carousel matches={matches} />
+      <CakeShop matches={matches} />
       <AboutMe matches={matches} />
-      <ContactUs />
+      <ContactUs matches={matches} />
     </>
   );
 };

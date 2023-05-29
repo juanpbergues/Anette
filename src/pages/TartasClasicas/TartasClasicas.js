@@ -5,8 +5,9 @@ import {
   Typography,
 } from '@mui/material';
 import DetailView from '../../components/DetailView/DetailView';
-import ImageTop from '../../assets/anette-macarons-card.jpg';
-import ImageDown from '../../assets/anette-macarons-inferior.jpg';
+import CustomButton from '../../components/CustomButton/CustomButton';
+import ImageTop from '../../assets/anette-tarta-clasica-detail-sup.jpg';
+import ImageDown from '../../assets/anette-tarta-clasica-detail-down.jpg';
 
 const content = {
   title: {
@@ -72,6 +73,15 @@ const TartasClasicas = ({matches}) => {
             {item.text}
           </Typography>
         ))}
+        <div style={{marginTop: '40px'}}>
+          <CustomButton
+            text="HACE TU PEDIDO"
+            color="secondary"
+            hoverColor="#98C8BB"
+            size="large"
+            href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20una%20Tarta%20Clasica!"
+          />
+        </div>
       </Grid>
     </DetailView>
   );

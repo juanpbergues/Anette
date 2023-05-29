@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Navigation, Pagination, A11y, Autoplay} from 'swiper';
 import Page from '../Page/Page';
@@ -15,7 +16,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
 
-const Carousel = () => {
+const Carousel = ({matches}) => {
   return (
     <div className="carousel">
       <Swiper
@@ -29,35 +30,40 @@ const Carousel = () => {
           display: 'flex',
           justifyContent: 'center',
         }}>
-          <Page image={Image1} />
+          <Page image={Image1} matches={matches} />
         </SwiperSlide>
         <SwiperSlide style={{
           display: 'flex',
           justifyContent: 'center',
         }}>
-          <Page image={Image2} />
+          <Page image={Image2} matches={matches} />
         </SwiperSlide>
         <SwiperSlide style={{
           display: 'flex',
           justifyContent: 'center',
         }}>
-          <Page image={Image3} />
+          <Page image={Image3} matches={matches} />
         </SwiperSlide>
         <SwiperSlide style={{
           display: 'flex',
           justifyContent: 'center',
         }}>
-          <Page image={Image4} />
+          <Page image={Image4} matches={matches} />
         </SwiperSlide>
         <SwiperSlide style={{
           display: 'flex',
           justifyContent: 'center',
         }}>
-          <Page image={Image5} />
+          <Page image={Image5} matches={matches} />
         </SwiperSlide>
       </Swiper>
     </div>
   );
+};
+
+Carousel.propTypes = {
+  image: PropTypes.string,
+  matches: PropTypes.bool,
 };
 
 export default Carousel;

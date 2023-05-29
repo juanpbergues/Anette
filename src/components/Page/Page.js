@@ -1,23 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
+import Avatar from '@mui/material/Avatar';
 
-const Page = ({image}) => {
+const Page = ({image, matches}) => {
   return (
-    <Box
-      sx={{
-        'width': '85%',
-        'height': '80vh',
-        'backgroundImage': `url(${image})`,
-        'backgroundRepeat': 'no-repeat',
-        'backgroundSize': 'cover',
-      }}
+    <Avatar
+      src={image}
+      variant="square"
+      sx={!matches ? ({
+        'width': 'auto',
+        'height': '100vh',
+      }):(
+        {
+          'width': '90%',
+          'height': '70vh',
+        }
+      )}
     />
   );
 };
 
 Page.propTypes = {
   image: PropTypes.string,
+  matches: PropTypes.bool,
 };
 
 export default Page;

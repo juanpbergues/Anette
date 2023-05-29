@@ -15,3 +15,26 @@
         margin-bottom: 60px
     }
 }
+
+.custom-card {
+    &:hover {
+        border: solid #98C8BB;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+
+        .card-separator {
+            border-top-color: #98C8BB;
+            border-right-color: #98C8BB;
+            border-bottom-color: #98C8BB;
+            border-left-color: #98C8BB;
+            background-color: #98C8BB;
+        }
+
+        .card-title {
+            color: #98C8BB
+        }
+
+        .card-image {
+            color: #98C8BB
+        }
+    }
+}

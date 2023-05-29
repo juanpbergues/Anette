@@ -16,7 +16,7 @@ const CustomCard = ({title, image, to}) => {
         borderRadius: 0,
         border: 'solid #708DC7',
         boxShadow: 0,
-        width: '400px',
+        width: '380px',
         height: '525px',
       }}
       className="custom-card"

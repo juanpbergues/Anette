@@ -5,6 +5,7 @@ import {
   Typography,
 } from '@mui/material';
 import DetailView from '../../components/DetailView/DetailView';
+import CustomButton from '../../components/CustomButton/CustomButton';
 import ImageTop from '../../assets/anette-tortas-detail-top.jpg';
 import ImageDown from '../../assets/anette-tortas-detail-down.jpg';
 
@@ -175,7 +176,17 @@ const TravelCakes = ({matches}) => {
           spacing={2}
         >
           {content.steps.map((step) => (
-            <Grid item xs={12} md={4} key={step.id} sx={{marginBottom: '20px'}}>
+            <Grid
+              item
+              xs={12}
+              md={4}
+              key={step.id}
+              sx={
+                step.id === 1 && matches ?
+                  {marginBottom: '20px', marginTop: '20px'} :
+                  {marginBottom: '20px'}
+              }
+            >
               <Typography
                 color={step.color}
                 gutterBottom
@@ -209,6 +220,13 @@ const TravelCakes = ({matches}) => {
               }
             </Grid>
           ))}
+          <CustomButton
+            text="HACE TU PEDIDO"
+            color="secondary"
+            hoverColor="#98C8BB"
+            size="large"
+            href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20una%20Torta!"
+          />
         </Grid>
       </Grid>
     </DetailView >

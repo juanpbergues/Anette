@@ -1,13 +1,20 @@
 import React from 'react';
-import {Typography, Grid, CardContent, Paper} from '@mui/material';
+import PropTypes from 'prop-types';
+import {
+  Typography,
+  Grid,
+  CardContent,
+  CardMedia,
+  Card,
+  CardActionArea,
+} from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import Button from '../CustomButton/CustomButton';
 import './contact-us.scss';
 
-const ContactUs = () => {
+const ContactUs = ({matches}) => {
   return (
-    <div className="contact-us-container" id="contact-us">
+    <div className="contact-us-container" id="contacto">
       <Typography
         color="secondary"
         gutterBottom
@@ -15,7 +22,7 @@ const ContactUs = () => {
         component="div"
         className="title"
       >
-        CONTACTANOS
+        CONTACTO
       </Typography>
       <Typography
         color="secondary"
@@ -37,54 +44,148 @@ const ContactUs = () => {
           item
           lg={6}
           md={6}
-          xs={6}
-          sx={{display: 'flex', placeContent: 'end', paddingRight: '20px'}}
+          xs={12}
+          sx={
+            !matches ? (
+              {
+                display: 'flex',
+                placeContent: 'end',
+                paddingRight: '20px',
+              }) : ({
+                display: 'flex',
+                placeContent: 'center',
+                marginBottom: '20px',
+              })}
         >
-          <Paper
-            variant="outlined"
-            sx={{width: '200px', border: '0'}}
+          <Card
+            sx={{
+              height: '200px',
+              width: '210px',
+              borderRadius: 0,
+              border: 'solid #708DC7',
+              boxShadow: 0,
+
+            }}
+            className="custom-card"
           >
-            <CardContent>
-              <WhatsAppIcon
-                color="secondary"
-                sx={{fontSize: '64px', marginBottom: '20px'}}
-              />
-              <Button
-                color="secondary"
-                hoverColor="#98C8BB"
-                text="Ingresa aqui"
-                size="large"
-              />
-            </CardContent>
-          </Paper>
+            <CardActionArea href="https://wa.me/56954531193?text=Hola%20Ana!">
+              <CardMedia
+                sx={{padding: '20px 10px 10px'}}
+                alt="whatsapp"
+              >
+                <WhatsAppIcon
+                  className="card-image"
+                  color="secondary"
+                  sx={{fontSize: '64px'}}
+                />
+              </CardMedia>
+              <CardContent sx={{paddingTop: '0'}}>
+                <hr
+                  size="8px"
+                  color="#708DC7"
+                  width="40%"
+                  style={{marginBottom: '20px'}}
+                  className="card-separator"
+                />
+                <Typography
+                  color="secondary"
+                  gutterBottom
+                  variant="body1"
+                  component="div"
+                  className="card-title"
+                >
+                  <strong>CONTACTANOS POR</strong>
+                </Typography>
+                <Typography
+                  color="secondary"
+                  gutterBottom
+                  variant="body1"
+                  component="div"
+                  className="card-title"
+                >
+                  <strong>WHATSAPP</strong>
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
         </Grid>
         <Grid
           item
           lg={6}
           md={6}
-          xs={6}
-          sx={{paddingLeft: '20px'}}
+          xs={12}
+          sx={
+            !matches ? (
+            {
+              display: 'flex',
+              placeContent: 'start',
+              paddingLeft: '20px',
+            }) : ({
+              display: 'flex',
+              placeContent: 'center',
+              marginBottom: '20px',
+            })
+          }
         >
-          <Paper
-            variant="outlined"
-            sx={{width: '200px', border: '0'}}>
-            <CardContent>
-              <InstagramIcon
-                color="secondary"
-                sx={{fontSize: '64px', marginBottom: '20px'}}
-              />
-              <Button
-                color="secondary"
-                hoverColor="#98C8BB"
-                text="Ingresa aqui"
-                size="large"
-              />
-            </CardContent>
-          </Paper>
+          <Card
+            sx={{
+              height: '200px',
+              width: '210px',
+              borderRadius: 0,
+              border: 'solid #708DC7',
+              boxShadow: 0,
+
+            }}
+            className="custom-card"
+          >
+            <CardActionArea href="https://instagram.com/annete_lafolieduchocolat">
+              <CardMedia
+                sx={{padding: '20px 10px 10px'}}
+                alt="whatsapp"
+              >
+                <InstagramIcon
+                  className="card-image"
+                  color="secondary"
+                  sx={{fontSize: '64px'}}
+                />
+              </CardMedia>
+              <CardContent sx={{paddingTop: '0'}}>
+                <hr
+                  size="8px"
+                  color="#708DC7"
+                  width="40%"
+                  style={{marginBottom: '20px'}}
+                  className="card-separator"
+                />
+                <Typography
+                  color="secondary"
+                  gutterBottom
+                  variant="body1"
+                  component="div"
+                  className="card-title"
+                >
+                  <strong>SEGUINOS EN</strong>
+                </Typography>
+                <Typography
+                  color="secondary"
+                  gutterBottom
+                  variant="body1"
+                  component="div"
+                  className="card-title"
+                >
+                  <strong>INSTAGRAM</strong>
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
         </Grid>
       </Grid>
     </div>
   );
+};
+
+ContactUs.propTypes = {
+  matches: PropTypes.bool,
 };
 
 export default ContactUs;

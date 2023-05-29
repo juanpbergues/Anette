@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './footer.scss';
 import {Avatar, Grid, Typography, IconButton, Link} from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
@@ -6,14 +7,14 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import Image from '../../assets/anette-logo-white.png';
 
-const Footer = () => {
-  const textColor='#FAFAFA';
+const Footer = ({matches}) => {
+  const textColor = '#FAFAFA';
   return (
     <section className="footer-section">
       <Grid
         container
         direction="row"
-        justifyContent="center"
+        justifyContent="flex-start"
         alignItems="center"
       >
         <Grid item md={3} xs={6} className="logo-container">
@@ -21,16 +22,19 @@ const Footer = () => {
             <Avatar
               src={Image}
               variant="square"
-              sx={{
+              sx={!matches ? ({
                 width: '200px',
                 height: '200px',
-              }}
+              }) : ({
+                width: '150px',
+                height: '150px',
+              })}
             />
             <IconButton
               className="icon-button"
               aria-label="mail"
               component={Link}
-              href="mailto:fakeuser@fakeemail.com"
+              href="mailto:annete.patisserie@gmail.com"
             >
               <MailOutlineIcon />
             </IconButton>
@@ -38,7 +42,7 @@ const Footer = () => {
               className="icon-button"
               aria-label="instagram"
               component={Link}
-              href="https://github.com/muhimasri"
+              href="https://instagram.com/annete_lafolieduchocolat"
               target="_blank"
             >
 
@@ -61,14 +65,16 @@ const Footer = () => {
             color={textColor}
             align='left'
             gutterBottom
+            sx={matches && {fontSize: '14px'}}
           >
-            CONTACTO
+            INFORMACIÓN
           </Typography>
           <Typography
             color={textColor}
             align='left'
             variant='body2'
             className="footer-subtitle"
+            sx={matches && {fontSize: '12px'}}
           >
             <strong>Retiro en:</strong>
           </Typography>
@@ -76,6 +82,7 @@ const Footer = () => {
             color={textColor}
             align='left'
             variant='body2'
+            sx={matches && {fontSize: '12px'}}
           >
             Vitacura
           </Typography>
@@ -84,6 +91,7 @@ const Footer = () => {
             align='left'
             variant='body2'
             className="footer-subtitle"
+            sx={matches && {fontSize: '12px'}}
           >
             <strong>Horarios:</strong>
           </Typography>
@@ -91,6 +99,7 @@ const Footer = () => {
             color={textColor}
             align='left'
             variant='body2'
+            sx={matches && {fontSize: '12px'}}
           >
             Lunes a Viernes de 10:00 a 19:00 hrs
           </Typography>
@@ -99,6 +108,7 @@ const Footer = () => {
             align='left'
             variant='body2'
             className="footer-subtitle"
+            sx={matches && {fontSize: '12px'}}
           >
             <strong>Contacto:</strong>
           </Typography>
@@ -106,6 +116,7 @@ const Footer = () => {
             color={textColor}
             align='left'
             variant='body2'
+            sx={matches && {fontSize: '12px'}}
           >
             +56 9 5453 1193
           </Typography>
@@ -113,6 +124,7 @@ const Footer = () => {
             color={textColor}
             align='left'
             variant='body2'
+            sx={matches && {fontSize: '12px'}}
           >
             annete.patisserie@gmail.com
           </Typography>
@@ -121,6 +133,7 @@ const Footer = () => {
             align='left'
             variant='body2'
             className="footer-subtitle"
+            sx={matches && {fontSize: '12px'}}
           >
             <strong>Despachos:</strong>
           </Typography>
@@ -128,56 +141,20 @@ const Footer = () => {
             color={textColor}
             align='left'
             variant='body2'
+            sx={matches && {fontSize: '12px'}}
           >
             Se realizan de Lunes a Sábado entre 10:00 a 18:30hrs.
 
           </Typography>
         </Grid>
-        <Grid item md={3} xs={6} className="footer-item-container">
-          <Typography
-            color={textColor}
-            align='left'
-            gutterBottom
-          >
-            INFORMACION
-          </Typography>
-          <Typography
-            color={textColor}
-            align='left'
-            variant='body2'
-            className="footer-subtitle"
-          >
-            <strong>Retiro y Despacho</strong>
-          </Typography>
-        </Grid>
-        <Grid item md={3} xs={6} className="footer-item-container">
-          <Typography
-            color={textColor}
-            align='left'
-            gutterBottom
-          >
-            POLITICAS
-          </Typography>
-          <Typography
-            color={textColor}
-            align='left'
-            variant='body2'
-            className="footer-subtitle"
-          >
-            <strong>Politicas de Privacidad</strong>
-          </Typography>
-          <Typography
-            color={textColor}
-            align='left'
-            variant='body2'
-            className="footer-subtitle"
-          >
-            <strong>Terminos y Condiciones</strong>
-          </Typography>
-        </Grid>
       </Grid>
     </section>
   );
+};
+
+Footer.propTypes = {
+  image: PropTypes.string,
+  matches: PropTypes.bool,
 };
 
 export default Footer;

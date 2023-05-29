@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Typography,
   Grid,
@@ -12,7 +13,7 @@ import TravelImage from '../../assets/anette-travel-card.jpg';
 import TartasImage from '../../assets/anette-carousel-2.jpg';
 import * as Routes from '../../constants/routes';
 
-const CakeShop = () => {
+const CakeShop = ({matches}) => {
   const cards = [
     {
       id: 1,
@@ -76,7 +77,7 @@ const CakeShop = () => {
             md={6}
             xs={12}
             className="card-container"
-            spacing={3}
+            spacing={0}
             key={card.id}
           >
             <CustomCard image={card.image} title={card.title} to={card.to} />
@@ -85,6 +86,10 @@ const CakeShop = () => {
       </Grid>
     </div>
   );
+};
+
+CakeShop.propTypes = {
+  matches: PropTypes.string,
 };
 
 export default CakeShop;

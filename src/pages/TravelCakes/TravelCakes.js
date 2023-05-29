@@ -5,6 +5,7 @@ import {
   Typography,
 } from '@mui/material';
 import DetailView from '../../components/DetailView/DetailView';
+import CustomButton from '../../components/CustomButton/CustomButton';
 import ImageTop from '../../assets/anette-travel-detail-superior.jpg';
 import ImageDown from '../../assets/anette-travel-detail-inferior.jpg';
 
@@ -72,6 +73,15 @@ const TravelCakes = ({matches}) => {
             {item.text}
           </Typography>
         ))}
+        <div style={{marginTop: '40px'}}>
+          <CustomButton
+            text="HACE TU PEDIDO"
+            color="secondary"
+            hoverColor="#98C8BB"
+            size="large"
+            href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20una%20Travel%20Cake!"
+          />
+        </div>
       </Grid>
     </DetailView>
   );

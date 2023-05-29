@@ -61,7 +61,7 @@ const CustomAppBar = ({matches}) => {
               variant="text"
               color="secondary"
               size="large"
-              href='#patisserie'
+              href='/#patisserie'
               className="button  with-margin"
               sx={
                 currentOption === 'patisserie' && {
@@ -78,7 +78,7 @@ const CustomAppBar = ({matches}) => {
               variant="text"
               color="secondary"
               size="large"
-              href='#about-me'
+              href='/#about-me'
               className="button with-margin"
               sx={
                 currentOption === 'nosotros' && {
@@ -93,7 +93,7 @@ const CustomAppBar = ({matches}) => {
               variant="text"
               size="large"
               color="secondary"
-              href='#contacto'
+              href='/#contacto'
               className="button"
               sx={
                 currentOption === 'contacto' && {
@@ -127,7 +127,13 @@ const CustomAppBar = ({matches}) => {
                   variant="text"
                   color="secondary"
                   size="large"
-                  onClick={() => setCurrentOption('patisserie')}
+                  href='/#patisserie'
+                  onClick={
+                    () => {
+                      setCurrentOption('patisserie');
+                      handleClose();
+                    }
+                  }
                 >
                   PÂTISSERIE
                 </Button>
@@ -137,7 +143,11 @@ const CustomAppBar = ({matches}) => {
                   variant="text"
                   color="secondary"
                   size="large"
-                  onClick={() => setCurrentOption('nosotros')}
+                  href='/#about-me'
+                  onClick={() => {
+                    setCurrentOption('nosotros');
+                    handleClose();
+                  }}
                 >
                   NOSOTROS
                 </Button>
@@ -147,7 +157,11 @@ const CustomAppBar = ({matches}) => {
                   variant="text"
                   color="secondary"
                   size="large"
-                  onClick={() => setCurrentOption('contacto')}
+                  href='/#contacto'
+                  onClick={() => {
+                    setCurrentOption('contacto');
+                    handleClose();
+                  }}
                 >
                   CONTACTO
                 </Button>
@@ -156,7 +170,7 @@ const CustomAppBar = ({matches}) => {
           </Grid>
         </Grid>
       </Toolbar>
-    </AppBar>
+    </AppBar >
   );
 };
 
