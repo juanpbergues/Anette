@@ -66,7 +66,7 @@ const AboutMe = ({matches}) => {
               <Typography
                 color="secondary"
                 gutterBottom
-                variant="h5"
+                variant="h6"
                 align="left"
                 sx={{marginRight: '50px'}}
               >
@@ -79,7 +79,7 @@ const AboutMe = ({matches}) => {
               <Typography
                 color="secondary"
                 gutterBottom
-                variant="h5"
+                variant="h6"
                 align="left"
                 sx={{marginRight: '50px'}}
               >
@@ -92,7 +92,7 @@ const AboutMe = ({matches}) => {
               <Typography
                 color="secondary"
                 gutterBottom
-                variant="h5"
+                variant="h6"
                 align="left"
                 sx={{marginRight: '50px'}}
               >
@@ -107,7 +107,7 @@ const AboutMe = ({matches}) => {
               <Typography
                 color="secondary"
                 gutterBottom
-                variant="h5"
+                variant="h6"
                 align="left"
                 sx={{marginRight: '50px'}}
               >

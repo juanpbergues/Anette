@@ -27,7 +27,7 @@ const ContactUs = ({matches}) => {
       <Typography
         color="secondary"
         gutterBottom
-        variant="h5"
+        variant="h6"
         component="div"
       >
         Contactate con nosotros por los distintos
@@ -90,7 +90,7 @@ const ContactUs = ({matches}) => {
                 <Typography
                   color="secondary"
                   gutterBottom
-                  variant="body1"
+                  variant="body2"
                   component="div"
                   className="card-title"
                 >
@@ -99,7 +99,7 @@ const ContactUs = ({matches}) => {
                 <Typography
                   color="secondary"
                   gutterBottom
-                  variant="body1"
+                  variant="body2"
                   component="div"
                   className="card-title"
                 >
@@ -160,7 +160,7 @@ const ContactUs = ({matches}) => {
                 <Typography
                   color="secondary"
                   gutterBottom
-                  variant="body1"
+                  variant="body2"
                   component="div"
                   className="card-title"
                 >
@@ -169,7 +169,7 @@ const ContactUs = ({matches}) => {
                 <Typography
                   color="secondary"
                   gutterBottom
-                  variant="body1"
+                  variant="body2"
                   component="div"
                   className="card-title"
                 >

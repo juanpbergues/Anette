@@ -3,10 +3,13 @@
     .detail-view-container {
         background: linear-gradient(to bottom, white 0%, white 50%, #98C8BB 50%, #98C8BB 100%);
         padding-bottom: 100px;
-
+        
         .image-container {
             display: flex;
-            justify-content: center;
+            place-content: center;
+            .image-container {
+                max-width: 1150px;
+            }
         }
     }
 

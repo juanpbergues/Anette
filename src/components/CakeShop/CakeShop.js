@@ -54,36 +54,38 @@ const CakeShop = ({matches}) => {
   ];
 
   return (
-    <div className="cake-shop-container" id="patisserie">
-      <Typography
-        color="secondary"
-        gutterBottom
-        variant="h4"
-        component="div"
-        className="title"
-      >
-        PASTELERÍA PREMIUM NATURAL
-      </Typography>
-      <Grid
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-      >
-        {cards.map((card) => (
-          <Grid
-            item
-            lg={4}
-            md={6}
-            xs={12}
-            className="card-container"
-            spacing={0}
-            key={card.id}
-          >
-            <CustomCard image={card.image} title={card.title} to={card.to} />
-          </Grid>
-        ))}
-      </Grid>
+    <div className="cake-shop-section" id="patisserie">
+      <div className="cake-shop-container">
+        <Typography
+          color="secondary"
+          gutterBottom
+          variant="h4"
+          component="div"
+          className="title"
+        >
+          PASTELERÍA PREMIUM NATURAL
+        </Typography>
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          {cards.map((card) => (
+            <Grid
+              item
+              lg={4}
+              md={6}
+              xs={12}
+              className="card-container"
+              spacing={0}
+              key={card.id}
+            >
+              <CustomCard image={card.image} title={card.title} to={card.to} />
+            </Grid>
+          ))}
+        </Grid>
+      </div>
     </div>
   );
 };

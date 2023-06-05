@@ -7,13 +7,21 @@ import {
 import PropTypes from 'prop-types';
 import './detail-view.scss';
 import Page from '../Page/Page';
+import {useEffect} from 'react';
+import {useLocation} from 'react-router';
 
 const DetailView = ({matches, imageTop, imageDown, title, children}) => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <div className="detail-view-section">
       <div className="detail-view-container">
         <div className="image-container">
-          <Page image={imageTop} matches={matches} />
+          <Page image={imageTop} matches={matches}/>
         </div>
       </div>
       <Typography

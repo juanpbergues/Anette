@@ -64,7 +64,7 @@ const App = () => {
         <Typography color="#FAFAFA" variant="subtitle2">
           Pagina web desarrollada por <Link color="#FAFAFA" href="https://www.linkedin.com/in/juanbergues/" underline="hover" variant="subtitle2">
             Juan Bergues
-          </Link>
+          </Link> 👨‍💻
         </Typography>
       </Grid>
     </div>

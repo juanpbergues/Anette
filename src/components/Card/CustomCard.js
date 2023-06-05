@@ -8,8 +8,13 @@ import {
   Typography,
 } from '@mui/material';
 import './custom-card.scss';
+import {useNavigate} from 'react-router-dom';
 
 const CustomCard = ({title, image, to}) => {
+  const navigate = useNavigate();
+  const handleClick = (to) => {
+    navigate(to);
+  };
   return (
     <Card
       sx={{
@@ -21,7 +26,7 @@ const CustomCard = ({title, image, to}) => {
       }}
       className="custom-card"
     >
-      <CardActionArea href={to}>
+      <CardActionArea onClick={() => handleClick(to)}>
         <CardMedia
           component="img"
           height="400"
