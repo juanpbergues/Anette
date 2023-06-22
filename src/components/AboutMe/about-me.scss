@@ -36,6 +36,13 @@
         direction: rtl
     }
 
+    .about-me-text-mobile {
+        padding-top: 20px;
+        .view-more-button {
+            color: #FAFAFA;
+        }
+    }
+
     .about-me-text::-webkit-scrollbar {
         width: 1rem;
     }

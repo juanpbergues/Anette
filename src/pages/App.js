@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import {useMediaQuery, Typography, Grid, Link} from '@mui/material';
 import './app.scss';
 import Home from './Home/Home';
@@ -14,45 +11,41 @@ import TartasVitrina from './TartasVitrina/TartasVitrina';
 import Cookies from './Cookies/Cookies';
 import CustomAppBar from '../components/AppBar/AppBar';
 import Footer from '../components/Footer/Footer';
-import * as Routes from '../constants/routes';
+import * as RoutesNames from '../constants/routes';
 
 
 const App = () => {
   const matches = useMediaQuery((theme) => theme.breakpoints.down('md'));
-  const router = createBrowserRouter([
-    {
-      path: Routes.HOME,
-      element: <Home matches={matches} />,
-    },
-    {
-      path: Routes.MACARONS,
-      element: <Macarons matches={matches} />,
-    },
-    {
-      path: Routes.COOKIES,
-      element: <Cookies matches={matches} />,
-    },
-    {
-      path: Routes.TARTAS_CLASICAS,
-      element: <TartasClasicas matches={matches} />,
-    },
-    {
-      path: Routes.TARTAS_VITRINA,
-      element: <TartasVitrina matches={matches} />,
-    },
-    {
-      path: Routes.TRAVEL_CAKES,
-      element: <TravelCakes matches={matches} />,
-    },
-    {
-      path: Routes.TORTAS,
-      element: <Tortas matches={matches} />,
-    },
-  ]);
   return (
     <div className="app">
       <CustomAppBar matches={matches} />
-      <RouterProvider router={router} />
+      <Routes>
+        <Route path={RoutesNames.HOME} element={<Home matches={matches} />} />
+        <Route
+          path={RoutesNames.MACARONS}
+          element={<Macarons matches={matches} />}
+        />
+        <Route
+          path={RoutesNames.COOKIES}
+          element={<Cookies matches={matches} />}
+        />
+        <Route
+          path={RoutesNames.TARTAS_CLASICAS}
+          element={<TartasClasicas matches={matches} />}
+        />
+        <Route
+          path={RoutesNames.TARTAS_VITRINA}
+          element={<TartasVitrina matches={matches} />}
+        />
+        <Route
+          path={RoutesNames.TRAVEL_CAKES}
+          element={<TravelCakes matches={matches} />}
+        />
+        <Route
+          path={RoutesNames.TORTAS}
+          element={<Tortas matches={matches} />}
+        />
+      </Routes>
       <Footer matches={matches} />
       <Grid
         style={{
@@ -67,7 +60,7 @@ const App = () => {
           </Link> 👨‍💻
         </Typography>
       </Grid>
-    </div>
+    </div >
   );
 };
 

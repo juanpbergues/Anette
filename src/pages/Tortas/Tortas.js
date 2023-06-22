@@ -200,7 +200,7 @@ const TravelCakes = ({matches}) => {
                 gutterBottom
                 variant="h5"
                 align="center"
-                sx={step.id !== 2 && {marginBottom: '40px'}}
+                sx={{marginBottom: '40px'}}
               >
                 {step.title.text}
               </Typography>

@@ -9,7 +9,7 @@ const Page = ({image, matches}) => {
       variant="square"
       sx={!matches ? ({
         'width': 'auto',
-        'height': '100vh',
+        'height': '90vh',
       }):(
         {
           'width': '90%',

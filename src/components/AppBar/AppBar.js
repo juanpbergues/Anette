@@ -6,26 +6,40 @@ import {
   Button,
   IconButton,
   Avatar,
-  Menu,
-  MenuItem,
+  Typography,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  Collapse,
 } from '@mui/material';
+import {useNavigate} from 'react-router-dom';
+import {HashLink as Link} from 'react-router-hash-link';
 import PropTypes from 'prop-types';
 import * as Routes from '../../constants/routes';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import Image from '../../assets/anette-logo-with-letters-only.png';
 import './appbar.scss';
 
 const CustomAppBar = ({matches}) => {
-  const [currentOption, setCurrentOption] = useState(null);
-  const [open, setOpen] = useState(null);
-  const isOpen = Boolean(open);
-
-  const handleClickMenu = (event) => {
-    setOpen(event.currentTarget);
+  const navigate = useNavigate();
+  const handleClick = (to) => {
+    navigate(to);
   };
+  const [currentOption, setCurrentOption] = useState({
+    primary: null,
+    secondary: null,
+  });
+  const [open, setOpen] = useState(false);
+  const [openPatisserie, setOpenPatisserie] = useState(false);
 
   const handleClose = () => {
-    setOpen(null);
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
   };
 
   return (
@@ -64,12 +78,12 @@ const CustomAppBar = ({matches}) => {
               href='/#patisserie'
               className="button  with-margin"
               sx={
-                currentOption === 'patisserie' && {
+                currentOption.primary === 'patisserie' && {
                   color: '#98C8BB',
                   fontWeight: '700',
                 }}
               onClick={() => {
-                setCurrentOption('patisserie');
+                setCurrentOption({primary: 'patisserie'});
               }}
             >
               PÂTISSERIE
@@ -108,65 +122,287 @@ const CustomAppBar = ({matches}) => {
           <Grid item sx={!matches && {display: 'none'}}>
             <IconButton
               id="menu-button"
-              onClick={handleClickMenu}
-              aria-controls={isOpen ? 'basic-menu' : undefined}
-              aria-haspopup="true"
-              aria-expanded={isOpen ? 'true' : undefined}
+              onClick={handleOpen}
               color="secondary"
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="basic-menu"
-              open={isOpen}
-              onClose={handleClose}
-              anchorEl={open}
+            <Drawer
+              anchor='right'
+              open={open}
+              PaperProps={{
+                sx: {
+                  width: '100%',
+                  backgroundColor: '#F2E0E5',
+                },
+              }}
             >
-              <MenuItem>
-                <Button
-                  variant="text"
+              <Grid
+                container
+                direction="column"
+                justifyContent="center"
+                alignItems="flex-end"
+                sx={{
+                  paddingLeft: '50px',
+                  paddingRight: '50px',
+                  paddingTop: '40px',
+                }}>
+                <IconButton
+                  id="menu-button"
+                  onClick={handleClose}
                   color="secondary"
                   size="large"
-                  href='/#patisserie'
-                  onClick={
-                    () => {
-                      setCurrentOption('patisserie');
-                      handleClose();
-                    }
-                  }
                 >
-                  PÂTISSERIE
-                </Button>
-              </MenuItem>
-              <MenuItem>
-                <Button
-                  variant="text"
-                  color="secondary"
-                  size="large"
-                  href='/#about-me'
-                  onClick={() => {
-                    setCurrentOption('nosotros');
-                    handleClose();
-                  }}
-                >
-                  NOSOTROS
-                </Button>
-              </MenuItem>
-              <MenuItem>
-                <Button
-                  variant="text"
-                  color="secondary"
-                  size="large"
-                  href='/#contacto'
-                  onClick={() => {
-                    setCurrentOption('contacto');
-                    handleClose();
-                  }}
-                >
-                  CONTACTO
-                </Button>
-              </MenuItem>
-            </Menu>
+                  <CloseIcon fontSize="large" />
+                </IconButton>
+                <List sx={{paddingTop: '50px'}}>
+                  <ListItem disablePadding>
+                    <ListItemButton
+                      onClick={() => {
+                        setOpenPatisserie(!openPatisserie);
+                        setCurrentOption({
+                          ...currentOption,
+                          primary: 'patisserie',
+                        });
+                      }}
+                      sx={{justifyContent: 'flex-end'}}
+                    >
+                      <Typography
+                        align="right"
+                        variant="h5"
+                        color="secondary"
+                        sx={
+                          (
+                            openPatisserie ||
+                            currentOption.primary === 'patisserie'
+                          ) && {
+                            color: '#FAFAFA',
+                            fontWeight: '700',
+                          }}
+                      >
+                        PÂTISSERIE
+                      </Typography>
+                    </ListItemButton>
+                  </ListItem>
+                  <Collapse in={openPatisserie}>
+                    <List component="div" disablePadding>
+                      <ListItemButton
+                        onClick={() => {
+                          setCurrentOption({
+                            primary: 'patisserie',
+                            secondary: 'tortas',
+                          });
+                          handleClick(Routes.TORTAS);
+                          handleClose();
+                        }}
+                        sx={{justifyContent: 'flex-end'}}
+                      >
+                        <Typography
+                          align="right"
+                          variant="h6"
+                          color="secondary"
+                          sx={
+                            currentOption.secondary === 'tortas' && {
+                              color: '#FAFAFA',
+                              fontWeight: '700',
+                            }}
+                        >
+                          <em>TORTAS</em>
+                        </Typography>
+                      </ListItemButton>
+                      <ListItemButton
+                        onClick={() => {
+                          setCurrentOption({
+                            primary: 'patisserie',
+                            secondary: 'tartas-clasicas',
+                          });
+                          handleClick(Routes.TARTAS_CLASICAS);
+                          handleClose();
+                        }}
+                        sx={{justifyContent: 'flex-end'}}
+                      >
+                        <Typography
+                          align="right"
+                          variant="h6"
+                          color="secondary"
+                          sx={
+                            currentOption.secondary === 'tartas-clasicas' && {
+                              color: '#FAFAFA',
+                              fontWeight: '700',
+                            }}
+                        >
+                          <em>TARTAS CLASICAS</em>
+                        </Typography>
+                      </ListItemButton>
+                      <ListItemButton
+                        onClick={() => {
+                          setCurrentOption({
+                            primary: 'patisserie',
+                            secondary: 'macarons',
+                          });
+                          handleClick(Routes.MACARONS);
+                          handleClose();
+                        }}
+                        sx={{justifyContent: 'flex-end'}}
+                      >
+                        <Typography
+                          align="right"
+                          variant="h6"
+                          color="secondary"
+                          sx={
+                            currentOption.secondary === 'macarons' && {
+                              color: '#FAFAFA',
+                              fontWeight: '700',
+                            }}
+                        >
+                          <em>MACARONS</em>
+                        </Typography>
+                      </ListItemButton>
+                      <ListItemButton
+                        sx={{justifyContent: 'flex-end'}}
+                        onClick={() => {
+                          setCurrentOption({
+                            primary: 'patisserie',
+                            secondary: 'cookies',
+                          });
+                          handleClick(Routes.COOKIES);
+                          handleClose();
+                        }}
+                      >
+                        <Typography
+                          align="right"
+                          variant="h6"
+                          color="secondary"
+                          sx={
+                            currentOption.secondary === 'cookies' && {
+                              color: '#FAFAFA',
+                              fontWeight: '700',
+                            }}
+                        >
+                          <em>COOKIES</em>
+                        </Typography>
+                      </ListItemButton>
+                      <ListItemButton
+                        onClick={() => {
+                          setCurrentOption({
+                            primary: 'patisserie',
+                            secondary: 'travel-cakes',
+                          });
+                          handleClick(Routes.TRAVEL_CAKES);
+                          handleClose();
+                        }}
+                        sx={{justifyContent: 'flex-end'}}
+                      >
+                        <Typography
+                          align="right"
+                          variant="h6"
+                          color="secondary"
+                          sx={
+                            currentOption.secondary === 'travel-cakes' && {
+                              color: '#FAFAFA',
+                              fontWeight: '700',
+                            }}
+                        >
+                          <em>TRAVEL CAKES</em>
+                        </Typography>
+                      </ListItemButton>
+                      <ListItemButton
+                        onClick={() => {
+                          setCurrentOption({
+                            primary: 'patisserie',
+                            secondary: 'tartas-vitrina',
+                          });
+                          handleClick(Routes.TARTAS_VITRINA);
+                          handleClose();
+                        }}
+                        sx={{
+                          justifyContent: 'flex-end',
+                          marginBottom: '20px',
+                        }}
+                      >
+                        <Typography
+                          align="right"
+                          variant="h6"
+                          color="secondary"
+                          sx={
+                            currentOption.secondary === 'tartas-vitrina' && {
+                              color: '#FAFAFA',
+                              fontWeight: '700',
+                            }}
+                        >
+                          <em>TARTAS DE VITRINA</em>
+                        </Typography>
+                      </ListItemButton>
+                    </List>
+                  </Collapse>
+                  <ListItem disablePadding sx={{paddingTop: '20px'}}>
+                    <ListItemButton
+                      sx={{justifyContent: 'flex-end'}}
+                      onClick={
+                        () => {
+                          setCurrentOption({
+                            primary: 'nosotros',
+                            secondary: null,
+                          });
+                          handleClose();
+                        }
+                      }
+                    >
+                      <Link
+                        smooth
+                        to={`${Routes.HOME}#about-me`}
+                        style={{textDecoration: 'none'}}
+                      >
+
+                        <Typography
+                          align="right"
+                          variant="h5"
+                          color="secondary"
+                          sx={
+                            currentOption.primary === 'nosotros' && {
+                              color: '#FAFAFA',
+                              fontWeight: '700',
+                            }}
+                        >
+                          NOSOTROS
+                        </Typography>
+                      </Link>
+                    </ListItemButton>
+                  </ListItem>
+                  <ListItem disablePadding sx={{paddingTop: '20px'}}>
+                    <ListItemButton
+                      sx={{justifyContent: 'flex-end'}}
+                      onClick={() => {
+                        setCurrentOption({
+                          primary: 'contacto',
+                          secondary: null,
+                        });
+                        handleClose();
+                      }}
+                    >
+                      <Link
+                        smooth
+                        to={`${Routes.HOME}#contacto`}
+                        style={{textDecoration: 'none'}}
+                      >
+                        <Typography
+                          align="right"
+                          variant="h5"
+                          color="secondary"
+                          sx={
+                            currentOption.primary === 'contacto' && {
+                              color: '#FAFAFA',
+                              fontWeight: '700',
+                            }}
+                        >
+                          CONTACTO
+                        </Typography>
+                      </Link>
+                    </ListItemButton>
+                  </ListItem>
+                </List>
+              </Grid>
+            </Drawer>
           </Grid>
         </Grid>
       </Toolbar>
