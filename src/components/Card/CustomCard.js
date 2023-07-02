@@ -21,16 +21,16 @@ const CustomCard = ({title, image, to}) => {
         borderRadius: 0,
         border: 'solid #708DC7',
         boxShadow: 0,
-        width: '380px',
-        height: '525px',
+        width: '300px',
+        height: '400px',
       }}
       className="custom-card"
     >
       <CardActionArea onClick={() => handleClick(to)}>
         <CardMedia
           component="img"
-          height="400"
-          width="400"
+          height="270"
+          width="100%"
           image={image}
           alt="macarons"
         />

@@ -4,11 +4,11 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import {Navigation, Pagination, A11y, Autoplay} from 'swiper';
 import Page from '../Page/Page';
 import './carousel.scss';
-import Image1 from '../../assets/anette-carousel-1.jpg';
-import Image2 from '../../assets/anette-carousel-2.jpg';
-import Image3 from '../../assets/anette-carousel-3.jpg';
-import Image4 from '../../assets/anette-carousel-4.jpg';
-import Image5 from '../../assets/anette-carousel-5.jpg';
+import Image1 from '../../assets/annete-hero-2.jpg';
+import Image2 from '../../assets/annete-hero-2.jpg';
+import Image3 from '../../assets/annete-hero-3.jpg';
+import Image4 from '../../assets/annete-hero-4.jpg';
+import Image5 from '../../assets/annete-hero-5.jpg';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
