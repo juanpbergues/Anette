@@ -19,8 +19,8 @@ const BuildUp = ({matches}) => {
           backgroundSize: 'contain',
         }}>
           <div style={{
-            width: '50%',
-            marginTop: '100px',
+            width: '75%',
+            paddingTop: '150px',
           }}>
             <Typography
               color="secondary"
