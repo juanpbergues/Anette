@@ -18,7 +18,7 @@ const ContactUs = ({matches}) => {
       <Typography
         color="secondary"
         gutterBottom
-        variant="h4"
+        variant="h5"
         component="div"
         className="title"
       >

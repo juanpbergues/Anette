@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {Navigation, Pagination, A11y, Autoplay} from 'swiper';
+import {Navigation, Pagination, A11y, Autoplay, EffectCreative} from 'swiper';
 import Page from '../Page/Page';
 import './carousel.scss';
 import Image1 from '../../assets/annete-hero-2.jpg';
@@ -15,16 +15,28 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
+import 'swiper/css/effect-creative';
 
 const Carousel = ({matches}) => {
   return (
     <div className="carousel">
       <Swiper
-        modules={[Navigation, Pagination, A11y, Autoplay]}
+        modules={[Navigation, Pagination, A11y, Autoplay, EffectCreative]}
         spaceBetween={50}
         slidesPerView={1}
         pagination={{clickable: true}}
         autoplay={{delay: 3000}}
+        grabCursor={true}
+        effect={'creative'}
+        creativeEffect={{
+          prev: {
+            shadow: true,
+            translate: [0, 0, -400],
+          },
+          next: {
+            translate: ['100%', 0, 0],
+          },
+        }}
       >
         <SwiperSlide style={{
           display: 'flex',

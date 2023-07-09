@@ -4,6 +4,8 @@ import {
   Typography,
   Grid,
 } from '@mui/material';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {EffectCards} from 'swiper';
 import './cake-shop.scss';
 import CustomCard from '../Card/CustomCard';
 import CookiesImage from '../../assets/anette-cookies-card.jpg';
@@ -59,7 +61,7 @@ const CakeShop = ({matches}) => {
         <Typography
           color="secondary"
           gutterBottom
-          variant="h4"
+          variant="h5"
           component="div"
           className="title"
         >
@@ -71,19 +73,55 @@ const CakeShop = ({matches}) => {
           justifyContent="center"
           alignItems="center"
         >
-          {cards.map((card) => (
+          {!matches ? (
+            <>
+              {cards.map((card) => (
+                <Grid
+                  item
+                  lg={4}
+                  md={6}
+                  xs={12}
+                  className="card-container"
+                  spacing={0}
+                  key={card.id}
+                >
+                  <CustomCard
+                    image={card.image}
+                    title={card.title}
+                    to={card.to}
+                  />
+                </Grid>
+              ))}
+            </>
+          ) : (
             <Grid
               item
-              lg={4}
-              md={6}
               xs={12}
               className="card-container"
               spacing={0}
-              key={card.id}
             >
-              <CustomCard image={card.image} title={card.title} to={card.to} />
+              <Swiper
+                effect={'cards'}
+                grabCursor={true}
+                modules={[EffectCards]}
+              >
+                {cards.map((card) => (
+                  <SwiperSlide style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                  }}
+                  key={card.id}
+                  >
+                    <CustomCard
+                      image={card.image}
+                      title={card.title}
+                      to={card.to}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </Grid>
-          ))}
+          )}
         </Grid>
       </div>
     </div>

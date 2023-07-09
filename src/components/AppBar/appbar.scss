@@ -1,19 +1,25 @@
-.appbar {
-    padding-left: 80px;
-    padding-right: 80px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+.appbar-section {
+    display: flex;
+    place-content: center;
 
-    .button {
-        font-size: large;
-    }
-    
-    .with-margin {
-        margin-right: 30px;
-    }
+    .appbar {
+        padding-left: 80px;
+        padding-right: 80px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        max-width: 1800px;
 
-    @media screen and (max-width: 992px) {
-        padding-left: 10px;
-        padding-right: 20px;   
+        .button {
+            font-size: large;
+        }
+
+        .with-margin {
+            margin-right: 30px;
+        }
+
+        @media screen and (max-width: 992px) {
+            padding-left: 10px;
+            padding-right: 20px;
+        }
     }
 }

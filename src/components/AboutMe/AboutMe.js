@@ -7,6 +7,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import Image from '../../assets/anette-about-me.jpeg';
 import './about-me.scss';
 import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const AboutMe = ({matches}) => {
   const {boxShadow, onScrollHandler} = useScrollWithShadow();
@@ -29,9 +30,12 @@ const AboutMe = ({matches}) => {
             <Avatar
               src={Image}
               variant="square"
-              sx={{
+              sx={!matches ? {
                 width: '100%',
                 height: '80vh',
+              } : {
+                width: '100%',
+                height: '60vh',
               }}
             />
           </Grid>
@@ -39,7 +43,7 @@ const AboutMe = ({matches}) => {
             <Typography
               color="secondary"
               gutterBottom
-              variant="h4"
+              variant="h5"
               align={matches ? 'center' : 'left'}
               sx={
                 matches ?
@@ -163,6 +167,14 @@ const AboutMe = ({matches}) => {
                   para que cada uno de nuestros productos sea una experiencia
                   única.
                 </Typography>
+                }
+                {viewMore && <IconButton
+                  onClick={() => setViewMore(false)}
+                  className="view-more-button"
+                  size="large"
+                >
+                  <RemoveIcon fontSize='inherit'/>
+                </IconButton>
                 }
               </div>
             )}

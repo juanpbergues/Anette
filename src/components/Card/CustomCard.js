@@ -45,7 +45,7 @@ const CustomCard = ({title, image, to}) => {
           <Typography
             color="secondary"
             gutterBottom
-            variant="h5"
+            variant="h6"
             component="div"
             className="card-title"
           >
