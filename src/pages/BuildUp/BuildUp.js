@@ -12,7 +12,7 @@ const BuildUp = ({matches}) => {
     <>
       {!matches ? (
         <div style={{
-          height: '50vh',
+          height: '60vh',
           backgroundImage: `url(${BackgroundImage})`,
           backgroundPositionX: 'right',
           backgroundRepeat: 'no-repeat',
@@ -51,7 +51,7 @@ const BuildUp = ({matches}) => {
               color="secondary"
               hoverColor="#98C8BB"
               size="large"
-              href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20una%20Torta!"
+              href="https://www.instagram.com/annete_lafolieduchocolat/"
             />
           </div>
         </div>
@@ -90,7 +90,7 @@ const BuildUp = ({matches}) => {
               color="secondary"
               hoverColor="#98C8BB"
               size="medium"
-              href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20una%20Torta!"
+              href="https://www.instagram.com/annete_lafolieduchocolat/"
             />
           </div>
           <div style={{
