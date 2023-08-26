@@ -42,7 +42,7 @@ const BuildUp = ({matches}) => {
                 marginBottom: '30px',
               }}
             >
-              ¡Estamos preparando nuestra web para vos!
+              ¡Estamos preparando nuestra web para ti!
               <br></br>
               No te quedes sin disfrutar nuestros productos.
             </Typography>
@@ -81,7 +81,7 @@ const BuildUp = ({matches}) => {
                 marginBottom: '30px',
               }}
             >
-              ¡Estamos preparando nuestra web para vos!
+              ¡Estamos preparando nuestra web para ti!
               <br></br>
               No te quedes sin disfrutar nuestros productos.
             </Typography>
