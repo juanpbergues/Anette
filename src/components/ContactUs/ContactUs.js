@@ -59,8 +59,8 @@ const ContactUs = ({matches}) => {
         >
           <Card
             sx={{
-              height: '200px',
-              width: '210px',
+              height: !matches ? '200px' : '150px',
+              width: !matches ? '210px' : '160px',
               borderRadius: 0,
               border: 'solid #708DC7',
               boxShadow: 0,
@@ -76,7 +76,7 @@ const ContactUs = ({matches}) => {
                 <WhatsAppIcon
                   className="card-image"
                   color="secondary"
-                  sx={{fontSize: '64px'}}
+                  sx={{fontSize: !matches ? '64px' : '32px'}}
                 />
               </CardMedia>
               <CardContent sx={{paddingTop: '0'}}>
@@ -93,17 +93,9 @@ const ContactUs = ({matches}) => {
                   variant="body2"
                   component="div"
                   className="card-title"
+                  sx={matches && {fontSize: '12px'}}
                 >
-                  <strong>CONTACTANOS POR</strong>
-                </Typography>
-                <Typography
-                  color="secondary"
-                  gutterBottom
-                  variant="body2"
-                  component="div"
-                  className="card-title"
-                >
-                  <strong>WHATSAPP</strong>
+                  <strong>CONTACTANOS POR<br/>WHATSAPP</strong>
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -129,8 +121,8 @@ const ContactUs = ({matches}) => {
         >
           <Card
             sx={{
-              height: '200px',
-              width: '210px',
+              height: !matches ? '200px' : '150px',
+              width: !matches ? '210px' : '160px',
               borderRadius: 0,
               border: 'solid #708DC7',
               boxShadow: 0,
@@ -146,7 +138,7 @@ const ContactUs = ({matches}) => {
                 <InstagramIcon
                   className="card-image"
                   color="secondary"
-                  sx={{fontSize: '64px'}}
+                  sx={{fontSize: !matches ? '64px' : '32px'}}
                 />
               </CardMedia>
               <CardContent sx={{paddingTop: '0'}}>
@@ -163,17 +155,9 @@ const ContactUs = ({matches}) => {
                   variant="body2"
                   component="div"
                   className="card-title"
+                  sx={matches && {fontSize: '12px'}}
                 >
-                  <strong>SEGUINOS EN</strong>
-                </Typography>
-                <Typography
-                  color="secondary"
-                  gutterBottom
-                  variant="body2"
-                  component="div"
-                  className="card-title"
-                >
-                  <strong>INSTAGRAM</strong>
+                  <strong>SEGUINOS EN<br/>INSTAGRAM</strong>
                 </Typography>
               </CardContent>
             </CardActionArea>

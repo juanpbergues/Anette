@@ -2,14 +2,14 @@ import React from 'react';
 import {Routes, Route} from 'react-router-dom';
 import {useMediaQuery, Typography, Grid, Link} from '@mui/material';
 import './app.scss';
-// import Home from './Home/Home';
-// import TravelCakes from './TravelCakes/TravelCakes';
-// import Macarons from './Macarons/Macarons';
-// import Tortas from './Tortas/Tortas';
-// import TartasClasicas from './TartasClasicas/TartasClasicas';
-// import TartasVitrina from './TartasVitrina/TartasVitrina';
-// import Cookies from './Cookies/Cookies';
-import BuildUp from './BuildUp/BuildUp';
+import Home from './Home/Home';
+import TravelCakes from './TravelCakes/TravelCakes';
+import Macarons from './Macarons/Macarons';
+import Tortas from './Tortas/Tortas';
+import TartasClasicas from './TartasClasicas/TartasClasicas';
+import TartasVitrina from './TartasVitrina/TartasVitrina';
+import Cookies from './Cookies/Cookies';
+// import BuildUp from './BuildUp/BuildUp';
 import CustomAppBar from '../components/AppBar/AppBar';
 import Footer from '../components/Footer/Footer';
 import * as RoutesNames from '../constants/routes';
@@ -23,10 +23,10 @@ const App = () => {
       <Routes>
         <Route
           path={RoutesNames.HOME}
-          element={<BuildUp
+          element={<Home
             matches={matches} />}
         />
-        {/* <Route
+        <Route
           path={RoutesNames.MACARONS}
           element={<Macarons matches={matches} />}
         />
@@ -49,7 +49,7 @@ const App = () => {
         <Route
           path={RoutesNames.TORTAS}
           element={<Tortas matches={matches} />}
-        /> */}
+        />
       </Routes>
       <Footer matches={matches} />
       <Grid

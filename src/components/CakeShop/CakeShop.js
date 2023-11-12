@@ -5,7 +5,7 @@ import {
   Grid,
 } from '@mui/material';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {EffectCards} from 'swiper';
+import {EffectCards, Autoplay} from 'swiper';
 import './cake-shop.scss';
 import CustomCard from '../Card/CustomCard';
 import CookiesImage from '../../assets/anette-cookies-card.jpg';
@@ -14,6 +14,8 @@ import MacaronsImage from '../../assets/anette-macarons-card.jpg';
 import TravelImage from '../../assets/anette-travel-card.jpg';
 import TartasImage from '../../assets/anette-carousel-2.jpg';
 import * as Routes from '../../constants/routes';
+
+import 'swiper/css/autoplay';
 
 const CakeShop = ({matches}) => {
   const cards = [
@@ -62,10 +64,9 @@ const CakeShop = ({matches}) => {
           color="secondary"
           gutterBottom
           variant="h5"
-          component="div"
           className="title"
         >
-          PASTELERÍA PREMIUM NATURAL
+          PASTELERÍA {matches && <br/>}PREMIUM NATURAL
         </Typography>
         <Grid
           container
@@ -103,7 +104,8 @@ const CakeShop = ({matches}) => {
               <Swiper
                 effect={'cards'}
                 grabCursor={true}
-                modules={[EffectCards]}
+                modules={[EffectCards, Autoplay]}
+                autoplay={{delay: 3000}}
               >
                 {cards.map((card) => (
                   <SwiperSlide style={{
