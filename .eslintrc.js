@@ -4,10 +4,7 @@ module.exports = {
     'es2021': true,
     'node': true,
   },
-  'extends': [
-    'plugin:react/recommended',
-    'google',
-  ],
+  'extends': ['plugin:react/recommended', 'google', 'plugin:storybook/recommended'],
   'overrides': [
   ],
   'parserOptions': {
