@@ -1,3 +1,35 @@
 body {
   margin: 0;
 }
+
+@font-face {
+  font-family: "BozonBold";
+  src: local("BozonBold"),
+    url("./fonts/Bozon-Bold.otf") format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "BozonRegular";
+  src: local("BozonRegular"),
+    url("./fonts/Bozon-Regular.otf") format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Chequersdemo";
+  src: local("Chequersdemo"),
+    url("./fonts/Chequersdemo.otf") format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "MyriadProRegular";
+  src: local("MyriadProRegular"),
+    url("./fonts/MyriadPro-Regular.otf") format("opentype");
+  font-weight: normal;
+}
+
+html {
+  font-family: 'BozonBold', 'BozonRegular', 'Chequersdemo', 'MyriadProRegular';
+}

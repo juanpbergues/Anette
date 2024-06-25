@@ -8,11 +8,6 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import {EffectCards, Autoplay} from 'swiper';
 import './cake-shop.scss';
 import CustomCard from '../Card/CustomCard';
-import CookiesImage from '../../assets/anette-cookies-card.jpg';
-import TortasImage from '../../assets/anette-tortas-card.jpg';
-import MacaronsImage from '../../assets/anette-macarons-card.jpg';
-import TravelImage from '../../assets/anette-travel-card.jpg';
-import TartasImage from '../../assets/anette-carousel-2.jpg';
 import * as Routes from '../../constants/routes';
 
 import 'swiper/css/autoplay';
@@ -20,40 +15,34 @@ import 'swiper/css/autoplay';
 const CakeShop = ({matches}) => {
   const cards = [
     {
-      id: 1,
+      id: 'tortas',
       title: 'TORTAS',
-      image: TortasImage,
       to: Routes.TORTAS,
     },
     {
-      id: 2,
+      id: 'tartas',
       title: 'TARTAS CLASICAS',
-      image: TartasImage,
       to: Routes.TARTAS_CLASICAS,
     },
     {
-      id: 3,
+      id: 'macarons',
       title: 'MACARONS',
-      image: MacaronsImage,
       to: Routes.MACARONS,
     },
     {
-      id: 4,
+      id: 'cookies',
       title: 'COOKIES',
-      image: CookiesImage,
       to: Routes.COOKIES,
     },
     {
-      id: 5,
+      id: 'travel-cakes',
       title: 'TRAVEL CAKES',
-      image: TravelImage,
       to: Routes.TRAVEL_CAKES,
     },
     {
-      id: 6,
-      title: 'TARTAS DE VITRINA',
-      image: TartasImage,
-      to: Routes.TARTAS_VITRINA,
+      id: 'tortas-vitrina',
+      title: 'TORTAS MODERNAS',
+      to: Routes.TORTAS_VITRINA,
     },
   ];
 
@@ -66,12 +55,12 @@ const CakeShop = ({matches}) => {
           variant="h5"
           className="title"
         >
-          PASTELERÍA {matches && <br/>}PREMIUM NATURAL
+          PASTELERÍA {matches && <br />}PREMIUM NATURAL
         </Typography>
         <Grid
           container
           direction="row"
-          justifyContent="center"
+          justifyContent="space-between"
           alignItems="center"
         >
           {!matches ? (
@@ -80,14 +69,14 @@ const CakeShop = ({matches}) => {
                 <Grid
                   item
                   lg={4}
-                  md={6}
+                  md={4}
                   xs={12}
                   className="card-container"
                   spacing={0}
                   key={card.id}
                 >
                   <CustomCard
-                    image={card.image}
+                    id={card.id}
                     title={card.title}
                     to={card.to}
                   />

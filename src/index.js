@@ -16,9 +16,10 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: [
-      'Bozon',
+      'BozonRegular',
+      'BozonBold',
       'Chequersdemo',
-      'MyriadPro',
+      'MyriadProRegular',
     ].join(','),
   },
 });

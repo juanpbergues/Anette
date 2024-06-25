@@ -8,13 +8,12 @@ const Page = ({image, matches}) => {
       src={image}
       variant="square"
       sx={!matches ? ({
-        'maxWidth': '1200px',
-        'width': 'auto',
-        'height': '90vh',
+        'width': '1020px',
+        'height': '650px',
       }):(
         {
-          'width': '90%',
-          'height': '70vh',
+          'width': '80%',
+          'height': '50vh',
         }
       )}
     />

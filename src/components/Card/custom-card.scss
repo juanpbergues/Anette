@@ -1,18 +1,84 @@
 .custom-card {
-    &:hover {
-        border: solid #98C8BB;
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    border: solid 1px #708DC7;
+    width: 320px;
+    height: 400px;
 
-        .card-separator {
-            border-top-color: #98C8BB;
-            border-right-color: #98C8BB;
-            border-bottom-color: #98C8BB;
-            border-left-color: #98C8BB;
-            background-color: #98C8BB;
+    &__media-tartas {
+        background-image: url('../../assets/annete-tartas-clasicas-card-1.jpg');
+        background-size: cover;
+        height: 320px;
+        width: 320px;
+        transition: 1s;
+
+        &:hover {
+            background-image: url('../../assets/annete-tartas-clasicas-card-2.jpg');
         }
+    }
 
-        .card-title {
-            color: #98C8BB
+    &__media-tortas {
+        background-image: url('../../assets/annete-tortas-card-1.jpg');
+        background-size: cover;
+        height: 320px;
+        width: 320px;
+        transition: 1s;
+
+        &:hover {
+            background-image: url('../../assets/annete-tortas-card-2.jpg');
+        }
+    }
+
+    &__media-tortas-vitrina {
+        background-image: url('../../assets/annete-tortas-modernas-card-1.jpg');
+        background-size: cover;
+        height: 320px;
+        width: 320px;
+        transition: 1s;
+
+        &:hover {
+            background-image: url('../../assets/annete-tortas-modernas-card-2.jpg');
+        }
+    }
+
+    &__media-cookies {
+        background-image: url('../../assets/annete-cookies-card-1.jpg');
+        background-size: cover;
+        height: 320px;
+        width: 320px;
+        transition: 1s;
+
+        &:hover {
+            background-image: url('../../assets/annete-cookies-card-2.jpg');
+        }
+    }
+
+    &__media-macarons {
+        background-image: url('../../assets/annete-macarons-card-1.jpg');
+        background-size: cover;
+        height: 320px;
+        width: 320px;
+        transition: 1s;
+
+        &:hover {
+            background-image: url('../../assets/annete-macarons-card-2.jpg');
+        }
+    }
+
+    &__media-travel-cakes {
+        background-image: url('../../assets/annete-travel-cake-card-2.jpg');
+        background-size: cover;
+        height: 320px;
+        width: 320px;
+        transition: 1s;
+
+        &:hover {
+            background-image: url('../../assets/annete-travel-cake-card-1.jpg');
+        }
+    }
+
+    &__title {
+        &-container {
+            height: 80px;
+            place-content: center;
         }
     }
 }

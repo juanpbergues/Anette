@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import {
   Grid,
   Typography,
+  Button,
 } from '@mui/material';
 import DetailView from '../../components/DetailView/DetailView';
-import CustomButton from '../../components/CustomButton/CustomButton';
-import ImageTop from '../../assets/anette-macarons-card.jpg';
-import ImageDown from '../../assets/anette-macarons-inferior.jpg';
+import ImageTop from '../../assets/annete-macarons-card-1.jpg';
+import ImageDown from '../../assets/annete-macarons-card-2.jpg';
 
 const content = {
   title: {
@@ -17,52 +17,52 @@ const content = {
   items: [
     {
       id: 1,
-      text: '· Chocolate',
+      text: 'Chocolate',
       color: '#98C8BB',
     },
     {
       id: 2,
-      text: '· Pistacho',
+      text: 'Pistacho',
       color: '#98C8BB',
     },
     {
       id: 3,
-      text: '· Avellana',
+      text: 'Avellana',
       color: '#98C8BB',
     },
     {
       id: 4,
-      text: '· Caramelo',
+      text: 'Caramelo',
       color: '#98C8BB',
     },
     {
       id: 5,
-      text: '· Vanilla',
+      text: 'Vanilla',
       color: '#98C8BB',
     },
     {
       id: 6,
-      text: '· Café',
+      text: 'Café',
       color: '#98C8BB',
     },
     {
       id: 7,
-      text: '· Frambuesa',
+      text: 'Frambuesa',
       color: '#98C8BB',
     },
     {
       id: 8,
-      text: '· Arándano',
+      text: 'Arándano',
       color: '#98C8BB',
     },
     {
       id: 9,
-      text: '· Cassis',
+      text: 'Cassis',
       color: '#98C8BB',
     },
     {
       id: 10,
-      text: '· Maracuyá',
+      text: 'Maracuyá',
       color: '#98C8BB',
     },
   ],
@@ -75,15 +75,21 @@ const Macarons = ({matches}) => {
       title="MACARONS"
       imageTop={ImageTop}
       imageDown={ImageDown}
+      show
     >
       <Grid item xs={12} md={6}>
         <Typography
           gutterBottom
           variant="h5"
-          align={matches ? 'center' : 'left'}
+          align='center'
           color={content.title.color}
           className="secondary-title"
-          sx={matches && {marginTop: '40px'}}
+          sx={{
+            fontFamily: 'BozonBold',
+            fontSize: '17px',
+            fontWeight: 'bold',
+            lineHeight: '18px',
+          }}
         >
           {content.title.text}
         </Typography>
@@ -93,19 +99,37 @@ const Macarons = ({matches}) => {
             color={item.color}
             gutterBottom
             variant="h6"
-            align="left"
+            align="center"
+            sx={{
+              fontFamily: 'BozonRegular',
+              fontSize: '17px',
+              fontWeight: 'normal',
+              lineHeight: '18px',
+              marginTop: '15px',
+            }}
           >
             {item.text}
           </Typography>
         ))}
         <div style={{marginTop: '40px'}}>
-          <CustomButton
-            text="HACE TU PEDIDO"
-            color="secondary"
-            hoverColor="#98C8BB"
-            size="large"
-            href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20unos%20Macarons!"
-          />
+          <Button
+            href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20una%20Tarta!"
+            variant="contained"
+            sx={{
+              'marginTop': '10px',
+              'borderRadius': '0px',
+              'color': 'white',
+              'backgroundColor': '#98C8BB',
+              'boxShadow': 'none',
+              '&:hover': {
+                backgroundColor: '#77b6a5',
+                boxShadow: 'none',
+              },
+            }}
+            size="medium"
+          >
+            HACE TU PEDIDO
+          </Button>
         </div>
       </Grid>
     </DetailView>

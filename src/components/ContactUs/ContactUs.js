@@ -1,170 +1,129 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Typography,
   Grid,
-  CardContent,
-  CardMedia,
-  Card,
-  CardActionArea,
+  Avatar,
+  TextField,
+  Typography,
+  Button,
 } from '@mui/material';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import './contact-us.scss';
+import Image from '../../assets/annete-logo-square.png';
 
 const ContactUs = ({matches}) => {
   return (
-    <div className="contact-us-container" id="contacto">
-      <Typography
-        color="secondary"
-        gutterBottom
-        variant="h5"
-        component="div"
-        className="title"
-      >
-        CONTACTO
-      </Typography>
-      <Typography
-        color="secondary"
-        gutterBottom
-        variant="h6"
-        component="div"
-      >
-        Contactate con nosotros por los distintos
-        canales para conocer mas sobre ANNETE.
-      </Typography>
-      <Grid
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        sx={{marginTop: '40px'}}
-      >
+    <section className="contact-us-section">
+      <div className="contact-us-container" id="contacto">
         <Grid
-          item
-          lg={6}
-          md={6}
-          xs={12}
-          sx={
-            !matches ? (
-              {
-                display: 'flex',
-                placeContent: 'end',
-                paddingRight: '20px',
-              }) : ({
-                display: 'flex',
-                placeContent: 'center',
-                marginBottom: '20px',
-              })}
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={0}
         >
-          <Card
-            sx={{
-              height: !matches ? '200px' : '150px',
-              width: !matches ? '210px' : '160px',
-              borderRadius: 0,
-              border: 'solid #708DC7',
-              boxShadow: 0,
-
-            }}
-            className="custom-card"
-          >
-            <CardActionArea href="https://wa.me/56954531193?text=Hola%20Ana!">
-              <CardMedia
-                sx={{padding: '20px 10px 10px'}}
-                alt="whatsapp"
-              >
-                <WhatsAppIcon
-                  className="card-image"
-                  color="secondary"
-                  sx={{fontSize: !matches ? '64px' : '32px'}}
-                />
-              </CardMedia>
-              <CardContent sx={{paddingTop: '0'}}>
-                <hr
-                  size="8px"
-                  color="#708DC7"
-                  width="40%"
-                  style={{marginBottom: '20px'}}
-                  className="card-separator"
-                />
+          <Grid item xs={12} md={6}>
+            <Avatar
+              src={Image}
+              variant="square"
+              sx={{
+                width: '440px',
+                height: '440px',
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Grid
+              container
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              spacing={2}
+            >
+              <Grid item xs={12} md={12}>
                 <Typography
+                  align="left"
+                  variant="h6"
                   color="secondary"
-                  gutterBottom
-                  variant="body2"
-                  component="div"
-                  className="card-title"
-                  sx={matches && {fontSize: '12px'}}
+                  className="title"
                 >
-                  <strong>CONTACTANOS POR<br/>WHATSAPP</strong>
+                  CONTACTO
                 </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
-        <Grid
-          item
-          lg={6}
-          md={6}
-          xs={12}
-          sx={
-            !matches ? (
-            {
-              display: 'flex',
-              placeContent: 'start',
-              paddingLeft: '20px',
-            }) : ({
-              display: 'flex',
-              placeContent: 'center',
-              marginBottom: '20px',
-            })
-          }
-        >
-          <Card
-            sx={{
-              height: !matches ? '200px' : '150px',
-              width: !matches ? '210px' : '160px',
-              borderRadius: 0,
-              border: 'solid #708DC7',
-              boxShadow: 0,
-
-            }}
-            className="custom-card"
-          >
-            <CardActionArea href="https://instagram.com/annete_lafolieduchocolat">
-              <CardMedia
-                sx={{padding: '20px 10px 10px'}}
-                alt="whatsapp"
-              >
-                <InstagramIcon
-                  className="card-image"
-                  color="secondary"
-                  sx={{fontSize: !matches ? '64px' : '32px'}}
-                />
-              </CardMedia>
-              <CardContent sx={{paddingTop: '0'}}>
-                <hr
-                  size="8px"
-                  color="#708DC7"
-                  width="40%"
-                  style={{marginBottom: '20px'}}
-                  className="card-separator"
-                />
                 <Typography
+                  align="left"
+                  variant="h6"
                   color="secondary"
-                  gutterBottom
-                  variant="body2"
-                  component="div"
-                  className="card-title"
-                  sx={matches && {fontSize: '12px'}}
+                  className="description"
                 >
-                  <strong>SEGUINOS EN<br/>INSTAGRAM</strong>
+                  ¿Tienes alguna pregunta? Estamos aquí para ayudar.
+                  Envíenos un mensaje y estaremos en contacto a la brevedad.
                 </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  id="outlined-basic"
+                  label="Nombre"
+                  variant="outlined"
+                  fullWidth
+                  color="secondary"
+                  size="small"
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  id="outlined-basic"
+                  label="Telefono"
+                  variant="outlined"
+                  fullWidth
+                  color="secondary"
+                  size="small"
+                />
+              </Grid>
+              <Grid item xs={12} md={12}>
+                <TextField
+                  id="outlined-basic"
+                  label="Email"
+                  variant="outlined"
+                  fullWidth
+                  color="secondary"
+                  size="small"
+                />
+              </Grid>
+              <Grid item xs={12} md={12}>
+                <TextField
+                  id="outlined-basic"
+                  label="Consulta"
+                  variant="outlined"
+                  multiline
+                  rows={3}
+                  fullWidth
+                  color="secondary"
+                  size="small"
+                />
+              </Grid>
+              <Grid item xs={12} md={12}>
+                <Button
+                  variant="contained"
+                  sx={{
+                    'marginTop': '10px',
+                    'borderRadius': '0px',
+                    'color': 'white',
+                    'backgroundColor': '#98C8BB',
+                    'boxShadow': 'none',
+                    '&:hover': {
+                      backgroundColor: '#77b6a5',
+                      boxShadow: 'none',
+                    },
+                  }}
+                  size="medium"
+                >
+                  ENVIAR
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
-      </Grid>
-    </div>
+      </div>
+    </section>
   );
 };
 

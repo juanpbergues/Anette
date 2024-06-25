@@ -10,7 +10,16 @@ import Page from '../Page/Page';
 import {useEffect} from 'react';
 import {useLocation} from 'react-router';
 
-const DetailView = ({matches, imageTop, imageDown, title, children}) => {
+const DetailView = ({
+  id,
+  matches,
+  imageTop,
+  imageDown,
+  title,
+  show,
+  separator,
+  children,
+}) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -21,7 +30,7 @@ const DetailView = ({matches, imageTop, imageDown, title, children}) => {
     <div className="detail-view-section">
       <div className="detail-view-container">
         <div className="image-container">
-          <Page image={imageTop} matches={matches}/>
+          <Page image={imageTop} matches={matches} />
         </div>
       </div>
       <Typography
@@ -38,22 +47,25 @@ const DetailView = ({matches, imageTop, imageDown, title, children}) => {
         direction="row"
         justifyContent="center"
         alignItems="center"
-        className="info-container"
+        className={`info-container-${id === 'tortas' ? 'tortas' : 'other'}`}
       >
-        <Grid item xs={12} md={5}>
-          <Avatar
-            src={imageDown}
-            variant="square"
-            sx={{
-              width: '100%',
-              height: '80vh',
-              border: 'solid #98C8BB',
-            }}
-          />
-        </Grid>
-        <Grid item md={1} className="v-line-container">
+        {show && (
+          <Grid item xs={12} md={6}>
+            <Avatar
+              src={imageDown}
+              variant="square"
+              sx={{
+                width: '460px',
+                height: '575px',
+                border: 'solid #98C8BB',
+                objectFit: 'fill',
+              }}
+            />
+          </Grid>
+        )}
+        {separator && ( <Grid item md={1} className="v-line-container">
           {!matches && <div className="v-line" />}
-        </Grid>
+        </Grid>)}
         {children}
       </Grid>
     </div>
@@ -62,10 +74,13 @@ const DetailView = ({matches, imageTop, imageDown, title, children}) => {
 
 DetailView.propTypes = {
   matches: PropTypes.bool,
+  id: PropTypes.string,
   children: PropTypes.object,
   imageDown: PropTypes.string,
   imageTop: PropTypes.string,
   title: PropTypes.string,
+  show: PropTypes.bool,
+  separator: PropTypes.bool,
 };
 
 export default DetailView;

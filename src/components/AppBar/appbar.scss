@@ -3,14 +3,14 @@
     place-content: center;
 
     .appbar {
-        padding-left: 80px;
-        padding-right: 80px;
         margin-top: 20px;
-        margin-bottom: 20px;
-        max-width: 1800px;
+        margin-bottom: 60px;
+        max-width: 1072px;
 
         .button {
-            font-size: large;
+            font-size: 18px;
+            font-family: "BozonRegular";
+            line-height: 22px;
         }
 
         .with-margin {

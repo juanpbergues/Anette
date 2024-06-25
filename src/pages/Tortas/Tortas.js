@@ -3,11 +3,27 @@ import PropTypes from 'prop-types';
 import {
   Grid,
   Typography,
+  Avatar,
+  Button,
 } from '@mui/material';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {Navigation, Pagination, A11y, Autoplay, EffectCreative} from 'swiper';
 import DetailView from '../../components/DetailView/DetailView';
-import CustomButton from '../../components/CustomButton/CustomButton';
 import ImageTop from '../../assets/anette-tortas-detail-top.jpg';
-import ImageDown from '../../assets/anette-tortas-detail-down.jpg';
+import FirstImageDown
+  from '../../assets/annete-tortas-detail-first-inferior.jpg';
+import SecondImageDown
+  from '../../assets/annete-tortas-detail-second-inferior.jpg';
+import ThirdImageDown
+  from '../../assets/annete-tortas-detail-third-inferior.jpg';
+
+import './tortas.scss';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import 'swiper/css/autoplay';
+import 'swiper/css/effect-creative';
 
 const content = {
   steps: [
@@ -165,8 +181,68 @@ const TravelCakes = ({matches}) => {
       matches={matches}
       title="ARMA TU TORTA"
       imageTop={ImageTop}
-      imageDown={ImageDown}
+      id="tortas"
     >
+      <Grid item xs={12} md={6}>
+        <Swiper
+          modules={[Navigation, Pagination, A11y, Autoplay, EffectCreative]}
+          spaceBetween={50}
+          slidesPerView={1}
+          pagination={{clickable: true}}
+          autoplay={{delay: 3000}}
+          grabCursor={true}
+          effect={'creative'}
+          creativeEffect={{
+            prev: {
+              shadow: true,
+              translate: [0, 0, 0],
+            },
+            next: {
+              translate: [0, 0, 0],
+            },
+          }}
+        >
+          <SwiperSlide
+            className="tortas-detail-view"
+          >
+            <Avatar
+              src={FirstImageDown}
+              variant="square"
+              sx={{
+                width: '460px',
+                height: '575px',
+                border: 'solid #98C8BB',
+              }}
+            />
+          </SwiperSlide>
+          <SwiperSlide
+            className="tortas-detail-view"
+          >
+            <Avatar
+              src={SecondImageDown}
+              variant="square"
+              sx={{
+                width: '460px',
+                height: '575px',
+                border: 'solid #98C8BB',
+              }}
+            />
+          </SwiperSlide>
+          <SwiperSlide
+            className="tortas-detail-view"
+          >
+            <Avatar
+              src={ThirdImageDown}
+              variant="square"
+              sx={{
+                width: '460px',
+                height: '575px',
+                border: 'solid #98C8BB',
+              }}
+            />
+          </SwiperSlide>
+        </Swiper>
+      </Grid>
       <Grid item xs={12} md={6}>
         <Grid
           container
@@ -192,6 +268,12 @@ const TravelCakes = ({matches}) => {
                 gutterBottom
                 variant="h3"
                 align="center"
+                sx={{
+                  fontFamily: 'BozonRegular',
+                  fontSize: '52px',
+                  fontWeight: 'normal',
+                  lineHeight: '48px',
+                }}
               >
                 {step.id}
               </Typography>
@@ -200,7 +282,12 @@ const TravelCakes = ({matches}) => {
                 gutterBottom
                 variant="h5"
                 align="center"
-                sx={{marginBottom: '40px'}}
+                sx={{
+                  fontFamily: 'BozonBold',
+                  fontSize: '17px',
+                  fontWeight: 'bold',
+                  lineHeight: '18px',
+                }}
               >
                 {step.title.text}
               </Typography>
@@ -212,7 +299,13 @@ const TravelCakes = ({matches}) => {
                     gutterBottom
                     variant="h6"
                     align="center"
-                    sx={{marginBottom: '15px'}}
+                    sx={{
+                      fontFamily: 'BozonRegular',
+                      fontSize: '17px',
+                      fontWeight: 'normal',
+                      lineHeight: '18px',
+                      marginTop: '15px',
+                    }}
                   >
                     {item.text}
                   </Typography>
@@ -220,13 +313,24 @@ const TravelCakes = ({matches}) => {
               }
             </Grid>
           ))}
-          <CustomButton
-            text="HACE TU PEDIDO"
-            color="secondary"
-            hoverColor="#98C8BB"
-            size="large"
+          <Button
             href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20una%20Torta!"
-          />
+            variant="contained"
+            sx={{
+              'marginTop': '10px',
+              'borderRadius': '0px',
+              'color': 'white',
+              'backgroundColor': '#98C8BB',
+              'boxShadow': 'none',
+              '&:hover': {
+                backgroundColor: '#77b6a5',
+                boxShadow: 'none',
+              },
+            }}
+            size="medium"
+          >
+            HACE TU PEDIDO
+          </Button>
         </Grid>
       </Grid>
     </DetailView >

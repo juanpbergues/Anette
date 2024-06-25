@@ -1,0 +1,10 @@
+.card-media {
+    background-image: url('../../../assets/anette-carousel-1.jpg');
+    background-size: cover;
+    height: 320px;
+    width: 320px;
+    transition: 1s;
+    &:hover {
+        background-image: url('../../../assets/anette-carousel-2.jpg');
+    }
+}

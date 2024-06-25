@@ -1,6 +1,11 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom';
-import {useMediaQuery, Typography, Grid, Link} from '@mui/material';
+import {
+  useMediaQuery,
+  // Typography,
+  // Grid,
+  // Link
+} from '@mui/material';
 import './app.scss';
 import Home from './Home/Home';
 import TravelCakes from './TravelCakes/TravelCakes';
@@ -39,7 +44,7 @@ const App = () => {
           element={<TartasClasicas matches={matches} />}
         />
         <Route
-          path={RoutesNames.TARTAS_VITRINA}
+          path={RoutesNames.TORTAS_VITRINA}
           element={<TartasVitrina matches={matches} />}
         />
         <Route
@@ -52,7 +57,7 @@ const App = () => {
         />
       </Routes>
       <Footer matches={matches} />
-      <Grid
+      {/* <Grid
         style={{
           backgroundColor: '#4B4B4B',
           paddingTop: '10px',
@@ -64,7 +69,7 @@ const App = () => {
             Juan Bergues
           </Link> 👨‍💻
         </Typography>
-      </Grid>
+      </Grid> */}
     </div >
   );
 };

@@ -1,47 +1,46 @@
-import React from 'react';
-// import React, {useState} from 'react';
+import React, {useState} from 'react';
 import {
   Grid,
   AppBar,
   Toolbar,
-  // Button,
-  // IconButton,
+  Button,
+  IconButton,
   Avatar,
-  // Typography,
-  // Drawer,
-  // List,
-  // ListItem,
-  // ListItemButton,
-  // Collapse,
+  Typography,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  Collapse,
 } from '@mui/material';
-// import {useNavigate} from 'react-router-dom';
-// import {HashLink as Link} from 'react-router-hash-link';
+import {useNavigate} from 'react-router-dom';
+import {HashLink as Link} from 'react-router-hash-link';
 import PropTypes from 'prop-types';
 import * as Routes from '../../constants/routes';
-// import MenuIcon from '@mui/icons-material/Menu';
-// import CloseIcon from '@mui/icons-material/Close';
-import Image from '../../assets/anette-logo-with-letters-only.png';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import Image from '../../assets/annete-logo-with-letters-only.png';
 import './appbar.scss';
 
 const CustomAppBar = ({matches}) => {
-  // const navigate = useNavigate();
-  // const handleClick = (to) => {
-  //   navigate(to);
-  // };
-  // const [currentOption, setCurrentOption] = useState({
-  //   primary: null,
-  //   secondary: null,
-  // });
-  // const [open, setOpen] = useState(false);
-  // const [openPatisserie, setOpenPatisserie] = useState(false);
+  const navigate = useNavigate();
+  const handleClick = (to) => {
+    navigate(to);
+  };
+  const [currentOption, setCurrentOption] = useState({
+    primary: null,
+    secondary: null,
+  });
+  const [open, setOpen] = useState(false);
+  const [openPatisserie, setOpenPatisserie] = useState(false);
 
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-  // const handleOpen = () => {
-  //   setOpen(true);
-  // };
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
   return (
     <section className="appbar-section">
@@ -65,14 +64,17 @@ const CustomAppBar = ({matches}) => {
                 <Avatar
                   src={Image}
                   variant="square"
-                  sx={{
+                  sx={!matches ? {
                     width: 200,
+                    height: '100%',
+                  }:{
+                    width: 180,
                     height: '100%',
                   }}
                 />
               </Grid>
             </a>
-            {/* <Grid item sx={matches && {display: 'none'}}>
+            <Grid item sx={matches && {display: 'none'}}>
               <Button
                 variant="text"
                 color="secondary"
@@ -82,7 +84,7 @@ const CustomAppBar = ({matches}) => {
                 sx={
                   currentOption.primary === 'patisserie' && {
                     color: '#98C8BB',
-                    fontWeight: '700',
+                    fontWeight: 'bold',
                   }}
                 onClick={() => {
                   setCurrentOption({primary: 'patisserie'});
@@ -99,7 +101,7 @@ const CustomAppBar = ({matches}) => {
                 sx={
                   currentOption === 'nosotros' && {
                     color: '#98C8BB',
-                    fontWeight: '700',
+                    fontWeight: 'bold',
                   }}
                 onClick={() => setCurrentOption('nosotros')}
               >
@@ -114,14 +116,14 @@ const CustomAppBar = ({matches}) => {
                 sx={
                   currentOption === 'contacto' && {
                     color: '#98C8BB',
-                    fontWeight: '700',
+                    fontWeight: 'bold',
                   }}
                 onClick={() => setCurrentOption('contacto')}
               >
                 CONTACTO
               </Button>
-            </Grid> */}
-            {/* <Grid item sx={!matches && {display: 'none'}}>
+            </Grid>
+            <Grid item sx={!matches && {display: 'none'}}>
               <IconButton
                 id="menu-button"
                 onClick={handleOpen}
@@ -314,7 +316,7 @@ const CustomAppBar = ({matches}) => {
                               primary: 'patisserie',
                               secondary: 'tartas-vitrina',
                             });
-                            handleClick(Routes.TARTAS_VITRINA);
+                            handleClick(Routes.TORTAS_VITRINA);
                             handleClose();
                           }}
                           sx={{
@@ -405,7 +407,7 @@ const CustomAppBar = ({matches}) => {
                   </List>
                 </Grid>
               </Drawer>
-            </Grid> */}
+            </Grid>
           </Grid>
         </Toolbar>
       </AppBar >

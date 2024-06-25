@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import {
   Grid,
   Typography,
+  Button,
 } from '@mui/material';
 import DetailView from '../../components/DetailView/DetailView';
-import CustomButton from '../../components/CustomButton/CustomButton';
-import ImageTop from '../../assets/anette-travel-detail-superior.jpg';
-import ImageDown from '../../assets/anette-travel-detail-inferior.jpg';
+import ImageTop from '../../assets/annete-travel-cake-detail-1.jpg';
+import ImageDown from '../../assets/annete-travel-cake-card-2.jpg';
 
 const content = {
   title: {
@@ -17,27 +17,27 @@ const content = {
   items: [
     {
       id: 1,
-      text: '· Peras - Queso Azul - Ganache de chocolate blanco y nueces',
+      text: 'Peras - Queso Azul - Ganache de chocolate blanco y nueces',
       color: '#98C8BB',
     },
     {
       id: 2,
-      text: '· Limón - Cremoso de Frambuesa y Sablé',
+      text: 'Limón - Cremoso de Frambuesa y Sablé',
       color: '#98C8BB',
     },
     {
       id: 3,
-      text: '· Calabaza - Toffe y Chocolate blanco tostado',
+      text: 'Calabaza - Toffe y Chocolate blanco tostado',
       color: '#98C8BB',
     },
     {
       id: 4,
-      text: '· Lima-Cremoso de yuzu y Arándanos',
+      text: 'Lima-Cremoso de yuzu y Arándanos',
       color: '#98C8BB',
     },
     {
       id: 5,
-      text: '· Chocolate baño Rocher',
+      text: 'Chocolate baño Rocher',
       color: '#98C8BB',
     },
   ],
@@ -50,15 +50,21 @@ const TravelCakes = ({matches}) => {
       title="TRAVEL CAKES"
       imageTop={ImageTop}
       imageDown={ImageDown}
+      show
     >
       <Grid item xs={12} md={6}>
         <Typography
           gutterBottom
           variant="h5"
-          align={matches ? 'center' : 'left'}
+          align="center"
           color={content.title.color}
           className="secondary-title"
-          sx={matches && {marginTop: '40px'}}
+          sx={{
+            fontFamily: 'BozonBold',
+            fontSize: '17px',
+            fontWeight: 'bold',
+            lineHeight: '18px',
+          }}
         >
           {content.title.text}
         </Typography>
@@ -68,19 +74,37 @@ const TravelCakes = ({matches}) => {
             color={item.color}
             gutterBottom
             variant="h6"
-            align="left"
+            align="center"
+            sx={{
+              fontFamily: 'BozonRegular',
+              fontSize: '17px',
+              fontWeight: 'normal',
+              lineHeight: '18px',
+              marginTop: '15px',
+            }}
           >
             {item.text}
           </Typography>
         ))}
         <div style={{marginTop: '40px'}}>
-          <CustomButton
-            text="HACE TU PEDIDO"
-            color="secondary"
-            hoverColor="#98C8BB"
-            size="large"
+          <Button
             href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20una%20Travel%20Cake!"
-          />
+            variant="contained"
+            sx={{
+              'marginTop': '10px',
+              'borderRadius': '0px',
+              'color': 'white',
+              'backgroundColor': '#98C8BB',
+              'boxShadow': 'none',
+              '&:hover': {
+                backgroundColor: '#77b6a5',
+                boxShadow: 'none',
+              },
+            }}
+            size="medium"
+          >
+            HACE TU PEDIDO
+          </Button>
         </div>
       </Grid>
     </DetailView>
