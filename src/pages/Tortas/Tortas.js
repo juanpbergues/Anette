@@ -249,7 +249,7 @@ const TravelCakes = ({matches}) => {
           direction="row"
           justifyContent="center"
           alignItems="flex-start"
-          spacing={2}
+          spacing={0}
         >
           {content.steps.map((step) => (
             <Grid
@@ -301,7 +301,7 @@ const TravelCakes = ({matches}) => {
                     align="center"
                     sx={{
                       fontFamily: 'BozonRegular',
-                      fontSize: '17px',
+                      fontSize: '16px',
                       fontWeight: 'normal',
                       lineHeight: '18px',
                       marginTop: '15px',

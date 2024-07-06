@@ -59,9 +59,15 @@ const TravelCakes = ({matches}) => {
           align="center"
           color={content.title.color}
           className="secondary-title"
-          sx={{
+          sx={matches ? {
             fontFamily: 'BozonBold',
-            fontSize: '17px',
+            fontSize: '18px',
+            fontWeight: 'bold',
+            lineHeight: '18px',
+            marginTop: '40px',
+          }:{
+            fontFamily: 'BozonBold',
+            fontSize: '18px',
             fontWeight: 'bold',
             lineHeight: '18px',
           }}
@@ -77,7 +83,7 @@ const TravelCakes = ({matches}) => {
             align="center"
             sx={{
               fontFamily: 'BozonRegular',
-              fontSize: '17px',
+              fontSize: '18px',
               fontWeight: 'normal',
               lineHeight: '18px',
               marginTop: '15px',

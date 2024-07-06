@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Carousel from '../../components/Carousel/Carousel';
 import CakeShop from '../../components/CakeShop/CakeShop';
 import AboutMe from '../../components/AboutMe/AboutMe';
-import ContactUs from '../../components/ContactUs/ContactUs';
+import ContactWithQR from '../../components/ContactWithQR/ContactWithQR';
 
 const Home = ({matches}) => {
   return (
@@ -11,7 +11,7 @@ const Home = ({matches}) => {
       <Carousel matches={matches} />
       <CakeShop matches={matches} />
       <AboutMe matches={matches} />
-      <ContactUs matches={matches} />
+      <ContactWithQR matches={matches} />
     </>
   );
 };

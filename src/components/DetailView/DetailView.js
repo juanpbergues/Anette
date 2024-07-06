@@ -48,22 +48,31 @@ const DetailView = ({
         justifyContent="center"
         alignItems="center"
         className={`info-container-${id === 'tortas' ? 'tortas' : 'other'}`}
+        sx={matches ? {
+          width: '85%',
+        } : {
+          width: '1024px',
+        }}
       >
         {show && (
           <Grid item xs={12} md={6}>
             <Avatar
               src={imageDown}
               variant="square"
-              sx={{
+              sx={!matches ? {
                 width: '460px',
                 height: '575px',
                 border: 'solid #98C8BB',
                 objectFit: 'fill',
+              }:{
+                width: '98%',
+                height: '70vh',
+                border: 'solid #98C8BB',
               }}
             />
           </Grid>
         )}
-        {separator && ( <Grid item md={1} className="v-line-container">
+        {separator && (<Grid item md={1} className="v-line-container">
           {!matches && <div className="v-line" />}
         </Grid>)}
         {children}

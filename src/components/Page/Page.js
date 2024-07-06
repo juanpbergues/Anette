@@ -12,7 +12,7 @@ const Page = ({image, matches}) => {
         'height': '650px',
       }):(
         {
-          'width': '80%',
+          'width': '85%',
           'height': '50vh',
         }
       )}

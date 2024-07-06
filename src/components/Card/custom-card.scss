@@ -1,13 +1,13 @@
 .custom-card {
     border: solid 1px #708DC7;
-    width: 320px;
-    height: 400px;
+    width: 310px;
+    height: 380px;
 
     &__media-tartas {
         background-image: url('../../assets/annete-tartas-clasicas-card-1.jpg');
         background-size: cover;
-        height: 320px;
-        width: 320px;
+        height: 310px;
+        width: 310px;
         transition: 1s;
 
         &:hover {
@@ -18,8 +18,8 @@
     &__media-tortas {
         background-image: url('../../assets/annete-tortas-card-1.jpg');
         background-size: cover;
-        height: 320px;
-        width: 320px;
+        height: 310px;
+        width: 310px;
         transition: 1s;
 
         &:hover {
@@ -30,8 +30,8 @@
     &__media-tortas-vitrina {
         background-image: url('../../assets/annete-tortas-modernas-card-1.jpg');
         background-size: cover;
-        height: 320px;
-        width: 320px;
+        height: 310px;
+        width: 310px;
         transition: 1s;
 
         &:hover {
@@ -42,8 +42,8 @@
     &__media-cookies {
         background-image: url('../../assets/annete-cookies-card-1.jpg');
         background-size: cover;
-        height: 320px;
-        width: 320px;
+        height: 310px;
+        width: 310px;
         transition: 1s;
 
         &:hover {
@@ -54,8 +54,8 @@
     &__media-macarons {
         background-image: url('../../assets/annete-macarons-card-1.jpg');
         background-size: cover;
-        height: 320px;
-        width: 320px;
+        height: 310px;
+        width: 310px;
         transition: 1s;
 
         &:hover {
@@ -66,8 +66,8 @@
     &__media-travel-cakes {
         background-image: url('../../assets/annete-travel-cake-card-2.jpg');
         background-size: cover;
-        height: 320px;
-        width: 320px;
+        height: 310px;
+        width: 310px;
         transition: 1s;
 
         &:hover {
@@ -77,7 +77,8 @@
 
     &__title {
         &-container {
-            height: 80px;
+            background-color: #FAFAFA;
+            height: 70px;
             place-content: center;
         }
     }

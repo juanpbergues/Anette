@@ -1,0 +1,33 @@
+.contact-with-qr {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    margin-bottom: 80px;
+
+    &-container {
+        width: 1024px;
+
+        &__avatar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.contact-with-qr-mobile {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    &-container {
+        width: 85%;
+
+        &__avatar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+    }
+}

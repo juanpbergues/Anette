@@ -104,7 +104,7 @@ const CakeShop = ({matches}) => {
                   key={card.id}
                   >
                     <CustomCard
-                      image={card.image}
+                      id={card.id}
                       title={card.title}
                       to={card.to}
                     />

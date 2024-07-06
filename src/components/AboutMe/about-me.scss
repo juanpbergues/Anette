@@ -1,6 +1,6 @@
 .about-me-section {
-    background: linear-gradient(to bottom, white 0%, white 25%, #F2E0E5 25%, #F2E0E5 100%);
-    padding-bottom: 70px;
+    padding-bottom: 80px;
+    padding-top: 80px;
     display: flex;
     place-content: center;
 
@@ -9,8 +9,8 @@
     }
 
     .about-me-container-without-margin {
-        margin-left: 40px;
-        margin-right: 40px;
+        margin-left: 30px;
+        margin-right: 30px;
     }
 
     .v-line-container {
@@ -35,7 +35,6 @@
     }
 
     .about-me-text-mobile {
-        padding-top: 20px;
         .view-more-button {
             color: #FAFAFA;
         }
