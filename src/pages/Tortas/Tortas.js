@@ -4,7 +4,6 @@ import {
   Grid,
   Typography,
   Avatar,
-  Button,
 } from '@mui/material';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Navigation, Pagination, A11y, Autoplay, EffectCreative} from 'swiper';
@@ -24,6 +23,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
 import 'swiper/css/effect-creative';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
 const content = {
   steps: [
@@ -188,6 +188,7 @@ const TravelCakes = ({matches}) => {
           modules={[Navigation, Pagination, A11y, Autoplay, EffectCreative]}
           spaceBetween={50}
           slidesPerView={1}
+          loop={true}
           pagination={{clickable: true}}
           autoplay={{delay: 3000}}
           grabCursor={true}
@@ -195,10 +196,10 @@ const TravelCakes = ({matches}) => {
           creativeEffect={{
             prev: {
               shadow: true,
-              translate: [0, 0, 0],
+              translate: [0, 0, -400],
             },
             next: {
-              translate: [0, 0, 0],
+              translate: ['100%', 0, 0],
             },
           }}
         >
@@ -313,24 +314,12 @@ const TravelCakes = ({matches}) => {
               }
             </Grid>
           ))}
-          <Button
+          <CustomButton
             href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20una%20Torta!"
-            variant="contained"
-            sx={{
-              'marginTop': '10px',
-              'borderRadius': '0px',
-              'color': 'white',
-              'backgroundColor': '#98C8BB',
-              'boxShadow': 'none',
-              '&:hover': {
-                backgroundColor: '#77b6a5',
-                boxShadow: 'none',
-              },
-            }}
-            size="medium"
-          >
-            HACE TU PEDIDO
-          </Button>
+            size="large"
+            text="HACE TU PEDIDO"
+            fullWidth={matches}
+          />
         </Grid>
       </Grid>
     </DetailView >

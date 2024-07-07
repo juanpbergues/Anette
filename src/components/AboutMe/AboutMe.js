@@ -12,7 +12,7 @@ const AboutMe = ({matches}) => {
   return (
     <section
       className="about-me-section"
-      id="about-me"
+      id="nosotros"
       style={matches ? {
         background: 'linear-gradient(to bottom, white 0%, white 25%, #F2E0E5 25%, #F2E0E5 100%)',
       }:{
@@ -124,7 +124,7 @@ const AboutMe = ({matches}) => {
                 }
                 {viewMore && <IconButton
                   onClick={() => setViewMore(false)}
-                  href='/#about-me'
+                  href='/#nosotros'
                   className="view-more-button"
                   size="large"
                 >

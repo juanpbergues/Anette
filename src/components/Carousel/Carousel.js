@@ -31,6 +31,7 @@ const Carousel = ({matches}) => {
       <Swiper
         modules={[Navigation, Pagination, A11y, Autoplay, EffectCreative]}
         spaceBetween={50}
+        loop={true}
         slidesPerView={1}
         pagination={{clickable: true}}
         autoplay={{delay: 3000}}

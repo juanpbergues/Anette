@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import {
   Grid,
   Typography,
-  Button,
 } from '@mui/material';
 import DetailView from '../../components/DetailView/DetailView';
 import ImageTop from '../../assets/annete-cookies-detail-2.jpg';
 import ImageDown from '../../assets/annete-cookies-detail.jpg';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
 const content = {
   title: {
@@ -113,24 +113,12 @@ const Cookies = ({matches}) => {
           </Typography>
         ))}
         <div style={{marginTop: '40px'}}>
-          <Button
+          <CustomButton
             href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20unas%20Cookies!"
-            variant="contained"
-            sx={{
-              'marginTop': '10px',
-              'borderRadius': '0px',
-              'color': 'white',
-              'backgroundColor': '#98C8BB',
-              'boxShadow': 'none',
-              '&:hover': {
-                backgroundColor: '#77b6a5',
-                boxShadow: 'none',
-              },
-            }}
-            size="medium"
-          >
-            HACE TU PEDIDO
-          </Button>
+            size="large"
+            text="HACE TU PEDIDO"
+            fullWidth={matches}
+          />
         </div>
       </Grid>
     </DetailView>

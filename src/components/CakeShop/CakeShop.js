@@ -91,6 +91,7 @@ const CakeShop = ({matches}) => {
               spacing={0}
             >
               <Swiper
+                loop={true}
                 effect={'cards'}
                 grabCursor={true}
                 modules={[EffectCards, Autoplay]}

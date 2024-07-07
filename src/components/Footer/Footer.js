@@ -8,8 +8,11 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import Image from '../../assets/annete-white-text-logo.png';
 import ImageMobile from '../../assets/annete-logo-horizontal-white.png';
+import {useNavigationStore} from '../../stores/useNavigationStore';
+import * as Routes from '../../constants/routes';
 
 const Footer = ({matches}) => {
+  const setPrimary = useNavigationStore((state) => state.setPrimary);
   const textColor = '#FAFAFA';
   return (
     <>
@@ -103,10 +106,10 @@ const Footer = ({matches}) => {
                 <div style={{display: 'grid'}}>
                   <div style={{marginBottom: '26px', justifySelf: 'self-end'}}>
                     <Link
-                      component="button"
                       className="link-section"
+                      href={`${Routes.HOME}#patisserie`}
                       onClick={() => {
-                        console.info('I\'m a button.');
+                        setPrimary('patisserie');
                       }}
                     >
                       PÂTISSERIE
@@ -114,10 +117,10 @@ const Footer = ({matches}) => {
                   </div>
                   <div style={{marginBottom: '26px', justifySelf: 'self-end'}}>
                     <Link
-                      component="button"
                       className="link-section"
+                      href={`${Routes.HOME}#nosotros`}
                       onClick={() => {
-                        console.info('I\'m a button.');
+                        setPrimary('nosotros');
                       }}
                     >
                       NOSOTROS
@@ -125,10 +128,10 @@ const Footer = ({matches}) => {
                   </div>
                   <div style={{marginBottom: '26px', justifySelf: 'self-end'}}>
                     <Link
-                      component="button"
                       className="link-section"
+                      href={`${Routes.HOME}#contacto`}
                       onClick={() => {
-                        console.info('I\'m a button.');
+                        setPrimary('contacto');
                       }}
                     >
                       CONTACTO
@@ -237,34 +240,34 @@ const Footer = ({matches}) => {
               </Grid>
               <Grid item md={4} xs={6} style={{alignSelf: 'start'}}>
                 <div style={{display: 'grid'}}>
-                  <div style={{marginBottom: '20px'}}>
+                  <div style={{marginBottom: '20px', display: 'flex'}}>
                     <Link
-                      component="button"
                       className="link-section"
+                      href={`${Routes.HOME}#patisserie`}
                       onClick={() => {
-                        console.info('I\'m a button.');
+                        setPrimary('patisserie');
                       }}
                     >
                       PÂTISSERIE
                     </Link>
                   </div>
-                  <div style={{marginBottom: '20px'}}>
+                  <div style={{marginBottom: '20px', display: 'flex'}}>
                     <Link
-                      component="button"
                       className="link-section"
+                      href={`${Routes.HOME}#nosotros`}
                       onClick={() => {
-                        console.info('I\'m a button.');
+                        setPrimary('nosotros');
                       }}
                     >
                       NOSOTROS
                     </Link>
                   </div>
-                  <div style={{marginBottom: '20px'}}>
+                  <div style={{marginBottom: '20px', display: 'flex'}}>
                     <Link
-                      component="button"
                       className="link-section"
+                      href={`${Routes.HOME}#contacto`}
                       onClick={() => {
-                        console.info('I\'m a button.');
+                        setPrimary('contacto');
                       }}
                     >
                       CONTACTO

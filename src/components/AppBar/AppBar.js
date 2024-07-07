@@ -21,16 +21,19 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Image from '../../assets/annete-logo-with-letters-only.png';
 import './appbar.scss';
+import {useNavigationStore} from '../../stores/useNavigationStore';
 
 const CustomAppBar = ({matches}) => {
   const navigate = useNavigate();
   const handleClick = (to) => {
     navigate(to);
   };
-  const [currentOption, setCurrentOption] = useState({
-    primary: null,
-    secondary: null,
-  });
+
+  const primary = useNavigationStore((state) => state.primary);
+  const secondary = useNavigationStore((state) => state.secondary);
+  const setPrimary = useNavigationStore((state) => state.setPrimary);
+  const setSecondary = useNavigationStore((state) => state.setSecondary);
+
   const [open, setOpen] = useState(false);
   const [openPatisserie, setOpenPatisserie] = useState(false);
 
@@ -59,21 +62,27 @@ const CustomAppBar = ({matches}) => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <a href={Routes.HOME}>
-              <Grid item>
+            <Grid item>
+              <Link
+                onClick={() => {
+                  setPrimary('');
+                  setSecondary('');
+                }}
+                to={Routes.HOME}
+              >
                 <Avatar
                   src={Image}
                   variant="square"
                   sx={!matches ? {
                     width: 200,
                     height: '100%',
-                  }:{
+                  } : {
                     width: 180,
                     height: '100%',
                   }}
                 />
-              </Grid>
-            </a>
+              </Link>
+            </Grid>
             <Grid item sx={matches && {display: 'none'}}>
               <Button
                 variant="text"
@@ -82,12 +91,12 @@ const CustomAppBar = ({matches}) => {
                 href='/#patisserie'
                 className="button  with-margin"
                 sx={
-                  currentOption.primary === 'patisserie' && {
+                  primary === 'patisserie' && {
                     color: '#98C8BB',
                     fontWeight: 'bold',
                   }}
                 onClick={() => {
-                  setCurrentOption({primary: 'patisserie'});
+                  setPrimary('patisserie');
                 }}
               >
                 PÂTISSERIE
@@ -96,14 +105,14 @@ const CustomAppBar = ({matches}) => {
                 variant="text"
                 color="secondary"
                 size="large"
-                href='/#about-me'
+                href='/#nosotros'
                 className="button with-margin"
                 sx={
-                  currentOption === 'nosotros' && {
+                  primary === 'nosotros' && {
                     color: '#98C8BB',
                     fontWeight: 'bold',
                   }}
-                onClick={() => setCurrentOption('nosotros')}
+                onClick={() => setPrimary('nosotros')}
               >
                 NOSOTROS
               </Button>
@@ -114,11 +123,11 @@ const CustomAppBar = ({matches}) => {
                 href='/#contacto'
                 className="button"
                 sx={
-                  currentOption === 'contacto' && {
+                  primary === 'contacto' && {
                     color: '#98C8BB',
                     fontWeight: 'bold',
                   }}
-                onClick={() => setCurrentOption('contacto')}
+                onClick={() => setPrimary('contacto')}
               >
                 CONTACTO
               </Button>
@@ -164,10 +173,7 @@ const CustomAppBar = ({matches}) => {
                       <ListItemButton
                         onClick={() => {
                           setOpenPatisserie(!openPatisserie);
-                          setCurrentOption({
-                            ...currentOption,
-                            primary: 'patisserie',
-                          });
+                          setPrimary('patisserie');
                         }}
                         sx={{justifyContent: 'flex-end'}}
                       >
@@ -178,7 +184,7 @@ const CustomAppBar = ({matches}) => {
                           sx={
                             (
                               openPatisserie ||
-                              currentOption.primary === 'patisserie'
+                              primary === 'patisserie'
                             ) && {
                               color: '#FAFAFA',
                               fontWeight: '700',
@@ -192,10 +198,8 @@ const CustomAppBar = ({matches}) => {
                       <List component="div" disablePadding>
                         <ListItemButton
                           onClick={() => {
-                            setCurrentOption({
-                              primary: 'patisserie',
-                              secondary: 'tortas',
-                            });
+                            setPrimary('patisserie');
+                            setSecondary('tortas');
                             handleClick(Routes.TORTAS);
                             handleClose();
                           }}
@@ -206,7 +210,7 @@ const CustomAppBar = ({matches}) => {
                             variant="h6"
                             color="secondary"
                             sx={
-                              currentOption.secondary === 'tortas' && {
+                              secondary === 'tortas' && {
                                 color: '#FAFAFA',
                                 fontWeight: '700',
                               }}
@@ -216,10 +220,8 @@ const CustomAppBar = ({matches}) => {
                         </ListItemButton>
                         <ListItemButton
                           onClick={() => {
-                            setCurrentOption({
-                              primary: 'patisserie',
-                              secondary: 'tartas-clasicas',
-                            });
+                            setPrimary('patisserie');
+                            setSecondary('tartas-clasicas');
                             handleClick(Routes.TARTAS_CLASICAS);
                             handleClose();
                           }}
@@ -230,7 +232,7 @@ const CustomAppBar = ({matches}) => {
                             variant="h6"
                             color="secondary"
                             sx={
-                              currentOption.secondary === 'tartas-clasicas' && {
+                              secondary === 'tartas-clasicas' && {
                                 color: '#FAFAFA',
                                 fontWeight: '700',
                               }}
@@ -240,10 +242,8 @@ const CustomAppBar = ({matches}) => {
                         </ListItemButton>
                         <ListItemButton
                           onClick={() => {
-                            setCurrentOption({
-                              primary: 'patisserie',
-                              secondary: 'macarons',
-                            });
+                            setPrimary('patisserie');
+                            setSecondary('macarons');
                             handleClick(Routes.MACARONS);
                             handleClose();
                           }}
@@ -254,7 +254,7 @@ const CustomAppBar = ({matches}) => {
                             variant="h6"
                             color="secondary"
                             sx={
-                              currentOption.secondary === 'macarons' && {
+                              secondary === 'macarons' && {
                                 color: '#FAFAFA',
                                 fontWeight: '700',
                               }}
@@ -265,10 +265,8 @@ const CustomAppBar = ({matches}) => {
                         <ListItemButton
                           sx={{justifyContent: 'flex-end'}}
                           onClick={() => {
-                            setCurrentOption({
-                              primary: 'patisserie',
-                              secondary: 'cookies',
-                            });
+                            setPrimary('patisserie');
+                            setSecondary('cookies');
                             handleClick(Routes.COOKIES);
                             handleClose();
                           }}
@@ -278,7 +276,7 @@ const CustomAppBar = ({matches}) => {
                             variant="h6"
                             color="secondary"
                             sx={
-                              currentOption.secondary === 'cookies' && {
+                              secondary === 'cookies' && {
                                 color: '#FAFAFA',
                                 fontWeight: '700',
                               }}
@@ -288,10 +286,8 @@ const CustomAppBar = ({matches}) => {
                         </ListItemButton>
                         <ListItemButton
                           onClick={() => {
-                            setCurrentOption({
-                              primary: 'patisserie',
-                              secondary: 'travel-cakes',
-                            });
+                            setPrimary('patisserie');
+                            setSecondary('travel-cakes');
                             handleClick(Routes.TRAVEL_CAKES);
                             handleClose();
                           }}
@@ -302,7 +298,7 @@ const CustomAppBar = ({matches}) => {
                             variant="h6"
                             color="secondary"
                             sx={
-                              currentOption.secondary === 'travel-cakes' && {
+                              secondary === 'travel-cakes' && {
                                 color: '#FAFAFA',
                                 fontWeight: '700',
                               }}
@@ -312,10 +308,8 @@ const CustomAppBar = ({matches}) => {
                         </ListItemButton>
                         <ListItemButton
                           onClick={() => {
-                            setCurrentOption({
-                              primary: 'patisserie',
-                              secondary: 'tartas-vitrina',
-                            });
+                            setPrimary('patisserie');
+                            setSecondary('tartas-vitrina');
                             handleClick(Routes.TORTAS_VITRINA);
                             handleClose();
                           }}
@@ -329,7 +323,7 @@ const CustomAppBar = ({matches}) => {
                             variant="h6"
                             color="secondary"
                             sx={
-                              currentOption.secondary === 'tartas-vitrina' && {
+                              secondary === 'tartas-vitrina' && {
                                 color: '#FAFAFA',
                                 fontWeight: '700',
                               }}
@@ -344,26 +338,23 @@ const CustomAppBar = ({matches}) => {
                         sx={{justifyContent: 'flex-end'}}
                         onClick={
                           () => {
-                            setCurrentOption({
-                              primary: 'nosotros',
-                              secondary: null,
-                            });
+                            setPrimary('nosotros');
+                            setSecondary('');
                             handleClose();
                           }
                         }
                       >
                         <Link
                           smooth
-                          to={`${Routes.HOME}#about-me`}
+                          to={`${Routes.HOME}#nosotros`}
                           style={{textDecoration: 'none'}}
                         >
-
                           <Typography
                             align="right"
                             variant="h5"
                             color="secondary"
                             sx={
-                              currentOption.primary === 'nosotros' && {
+                              primary === 'nosotros' && {
                                 color: '#FAFAFA',
                                 fontWeight: '700',
                               }}
@@ -377,10 +368,8 @@ const CustomAppBar = ({matches}) => {
                       <ListItemButton
                         sx={{justifyContent: 'flex-end'}}
                         onClick={() => {
-                          setCurrentOption({
-                            primary: 'contacto',
-                            secondary: null,
-                          });
+                          setPrimary('contacto');
+                          setSecondary('');
                           handleClose();
                         }}
                       >
@@ -394,7 +383,7 @@ const CustomAppBar = ({matches}) => {
                             variant="h5"
                             color="secondary"
                             sx={
-                              currentOption.primary === 'contacto' && {
+                              primary === 'contacto' && {
                                 color: '#FAFAFA',
                                 fontWeight: '700',
                               }}

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import {
   Grid,
   Typography,
-  Button,
 } from '@mui/material';
 import DetailView from '../../components/DetailView/DetailView';
 import ImageTop from '../../assets/annete-travel-cake-detail-1.jpg';
 import ImageDown from '../../assets/annete-travel-cake-card-2.jpg';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
 const content = {
   title: {
@@ -93,24 +93,12 @@ const TravelCakes = ({matches}) => {
           </Typography>
         ))}
         <div style={{marginTop: '40px'}}>
-          <Button
+          <CustomButton
             href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20una%20Travel%20Cake!"
-            variant="contained"
-            sx={{
-              'marginTop': '10px',
-              'borderRadius': '0px',
-              'color': 'white',
-              'backgroundColor': '#98C8BB',
-              'boxShadow': 'none',
-              '&:hover': {
-                backgroundColor: '#77b6a5',
-                boxShadow: 'none',
-              },
-            }}
-            size="medium"
-          >
-            HACE TU PEDIDO
-          </Button>
+            size="large"
+            text="HACE TU PEDIDO"
+            fullWidth={matches}
+          />
         </div>
       </Grid>
     </DetailView>

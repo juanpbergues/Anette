@@ -24,21 +24,21 @@ const CustomCard = ({title, id, to}) => {
           <div
             className={`${defaultClassName}__media-${id}`}
           />
+          <div className={`${defaultClassName}__title-container`}>
+            <Typography
+              color="secondary"
+              variant="h5"
+              sx={{
+                fontFamily: 'Chequersdemo',
+                fontSize: '22px',
+                lineHeight: '25px',
+              }}
+            >
+              {title}
+            </Typography>
+          </div>
         </CardActionArea>
       </Card>
-      <div className={`${defaultClassName}__title-container`}>
-        <Typography
-          color="secondary"
-          variant="h5"
-          sx={{
-            fontFamily: 'Chequersdemo',
-            fontSize: '22px',
-            lineHeight: '25px',
-          }}
-        >
-          {title}
-        </Typography>
-      </div>
     </div>
   );
 };
