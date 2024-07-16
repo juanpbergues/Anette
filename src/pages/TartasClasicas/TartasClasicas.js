@@ -96,7 +96,7 @@ const TartasClasicas = ({matches}) => {
           <CustomButton
             href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20una%20Tarta%20Clasica!"
             size="large"
-            text="HACE TU PEDIDO"
+            text="HAZ TU PEDIDO"
             fullWidth={matches}
           />
         </div>

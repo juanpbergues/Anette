@@ -4,25 +4,19 @@ import PropTypes from 'prop-types';
 import {Grid, Avatar, Typography, IconButton} from '@mui/material';
 import Image from '../../assets/anette-about-me.jpeg';
 import './about-me.scss';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 const AboutMe = ({matches}) => {
+  const defaultClassName = matches ? 'about-me-mobile' : 'about-me';
   const [viewMore, setViewMore] = useState(false);
   return (
     <section
-      className="about-me-section"
+      className={`${defaultClassName}-section`}
       id="nosotros"
-      style={matches ? {
-        background: 'linear-gradient(to bottom, white 0%, white 25%, #F2E0E5 25%, #F2E0E5 100%)',
-      }:{
-        background: '#F2E0E5',
-      }}
     >
       <div
-        className={
-          matches ? 'about-me-container-without-margin' : 'about-me-container'
-        }
+        className={`${defaultClassName}-container`}
       >
         <Grid
           container
@@ -58,7 +52,7 @@ const AboutMe = ({matches}) => {
                   {
                     marginTop: '40px',
                     fontFamily: 'Chequersdemo',
-                    fontSize: '30px',
+                    fontSize: '26px',
                   } : {
                     marginLeft: '60px',
                     fontFamily: 'Chequersdemo',
@@ -93,7 +87,7 @@ const AboutMe = ({matches}) => {
                   color="secondary"
                   sx={{
                     fontFamily: 'BozonRegular',
-                    fontSize: '18px',
+                    fontSize: '16px',
                     textAlign: 'left',
                   }}
                   align="center"
@@ -102,18 +96,17 @@ const AboutMe = ({matches}) => {
                 </Typography>
                 {!viewMore && <IconButton
                   onClick={() => setViewMore(true)}
-                  className="view-more-button"
                   size="large"
-                  sx={{marginTop: '10px'}}
+                  sx={{marginTop: '20px'}}
                 >
-                  <AddIcon fontSize='inherit' />
+                  <ExpandMoreIcon color='secondary' fontSize='large'/>
                 </IconButton>
                 }
                 {viewMore && <Typography
                   color="secondary"
                   sx={{
                     fontFamily: 'BozonRegular',
-                    fontSize: '18px',
+                    fontSize: '16px',
                     textAlign: 'left',
                   }}
                   align="center"
@@ -125,10 +118,10 @@ const AboutMe = ({matches}) => {
                 {viewMore && <IconButton
                   onClick={() => setViewMore(false)}
                   href='/#nosotros'
-                  className="view-more-button"
                   size="large"
+                  sx={{marginTop: '20px'}}
                 >
-                  <RemoveIcon fontSize='inherit' />
+                  <ExpandLessIcon color='secondary' fontSize='large' />
                 </IconButton>
                 }
               </div>

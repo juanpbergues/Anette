@@ -20,6 +20,8 @@ const DetailView = ({
   separator,
   children,
 }) => {
+  const defaultClassName = matches ? 'detail-view-mobile' : 'detail-view';
+
   const location = useLocation();
 
   useEffect(() => {
@@ -27,8 +29,8 @@ const DetailView = ({
   }, [location]);
 
   return (
-    <div className="detail-view-section">
-      <div className="detail-view-container">
+    <div className={`${defaultClassName}-section`}>
+      <div className={`${defaultClassName}-container`}>
         <div className="image-container">
           <Page image={imageTop} matches={matches} />
         </div>
@@ -49,7 +51,9 @@ const DetailView = ({
         alignItems="center"
         className={`info-container-${id === 'tortas' ? 'tortas' : 'other'}`}
         sx={matches ? {
-          width: '85%',
+          width: '100%',
+          paddingLeft: '16px',
+          paddingRight: '16px',
         } : {
           width: '1024px',
         }}
@@ -66,7 +70,7 @@ const DetailView = ({
                 objectFit: 'fill',
               }:{
                 width: '98%',
-                height: '70vh',
+                height: '50vh',
                 border: 'solid #98C8BB',
               }}
             />

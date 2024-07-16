@@ -116,7 +116,7 @@ const Cookies = ({matches}) => {
           <CustomButton
             href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20unas%20Cookies!"
             size="large"
-            text="HACE TU PEDIDO"
+            text="HAZ TU PEDIDO"
             fullWidth={matches}
           />
         </div>

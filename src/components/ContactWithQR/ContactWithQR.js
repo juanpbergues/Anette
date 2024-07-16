@@ -44,7 +44,7 @@ const ContactWithQR = ({matches}) => {
                       color="secondary"
                       sx={{
                         fontFamily: 'Chequersdemo',
-                        fontSize: '30px',
+                        fontSize: '26px',
                         marginBottom: '10px',
                       }}
                     >
@@ -55,7 +55,7 @@ const ContactWithQR = ({matches}) => {
                       color="secondary"
                       sx={{
                         fontFamily: 'BozonRegular',
-                        fontSize: '18px',
+                        fontSize: '16px',
                         marginBottom: '10px',
                         maxWidth: '520px',
                       }}
@@ -201,7 +201,7 @@ const ContactWithQR = ({matches}) => {
                   color="secondary"
                   sx={{
                     fontFamily: 'BozonRegular',
-                    fontSize: '18px',
+                    fontSize: '16px',
                   }}
                 >
                   ¡Síguenos en nuestro Instagram<br></br>

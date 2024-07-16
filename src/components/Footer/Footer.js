@@ -10,9 +10,17 @@ import Image from '../../assets/annete-white-text-logo.png';
 import ImageMobile from '../../assets/annete-logo-horizontal-white.png';
 import {useNavigationStore} from '../../stores/useNavigationStore';
 import * as Routes from '../../constants/routes';
+import {useNavigate} from 'react-router-dom';
 
 const Footer = ({matches}) => {
   const setPrimary = useNavigationStore((state) => state.setPrimary);
+  const setSecondary = useNavigationStore((state) => state.setSecondary);
+
+  const navigate = useNavigate();
+  const handleClick = (to) => {
+    navigate(to);
+  };
+
   const textColor = '#FAFAFA';
   return (
     <>
@@ -238,39 +246,82 @@ const Footer = ({matches}) => {
                   annete.patisserie@gmail.com
                 </Typography>
               </Grid>
-              <Grid item md={4} xs={6} style={{alignSelf: 'start'}}>
+              <Grid item md={2} xs={6} style={{alignSelf: 'start'}}>
                 <div style={{display: 'grid'}}>
                   <div style={{marginBottom: '20px', display: 'flex'}}>
                     <Link
                       className="link-section"
-                      href={`${Routes.HOME}#patisserie`}
                       onClick={() => {
                         setPrimary('patisserie');
+                        setSecondary('tortas');
+                        handleClick(Routes.TORTAS);
                       }}
                     >
-                      PÂTISSERIE
+                      TORTAS
                     </Link>
                   </div>
                   <div style={{marginBottom: '20px', display: 'flex'}}>
                     <Link
                       className="link-section"
-                      href={`${Routes.HOME}#nosotros`}
                       onClick={() => {
-                        setPrimary('nosotros');
+                        setPrimary('patisserie');
+                        setSecondary('tartas-clasicas');
+                        handleClick(Routes.TARTAS_CLASICAS);
                       }}
                     >
-                      NOSOTROS
+                      TARTAS CLASICAS
                     </Link>
                   </div>
                   <div style={{marginBottom: '20px', display: 'flex'}}>
                     <Link
                       className="link-section"
-                      href={`${Routes.HOME}#contacto`}
                       onClick={() => {
-                        setPrimary('contacto');
+                        setPrimary('patisserie');
+                        setSecondary('macarons');
+                        handleClick(Routes.MACARONS);
                       }}
                     >
-                      CONTACTO
+                      MACARONS
+                    </Link>
+                  </div>
+                </div>
+              </Grid>
+              <Grid item md={2} xs={6} style={{alignSelf: 'start'}}>
+                <div style={{display: 'grid'}}>
+                  <div style={{marginBottom: '20px', display: 'flex'}}>
+                    <Link
+                      className="link-section"
+                      onClick={() => {
+                        setPrimary('patisserie');
+                        setSecondary('cookies');
+                        handleClick(Routes.COOKIES);
+                      }}
+                    >
+                      COOKIES
+                    </Link>
+                  </div>
+                  <div style={{marginBottom: '20px', display: 'flex'}}>
+                    <Link
+                      className="link-section"
+                      onClick={() => {
+                        setPrimary('patisserie');
+                        setSecondary('travel-cakes');
+                        handleClick(Routes.TRAVEL_CAKES);
+                      }}
+                    >
+                      TRAVEL CAKES
+                    </Link>
+                  </div>
+                  <div style={{marginBottom: '20px', display: 'flex'}}>
+                    <Link
+                      className="link-section"
+                      onClick={() => {
+                        setPrimary('patisserie');
+                        setSecondary('tartas-vitrina');
+                        handleClick(Routes.TORTAS_VITRINA);
+                      }}
+                    >
+                      TORTAS MODERNAS
                     </Link>
                   </div>
                 </div>

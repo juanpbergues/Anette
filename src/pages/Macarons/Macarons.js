@@ -5,7 +5,7 @@ import {
   Typography,
 } from '@mui/material';
 import DetailView from '../../components/DetailView/DetailView';
-import ImageTop from '../../assets/annete-macarons-card-1.jpg';
+import ImageTop from '../../assets/annete-macarons-detail-sup.jpg';
 import ImageDown from '../../assets/annete-macarons-card-2.jpg';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
@@ -108,7 +108,7 @@ const Macarons = ({matches}) => {
             align="center"
             sx={{
               fontFamily: 'BozonRegular',
-              fontSize: '18px',
+              fontSize: '16px',
               fontWeight: 'normal',
               lineHeight: '18px',
               marginTop: '15px',
@@ -121,7 +121,7 @@ const Macarons = ({matches}) => {
           <CustomButton
             href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20unos%20Macarons!"
             size="large"
-            text="HACE TU PEDIDO"
+            text="HAZ TU PEDIDO"
             fullWidth={matches}
           />
         </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {
   Typography,
@@ -13,6 +13,8 @@ import * as Routes from '../../constants/routes';
 import 'swiper/css/autoplay';
 
 const CakeShop = ({matches}) => {
+  const defaultClassName = matches ? 'cake-shop-mobile' : 'cake-shop';
+
   const cards = [
     {
       id: 'tortas',
@@ -46,16 +48,18 @@ const CakeShop = ({matches}) => {
     },
   ];
 
+  const [reverse, setReverse] = useState(false);
+
   return (
-    <div className="cake-shop-section" id="patisserie">
-      <div className="cake-shop-container">
+    <div className={`${defaultClassName}-section`} id="patisserie">
+      <div className={`${defaultClassName}-container`}>
         <Typography
           color="secondary"
           gutterBottom
           variant="h5"
           className="title"
         >
-          PASTELERÍA {matches && <br />}PREMIUM NATURAL
+          PASTELERIA PREMIUM {matches && <br />}NATURAL
         </Typography>
         <Grid
           container
@@ -69,7 +73,7 @@ const CakeShop = ({matches}) => {
                 <Grid
                   item
                   lg={4}
-                  md={4}
+                  md={6}
                   xs={12}
                   className="card-container"
                   spacing={0}
@@ -95,7 +99,26 @@ const CakeShop = ({matches}) => {
                 effect={'cards'}
                 grabCursor={true}
                 modules={[EffectCards, Autoplay]}
-                autoplay={{delay: 3000}}
+                autoplay={{
+                  'delay': 3000,
+                  'disableOnInteraction': false,
+                  'pauseOnMouseEnter': false,
+                  'stopOnLastSlide': false,
+                  'waitForTransition': true,
+                  'reverseDirection': reverse,
+                }}
+                cardsEffect={{
+                  perSlideOffset: 8,
+                  perSlideRotate: 2,
+                  rotate: true,
+                  slideShadows: false,
+                }}
+                onReachEnd={()=> setReverse(true)}
+                onActiveIndexChange={(swiper)=>{
+                  if (swiper.activeIndex === 0 && reverse) {
+                    setReverse(false);
+                  }
+                }}
               >
                 {cards.map((card) => (
                   <SwiperSlide style={{

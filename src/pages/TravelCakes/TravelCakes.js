@@ -96,7 +96,7 @@ const TravelCakes = ({matches}) => {
           <CustomButton
             href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20una%20Travel%20Cake!"
             size="large"
-            text="HACE TU PEDIDO"
+            text="HAZ TU PEDIDO"
             fullWidth={matches}
           />
         </div>

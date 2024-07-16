@@ -58,3 +58,66 @@
         }
     }
 }
+
+.detail-view-mobile-section {
+    .detail-view-mobile-container {
+        background: linear-gradient(to bottom, white 0%, white 50%, #98C8BB 50%, #98C8BB 100%);
+        padding-bottom: 80px;
+        padding-left: 16px;
+        padding-right: 16px;
+
+        .image-container {
+            display: flex;
+            place-content: center;
+
+            .image-container {
+                max-width: 1150px;
+            }
+        }
+    }
+
+    .title {
+        margin-top: 60px;
+        margin-bottom: 60px;
+        font-family: "Chequersdemo";
+        font-size: 26px;
+    }
+
+    .info-container-tortas {
+        margin-bottom: 60px;
+        display: inline-flex;
+
+        .secondary-title {
+            margin-bottom: 20px;
+        }
+
+        .v-line-container {
+            display: flex;
+            justify-content: center;
+
+            .v-line {
+                border-left: solid #708DC7;
+                height: 575px;
+            }
+        }
+    }
+
+    .info-container-other {
+        margin-bottom: 60px;
+        display: inline-flex;
+
+        .secondary-title {
+            margin-bottom: 20px;
+        }
+
+        .v-line-container {
+            display: flex;
+            justify-content: center;
+
+            .v-line {
+                border-left: solid #708DC7;
+                height: 575px;
+            }
+        }
+    }
+}

@@ -3,6 +3,7 @@
     padding-top: 80px;
     display: flex;
     place-content: center;
+    background: #F2E0E5;
 
     .about-me-container {
         width: 1024px;
@@ -13,17 +14,17 @@
         margin-right: 30px;
     }
 
-    .v-line-container {
-        display: flex;
-        justify-content: center;
+    // .v-line-container {
+    //     display: flex;
+    //     justify-content: center;
 
-        .v-line {
-            border-left: solid #708DC7;
-            height: 200px;
-            margin-top: 260px;
-            margin-left: 20px;
-        }
-    }
+    //     .v-line {
+    //         border-left: solid #708DC7;
+    //         height: 200px;
+    //         margin-top: 260px;
+    //         margin-left: 20px;
+    //     }
+    // }
 
     .about-me-text {
         padding: 20px;
@@ -39,22 +40,32 @@
             color: #FAFAFA;
         }
     }
+}
 
-    .about-me-text::-webkit-scrollbar {
-        width: 1rem;
+.about-me-mobile-section {
+    padding-bottom: 40px;
+    padding-top: 80px;
+    display: flex;
+    place-content: center;
+    background: linear-gradient(to bottom, white 0%, white 25%, #F2E0E5 25%, #F2E0E5 100%);
+
+    .about-me-mobile-container {
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
-    .about-me-text::-webkit-scrollbar-track {
-        background-color: #F2E0E5;
-        border: 5px solid transparent;
-        border-radius: 20px;
-        width: 10px;
+    .about-me-text {
+        padding: 20px;
+        overflow-y: auto;
+        height: 300px;
+        width: 100%;
+        overflow-x: hidden;
+        direction: rtl
     }
 
-    .about-me-text::-webkit-scrollbar-thumb {
-        background: #708DC7;
-        border: 6px solid transparent;
-        border-radius: 20px;
-        background-clip: content-box;
+    .about-me-text-mobile {
+        .view-more-button {
+            color: #FAFAFA;
+        }
     }
 }

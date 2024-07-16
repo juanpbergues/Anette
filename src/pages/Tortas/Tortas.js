@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -6,15 +7,21 @@ import {
   Avatar,
 } from '@mui/material';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {Navigation, Pagination, A11y, Autoplay, EffectCreative} from 'swiper';
+import {
+  Navigation,
+  Pagination,
+  Autoplay,
+  EffectFade,
+} from 'swiper';
 import DetailView from '../../components/DetailView/DetailView';
-import ImageTop from '../../assets/anette-tortas-detail-top.jpg';
+import ImageTop from '../../assets/annete-tortas-detail-sup.jpg';
 import FirstImageDown
   from '../../assets/annete-tortas-detail-first-inferior.jpg';
 import SecondImageDown
   from '../../assets/annete-tortas-detail-second-inferior.jpg';
 import ThirdImageDown
   from '../../assets/annete-tortas-detail-third-inferior.jpg';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
 import './tortas.scss';
 import 'swiper/css';
@@ -22,8 +29,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
-import 'swiper/css/effect-creative';
-import CustomButton from '../../components/CustomButton/CustomButton';
+import 'swiper/css/effect-fade';
+
 
 const content = {
   steps: [
@@ -185,23 +192,21 @@ const TravelCakes = ({matches}) => {
     >
       <Grid item xs={12} md={6}>
         <Swiper
-          modules={[Navigation, Pagination, A11y, Autoplay, EffectCreative]}
+          modules={[
+            Navigation,
+            Pagination,
+            Autoplay,
+            EffectFade,
+          ]}
           spaceBetween={50}
           slidesPerView={1}
           loop={true}
-          pagination={{clickable: true}}
+          pagination={{
+            clickable: true,
+          }}
           autoplay={{delay: 3000}}
           grabCursor={true}
-          effect={'creative'}
-          creativeEffect={{
-            prev: {
-              shadow: true,
-              translate: [0, 0, -400],
-            },
-            next: {
-              translate: ['100%', 0, 0],
-            },
-          }}
+          effect={'fade'}
         >
           <SwiperSlide
             className="tortas-detail-view"
@@ -209,9 +214,13 @@ const TravelCakes = ({matches}) => {
             <Avatar
               src={FirstImageDown}
               variant="square"
-              sx={{
+              sx={!matches ? {
                 width: '460px',
                 height: '575px',
+                border: 'solid #98C8BB',
+              } : {
+                width: '98%',
+                height: '50vh',
                 border: 'solid #98C8BB',
               }}
             />
@@ -222,9 +231,13 @@ const TravelCakes = ({matches}) => {
             <Avatar
               src={SecondImageDown}
               variant="square"
-              sx={{
+              sx={!matches ? {
                 width: '460px',
                 height: '575px',
+                border: 'solid #98C8BB',
+              } : {
+                width: '98%',
+                height: '50vh',
                 border: 'solid #98C8BB',
               }}
             />
@@ -235,9 +248,13 @@ const TravelCakes = ({matches}) => {
             <Avatar
               src={ThirdImageDown}
               variant="square"
-              sx={{
+              sx={!matches ? {
                 width: '460px',
                 height: '575px',
+                border: 'solid #98C8BB',
+              } : {
+                width: '98%',
+                height: '50vh',
                 border: 'solid #98C8BB',
               }}
             />
@@ -252,6 +269,38 @@ const TravelCakes = ({matches}) => {
           alignItems="flex-start"
           spacing={0}
         >
+          <Typography
+            color="secondary"
+            gutterBottom
+            variant="h5"
+            align="center"
+            sx={{
+              fontFamily: 'BozonBold',
+              fontSize: '17px',
+              fontWeight: 'bold',
+              lineHeight: '18px',
+              marginBottom: '8px',
+              marginTop: '40px',
+            }}
+          >
+                ¡Convertimos tus deseos en realidad personalizando tu torta!
+          </Typography>
+          <Typography
+            color="secondary"
+            gutterBottom
+            variant="h5"
+            align="r"
+            sx={{
+              fontFamily: 'BozonRegular',
+              fontSize: '16px',
+              lineHeight: '18px',
+              marginBottom: '8px',
+              marginTop: '8px',
+              width: '95%',
+            }}
+          >
+                Si ya tienes un diseño en mente, realiza tu pedido especificando cómo te gustaría que sea la decoración. Además, elige una opción de bizcocho y uno o dos rellenos de entre las opciones 2 y 3.
+          </Typography>
           {content.steps.map((step) => (
             <Grid
               item
@@ -261,7 +310,7 @@ const TravelCakes = ({matches}) => {
               sx={
                 step.id === 1 && matches ?
                   {marginBottom: '20px', marginTop: '20px'} :
-                  {marginBottom: '20px'}
+                  {marginBottom: '20px', marginTop: '20px'}
               }
             >
               <Typography
@@ -317,7 +366,7 @@ const TravelCakes = ({matches}) => {
           <CustomButton
             href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20una%20Torta!"
             size="large"
-            text="HACE TU PEDIDO"
+            text="HAZ TU PEDIDO"
             fullWidth={matches}
           />
         </Grid>

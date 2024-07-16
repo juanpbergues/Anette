@@ -16,10 +16,11 @@
         .with-margin {
             margin-right: 30px;
         }
+    }
 
-        @media screen and (max-width: 992px) {
-            padding-left: 10px;
-            padding-right: 20px;
-        }
+    .appbar-mobile {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        width: 100%;
     }
 }
