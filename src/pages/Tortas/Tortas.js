@@ -15,12 +15,17 @@ import {
 } from 'swiper';
 import DetailView from '../../components/DetailView/DetailView';
 import ImageTop from '../../assets/annete-tortas-detail-sup.jpg';
+import ImageTopMobile from '../../assets/annete-tortas-detail-sup-mobile.jpg';
 import FirstImageDown
   from '../../assets/annete-tortas-detail-first-inferior.jpg';
+import FirstImageDownMobile
+  from '../../assets/annete-tortas-detail-first-inferior-mobile.jpg';
 import SecondImageDown
   from '../../assets/annete-tortas-detail-second-inferior.jpg';
 import ThirdImageDown
   from '../../assets/annete-tortas-detail-third-inferior.jpg';
+import FourthImageDown
+  from '../../assets/annete-tortas-detail-fourth-inferior.jpg';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
 import './tortas.scss';
@@ -187,7 +192,7 @@ const TravelCakes = ({matches}) => {
     <DetailView
       matches={matches}
       title="ARMA TU TORTA"
-      imageTop={ImageTop}
+      imageTop={!matches ? ImageTop : ImageTopMobile}
       id="tortas"
     >
       <Grid item xs={12} md={6}>
@@ -212,7 +217,7 @@ const TravelCakes = ({matches}) => {
             className="tortas-detail-view"
           >
             <Avatar
-              src={FirstImageDown}
+              src={matches ? FirstImageDownMobile : FirstImageDown}
               variant="square"
               sx={!matches ? {
                 width: '460px',
@@ -247,6 +252,23 @@ const TravelCakes = ({matches}) => {
           >
             <Avatar
               src={ThirdImageDown}
+              variant="square"
+              sx={!matches ? {
+                width: '460px',
+                height: '575px',
+                border: 'solid #98C8BB',
+              } : {
+                width: '98%',
+                height: '50vh',
+                border: 'solid #98C8BB',
+              }}
+            />
+          </SwiperSlide>
+          <SwiperSlide
+            className="tortas-detail-view"
+          >
+            <Avatar
+              src={FourthImageDown}
               variant="square"
               sx={!matches ? {
                 width: '460px',

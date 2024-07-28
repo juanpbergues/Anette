@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -6,7 +7,8 @@ import {
 } from '@mui/material';
 import DetailView from '../../components/DetailView/DetailView';
 import ImageTop from '../../assets/annete-tartas-clasicas-detail-view-sup.jpg';
-import ImageDown from '../../assets/annete-tartas-clasicas-card-1.jpg';
+import ImageTopMobile from '../../assets/annete-tartas-clasicas-detail-view-sup-mobile.jpg';
+import ImageDown from '../../assets/annete-tartas-clasicas-detail-inferior.jpg';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
 const content = {
@@ -48,7 +50,7 @@ const TartasClasicas = ({matches}) => {
     <DetailView
       matches={matches}
       title="TARTAS CLASICAS"
-      imageTop={ImageTop}
+      imageTop={matches ? ImageTopMobile : ImageTop}
       imageDown={ImageDown}
       show
     >

@@ -7,7 +7,8 @@ import {
 } from '@mui/material';
 import DetailView from '../../components/DetailView/DetailView';
 import ImageTop from '../../assets/annete-tortas-modernas-detail-1.jpg';
-import ImageDown from '../../assets/annete-tortas-modernas-card-1.jpg';
+import ImageTopMobile from '../../assets/annete-tortas-modernas-detail-1-mobile.jpg';
+import ImageDown from '../../assets/annete-tortas-modernas-detail-2.jpg';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
 const content = {
@@ -66,7 +67,7 @@ const TartasVitrina = ({matches}) => {
     <DetailView
       matches={matches}
       title="TORTAS MODERNAS"
-      imageTop={ImageTop}
+      imageTop={matches ? ImageTopMobile : ImageTop}
       imageDown={ImageDown}
       show
     >

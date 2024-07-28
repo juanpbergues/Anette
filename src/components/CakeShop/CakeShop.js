@@ -50,12 +50,21 @@ const CakeShop = ({matches}) => {
 
   const [reverse, setReverse] = useState(false);
 
+  const getCardsStyles = (index) => {
+    if (index === 0 || index === 3) {
+      return 'start';
+    }
+    if (index === 1 || index === 4) {
+      return 'center';
+    }
+    return 'end';
+  };
+
   return (
     <div className={`${defaultClassName}-section`} id="patisserie">
       <div className={`${defaultClassName}-container`}>
         <Typography
           color="secondary"
-          gutterBottom
           variant="h5"
           className="title"
         >
@@ -66,16 +75,21 @@ const CakeShop = ({matches}) => {
           direction="row"
           justifyContent="space-between"
           alignItems="center"
+          sx={matches ? {
+            height: '40vh',
+          }:{
+            height: '90vh',
+          }}
         >
           {!matches ? (
             <>
-              {cards.map((card) => (
+              {cards.map((card, index) => (
                 <Grid
                   item
                   lg={4}
                   md={6}
                   xs={12}
-                  className="card-container"
+                  className={`card-container-${getCardsStyles(index)}`}
                   spacing={0}
                   key={card.id}
                 >

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -7,6 +8,7 @@ import {
 import DetailView from '../../components/DetailView/DetailView';
 import ImageTop from '../../assets/annete-cookies-detail-2.jpg';
 import ImageDown from '../../assets/annete-cookies-detail.jpg';
+import ImageTopMobile from '../../assets/annete-cookies-detail-inferior-mobile.jpg';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
 const content = {
@@ -68,7 +70,7 @@ const Cookies = ({matches}) => {
     <DetailView
       matches={matches}
       imageDown={ImageDown}
-      imageTop={ImageTop}
+      imageTop={matches ? ImageTopMobile : ImageTop}
       title="COOKIES"
       show
     >

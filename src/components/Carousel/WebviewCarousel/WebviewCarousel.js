@@ -44,6 +44,7 @@ const WebviewCarousel = ({matches}) => {
       autoplay={{delay: 3000}}
       grabCursor={true}
       effect={'fade'}
+      style={{height: '90%'}}
     >
       <SwiperSlide style={{
         display: 'flex',

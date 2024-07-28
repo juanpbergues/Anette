@@ -6,7 +6,7 @@ import {
 } from '@mui/material';
 import DetailView from '../../components/DetailView/DetailView';
 import ImageTop from '../../assets/annete-macarons-detail-sup.jpg';
-import ImageDown from '../../assets/annete-macarons-card-2.jpg';
+import ImageDown from '../../assets/annete-macarons-detail-inferior.jpg';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
 const content = {

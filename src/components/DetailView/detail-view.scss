@@ -1,15 +1,12 @@
 .detail-view-section {
     .detail-view-container {
         background: linear-gradient(to bottom, white 0%, white 50%, #98C8BB 50%, #98C8BB 100%);
-        padding-bottom: 100px;
+        display: flex;
+        justify-content: center;
+        height: 85vh;
 
         .image-container {
-            display: flex;
-            place-content: center;
-
-            .image-container {
-                max-width: 1150px;
-            }
+            height: 90%;
         }
     }
 
