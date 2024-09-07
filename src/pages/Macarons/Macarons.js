@@ -76,6 +76,7 @@ const Macarons = ({matches}) => {
       imageTop={ImageTop}
       imageDown={ImageDown}
       show
+      id="macarons"
     >
       <Grid item xs={12} md={6}>
         <Typography

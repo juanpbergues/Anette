@@ -66,16 +66,18 @@
         .image-container {
             display: flex;
             place-content: center;
-
-            .image-container {
-                max-width: 1150px;
-            }
         }
     }
 
     .title {
         margin-top: 60px;
         margin-bottom: 60px;
+        font-family: "Chequersdemo";
+        font-size: 26px;
+    }
+
+    .title-mobile {
+        margin-top: 60px;
         font-family: "Chequersdemo";
         font-size: 26px;
     }

@@ -1,16 +1,19 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import {useNavigate} from 'react-router-dom';
+
 import {useNavigationStore} from '../../stores/useNavigationStore';
 import {
   CardActionArea,
   Card,
   Typography,
 } from '@mui/material';
+
 import './custom-card.scss';
 
-const CustomCard = ({title, id, to}) => {
-  const defaultClassName = 'custom-card';
+const CustomCard = ({title, id, to, matches}) => {
+  const defaultClassName = matches ? 'custom-card-mobile' : 'custom-card';
 
   const setPrimary = useNavigationStore((state) => state.setPrimary);
   const setSecondary = useNavigationStore((state) => state.setSecondary);
@@ -56,6 +59,7 @@ CustomCard.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
   to: PropTypes.string,
+  matches: PropTypes.bool,
 };
 
 export default CustomCard;

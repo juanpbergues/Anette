@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {Routes, Route} from 'react-router-dom';
 import {
   useMediaQuery,
@@ -6,7 +7,7 @@ import {
   // Grid,
   // Link
 } from '@mui/material';
-import './app.scss';
+
 import Home from './Home/Home';
 import TravelCakes from './TravelCakes/TravelCakes';
 import Macarons from './Macarons/Macarons';
@@ -14,10 +15,14 @@ import Tortas from './Tortas/Tortas';
 import TartasClasicas from './TartasClasicas/TartasClasicas';
 import TartasVitrina from './TartasVitrina/TartasVitrina';
 import Cookies from './Cookies/Cookies';
-// import BuildUp from './BuildUp/BuildUp';
 import CustomAppBar from '../components/AppBar/AppBar';
 import Footer from '../components/Footer/Footer';
+import TermsAndConditions from './TermsAndConditions/TermsAndConditions';
+// import BuildUp from './BuildUp/BuildUp';
+
 import * as RoutesNames from '../constants/routes';
+
+import './app.scss';
 
 
 const App = () => {
@@ -54,6 +59,10 @@ const App = () => {
         <Route
           path={RoutesNames.TORTAS}
           element={<Tortas matches={matches} />}
+        />
+        <Route
+          path={RoutesNames.TERMS_AND_CONDITIONS}
+          element={<TermsAndConditions matches={matches} />}
         />
       </Routes>
       <Footer matches={matches} />

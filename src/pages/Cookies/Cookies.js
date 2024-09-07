@@ -73,6 +73,7 @@ const Cookies = ({matches}) => {
       imageTop={matches ? ImageTopMobile : ImageTop}
       title="COOKIES"
       show
+      id="cookies"
     >
       <Grid item xs={12} md={6}>
         <Typography

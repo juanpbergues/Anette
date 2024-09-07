@@ -55,8 +55,6 @@
         cursor: pointer;
     }
 
-
-
     .link-section::after {
         content: '';
         width: 0px;
@@ -126,18 +124,5 @@
         line-height: 18px;
         color: #FAFAFA;
         text-decoration: none;
-    }
-
-    .link-section::after {
-        content: '';
-        width: 0px;
-        height: 2px;
-        display: flex;
-        background: #FAFAFA;
-        transition: 300ms;
-    }
-
-    .link-section:hover::after {
-        width: 100%;
     }
 }

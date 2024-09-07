@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import {
   Grid,
@@ -13,20 +14,20 @@ import {
   Autoplay,
   EffectFade,
 } from 'swiper';
+
 import DetailView from '../../components/DetailView/DetailView';
+import CustomButton from '../../components/CustomButton/CustomButton';
+
+// Desktop images
 import ImageTop from '../../assets/annete-tortas-detail-sup.jpg';
-import ImageTopMobile from '../../assets/annete-tortas-detail-sup-mobile.jpg';
 import FirstImageDown
   from '../../assets/annete-tortas-detail-first-inferior.jpg';
-import FirstImageDownMobile
-  from '../../assets/annete-tortas-detail-first-inferior-mobile.jpg';
 import SecondImageDown
   from '../../assets/annete-tortas-detail-second-inferior.jpg';
 import ThirdImageDown
   from '../../assets/annete-tortas-detail-third-inferior.jpg';
 import FourthImageDown
   from '../../assets/annete-tortas-detail-fourth-inferior.jpg';
-import CustomButton from '../../components/CustomButton/CustomButton';
 
 import './tortas.scss';
 import 'swiper/css';
@@ -187,102 +188,88 @@ const content = {
   ],
 };
 
-const TravelCakes = ({matches}) => {
+const Tortas = ({matches}) => {
   return (
     <DetailView
       matches={matches}
       title="ARMA TU TORTA"
-      imageTop={!matches ? ImageTop : ImageTopMobile}
+      imageTop={ImageTop}
       id="tortas"
     >
-      <Grid item xs={12} md={6}>
-        <Swiper
-          modules={[
-            Navigation,
-            Pagination,
-            Autoplay,
-            EffectFade,
-          ]}
-          spaceBetween={50}
-          slidesPerView={1}
-          loop={true}
-          pagination={{
-            clickable: true,
-          }}
-          autoplay={{delay: 3000}}
-          grabCursor={true}
-          effect={'fade'}
-        >
-          <SwiperSlide
-            className="tortas-detail-view"
+      {!matches && (
+        <Grid item xs={12} md={6}>
+          <Swiper
+            modules={[
+              Navigation,
+              Pagination,
+              Autoplay,
+              EffectFade,
+            ]}
+            spaceBetween={50}
+            slidesPerView={1}
+            loop={true}
+            pagination={{
+              clickable: true,
+            }}
+            autoplay={{delay: 3000}}
+            grabCursor={true}
+            effect={'fade'}
           >
-            <Avatar
-              src={matches ? FirstImageDownMobile : FirstImageDown}
-              variant="square"
-              sx={!matches ? {
-                width: '460px',
-                height: '575px',
-                border: 'solid #98C8BB',
-              } : {
-                width: '98%',
-                height: '50vh',
-                border: 'solid #98C8BB',
-              }}
-            />
-          </SwiperSlide>
-          <SwiperSlide
-            className="tortas-detail-view"
-          >
-            <Avatar
-              src={SecondImageDown}
-              variant="square"
-              sx={!matches ? {
-                width: '460px',
-                height: '575px',
-                border: 'solid #98C8BB',
-              } : {
-                width: '98%',
-                height: '50vh',
-                border: 'solid #98C8BB',
-              }}
-            />
-          </SwiperSlide>
-          <SwiperSlide
-            className="tortas-detail-view"
-          >
-            <Avatar
-              src={ThirdImageDown}
-              variant="square"
-              sx={!matches ? {
-                width: '460px',
-                height: '575px',
-                border: 'solid #98C8BB',
-              } : {
-                width: '98%',
-                height: '50vh',
-                border: 'solid #98C8BB',
-              }}
-            />
-          </SwiperSlide>
-          <SwiperSlide
-            className="tortas-detail-view"
-          >
-            <Avatar
-              src={FourthImageDown}
-              variant="square"
-              sx={!matches ? {
-                width: '460px',
-                height: '575px',
-                border: 'solid #98C8BB',
-              } : {
-                width: '98%',
-                height: '50vh',
-                border: 'solid #98C8BB',
-              }}
-            />
-          </SwiperSlide>
-        </Swiper>
-      </Grid>
+            <SwiperSlide
+              className="tortas-detail-view"
+            >
+              <Avatar
+                src={FirstImageDown}
+                variant="square"
+                sx={{
+                  width: '460px',
+                  height: '575px',
+                  border: 'solid #98C8BB',
+                }}
+              />
+            </SwiperSlide>
+            <SwiperSlide
+              className="tortas-detail-view"
+            >
+              <Avatar
+                src={SecondImageDown}
+                variant="square"
+                sx={{
+                  width: '460px',
+                  height: '575px',
+                  border: 'solid #98C8BB',
+                }}
+              />
+            </SwiperSlide>
+            <SwiperSlide
+              className="tortas-detail-view"
+            >
+              <Avatar
+                src={ThirdImageDown}
+                variant="square"
+                sx={{
+                  width: '460px',
+                  height: '575px',
+                  border: 'solid #98C8BB',
+                }}
+              />
+            </SwiperSlide>
+            <SwiperSlide
+              className="tortas-detail-view"
+            >
+              <Avatar
+                src={FourthImageDown}
+                variant="square"
+                sx={{
+                  width: '460px',
+                  height: '575px',
+                  border: 'solid #98C8BB',
+                }}
+              />
+            </SwiperSlide>
+          </Swiper>
+        </Grid>
+      )}
       <Grid item xs={12} md={6}>
         <Grid
           container
@@ -296,14 +283,21 @@ const TravelCakes = ({matches}) => {
             gutterBottom
             variant="h5"
             align="center"
-            sx={{
+            sx={matches ? ({
+              fontFamily: 'BozonBold',
+              fontSize: '17px',
+              fontWeight: 'bold',
+              lineHeight: '24px',
+              marginBottom: '8px',
+              marginTop: '32px',
+            }):({
               fontFamily: 'BozonBold',
               fontSize: '17px',
               fontWeight: 'bold',
               lineHeight: '18px',
               marginBottom: '8px',
               marginTop: '40px',
-            }}
+            })}
           >
                 ¡Convertimos tus deseos en realidad personalizando tu torta!
           </Typography>
@@ -312,14 +306,21 @@ const TravelCakes = ({matches}) => {
             gutterBottom
             variant="h5"
             align="r"
-            sx={{
+            sx={matches ? ({
+              fontFamily: 'BozonRegular',
+              fontSize: '16px',
+              lineHeight: '24px',
+              marginBottom: '16px',
+              marginTop: '8px',
+              width: '100%',
+            }):({
               fontFamily: 'BozonRegular',
               fontSize: '16px',
               lineHeight: '18px',
               marginBottom: '8px',
               marginTop: '8px',
               width: '95%',
-            }}
+            })}
           >
                 Si ya tienes un diseño en mente, realiza tu pedido especificando cómo te gustaría que sea la decoración. Además, elige una opción de bizcocho y uno o dos rellenos de entre las opciones 2 y 3.
           </Typography>
@@ -397,8 +398,8 @@ const TravelCakes = ({matches}) => {
   );
 };
 
-TravelCakes.propTypes = {
+Tortas.propTypes = {
   matches: PropTypes.bool,
 };
 
-export default TravelCakes;
+export default Tortas;

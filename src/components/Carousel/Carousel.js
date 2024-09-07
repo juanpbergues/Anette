@@ -11,9 +11,9 @@ const Carousel = ({matches}) => {
   return (
     <div className={defaultClassName}>
       {!matches ? (
-        <WebviewCarousel matches={matches}/>
+        <WebviewCarousel/>
         ):(
-        <MobileCarousel matches={matches}/>
+        <MobileCarousel/>
         )}
     </div>
   );

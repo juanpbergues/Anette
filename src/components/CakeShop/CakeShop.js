@@ -1,16 +1,16 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Typography,
   Grid,
 } from '@mui/material';
-import {Swiper, SwiperSlide} from 'swiper/react';
-import {EffectCards, Autoplay} from 'swiper';
+
 import './cake-shop.scss';
 import CustomCard from '../Card/CustomCard';
 import * as Routes from '../../constants/routes';
 
 import 'swiper/css/autoplay';
+import MobileCakeShop from './MobileCakeShop/MobileCakeShop';
 
 const CakeShop = ({matches}) => {
   const defaultClassName = matches ? 'cake-shop-mobile' : 'cake-shop';
@@ -47,8 +47,6 @@ const CakeShop = ({matches}) => {
       to: Routes.TORTAS_VITRINA,
     },
   ];
-
-  const [reverse, setReverse] = useState(false);
 
   const getCardsStyles = (index) => {
     if (index === 0 || index === 3) {
@@ -102,54 +100,7 @@ const CakeShop = ({matches}) => {
               ))}
             </>
           ) : (
-            <Grid
-              item
-              xs={12}
-              className="card-container"
-              spacing={0}
-            >
-              <Swiper
-                loop={true}
-                effect={'cards'}
-                grabCursor={true}
-                modules={[EffectCards, Autoplay]}
-                autoplay={{
-                  'delay': 3000,
-                  'disableOnInteraction': false,
-                  'pauseOnMouseEnter': false,
-                  'stopOnLastSlide': false,
-                  'waitForTransition': true,
-                  'reverseDirection': reverse,
-                }}
-                cardsEffect={{
-                  perSlideOffset: 8,
-                  perSlideRotate: 2,
-                  rotate: true,
-                  slideShadows: false,
-                }}
-                onReachEnd={()=> setReverse(true)}
-                onActiveIndexChange={(swiper)=>{
-                  if (swiper.activeIndex === 0 && reverse) {
-                    setReverse(false);
-                  }
-                }}
-              >
-                {cards.map((card) => (
-                  <SwiperSlide style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                  }}
-                  key={card.id}
-                  >
-                    <CustomCard
-                      id={card.id}
-                      title={card.title}
-                      to={card.to}
-                    />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </Grid>
+            <MobileCakeShop cards={cards} matches={matches} />
           )}
         </Grid>
       </div>
@@ -158,7 +109,7 @@ const CakeShop = ({matches}) => {
 };
 
 CakeShop.propTypes = {
-  matches: PropTypes.string,
+  matches: PropTypes.bool,
 };
 
 export default CakeShop;

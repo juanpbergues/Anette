@@ -7,7 +7,6 @@ import {
 } from '@mui/material';
 import DetailView from '../../components/DetailView/DetailView';
 import ImageTop from '../../assets/annete-travel-cake-detail-1.jpg';
-import ImageTopMobile from '../../assets/annete-travel-cake-detail-sup-mobile.jpg';
 import ImageDown from '../../assets/annete-travel-cake-detail-2.jpg';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
@@ -50,9 +49,10 @@ const TravelCakes = ({matches}) => {
     <DetailView
       matches={matches}
       title="TRAVEL CAKES"
-      imageTop={matches ? ImageTopMobile : ImageTop}
+      imageTop={ImageTop}
       imageDown={ImageDown}
       show
+      id="travel-cakes"
     >
       <Grid item xs={12} md={6}>
         <Typography

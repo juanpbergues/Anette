@@ -53,6 +53,7 @@ const TartasClasicas = ({matches}) => {
       imageTop={matches ? ImageTopMobile : ImageTop}
       imageDown={ImageDown}
       show
+      id="tartas-clasicas"
     >
       <Grid item xs={12} md={6}>
         <Typography

@@ -116,7 +116,10 @@ const CustomAppBar = ({matches}) => {
                       color: '#98C8BB',
                       fontWeight: 'bold',
                     }}
-                  onClick={() => setPrimary('nosotros')}
+                  onClick={() => {
+                    setPrimary('nosotros');
+                    setSecondary('');
+                  }}
                 >
                   NOSOTROS
                 </Button>
@@ -131,7 +134,10 @@ const CustomAppBar = ({matches}) => {
                       color: '#98C8BB',
                       fontWeight: 'bold',
                     }}
-                  onClick={() => setPrimary('contacto')}
+                  onClick={() => {
+                    setPrimary('contacto');
+                    setSecondary('');
+                  }}
                 >
                   CONTACTO
                 </Button>
@@ -188,7 +194,7 @@ const CustomAppBar = ({matches}) => {
                             color="secondary"
                             sx={
                               (
-                                openPatisserie ||
+                                openPatisserie &&
                                 primary === 'patisserie'
                               ) ? {
                                 fontFamily: 'BozonBold',

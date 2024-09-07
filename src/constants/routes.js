@@ -5,3 +5,4 @@ export const TORTAS_VITRINA = '/tortas-vitrina';
 export const TARTAS_CLASICAS = '/tartas-clasicas';
 export const TRAVEL_CAKES = '/travel-cakes';
 export const COOKIES = '/cookies';
+export const TERMS_AND_CONDITIONS = '/terms-and-conditions';

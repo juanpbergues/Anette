@@ -129,6 +129,7 @@ const Footer = ({matches}) => {
                       href={`${Routes.HOME}#nosotros`}
                       onClick={() => {
                         setPrimary('nosotros');
+                        setSecondary('');
                       }}
                     >
                       NOSOTROS
@@ -140,12 +141,28 @@ const Footer = ({matches}) => {
                       href={`${Routes.HOME}#contacto`}
                       onClick={() => {
                         setPrimary('contacto');
+                        setSecondary('');
                       }}
                     >
                       CONTACTO
                     </Link>
                   </div>
                 </div>
+              </Grid>
+              <Grid item md={12} xs={12} style={{alignSelf: 'start'}}>
+                <Link
+                  className="link-section"
+                  href={`${Routes.TERMS_AND_CONDITIONS}`}
+                >
+                  TÉRMINOS Y CONDICIONES
+                </Link>
+              </Grid>
+              <Grid item md={12} xs={12} style={{alignSelf: 'start'}}>
+                <hr style={{
+                  marginTop: '20px',
+                  width: '100%',
+                  color: '#FAFAFA',
+                }} />
               </Grid>
               <Grid item md={12} xs={12} style={{alignSelf: 'start'}}>
                 <Typography
