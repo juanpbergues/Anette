@@ -27,45 +27,55 @@ import './app.scss';
 
 const App = () => {
   const matches = useMediaQuery((theme) => theme.breakpoints.down('md'));
+  const fullScreen = useMediaQuery((theme) => theme.breakpoints.up('xl'));
   return (
     <div className="app">
-      <CustomAppBar matches={matches} />
+      <CustomAppBar matches={matches} fullScreen={fullScreen} />
       <Routes>
         <Route
           path={RoutesNames.HOME}
-          element={<Home
-            matches={matches} />}
+          element={
+            <Home
+              matches={matches}
+              fullScreen={fullScreen}
+            />
+          }
         />
         <Route
           path={RoutesNames.MACARONS}
-          element={<Macarons matches={matches} />}
+          element={<Macarons matches={matches} fullScreen={fullScreen} />}
         />
         <Route
           path={RoutesNames.COOKIES}
-          element={<Cookies matches={matches} />}
+          element={<Cookies matches={matches} fullScreen={fullScreen} />}
         />
         <Route
           path={RoutesNames.TARTAS_CLASICAS}
-          element={<TartasClasicas matches={matches} />}
+          element={<TartasClasicas matches={matches} fullScreen={fullScreen} />}
         />
         <Route
           path={RoutesNames.TORTAS_VITRINA}
-          element={<TartasVitrina matches={matches} />}
+          element={<TartasVitrina matches={matches} fullScreen={fullScreen} />}
         />
         <Route
           path={RoutesNames.TRAVEL_CAKES}
-          element={<TravelCakes matches={matches} />}
+          element={<TravelCakes matches={matches} fullScreen={fullScreen} />}
         />
         <Route
           path={RoutesNames.TORTAS}
-          element={<Tortas matches={matches} />}
+          element={<Tortas matches={matches} fullScreen={fullScreen} />}
         />
         <Route
           path={RoutesNames.TERMS_AND_CONDITIONS}
-          element={<TermsAndConditions matches={matches} />}
+          element={
+            <TermsAndConditions
+              matches={matches}
+              fullScreen={fullScreen}
+            />
+          }
         />
       </Routes>
-      <Footer matches={matches} />
+      <Footer matches={matches} fullScreen={fullScreen} />
       {/* <Grid
         style={{
           backgroundColor: '#4B4B4B',

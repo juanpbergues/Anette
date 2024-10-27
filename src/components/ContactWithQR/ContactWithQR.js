@@ -16,8 +16,19 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 
-const ContactWithQR = ({matches}) => {
-  const defaultClassName = matches ? 'contact-with-qr-mobile' : 'contact-with-qr';
+const ContactWithQR = ({matches, fullScreen}) => {
+  const getDefaultClassName = () => {
+    if (matches) {
+      return 'contact-with-qr-mobile';
+    }
+    if (fullScreen) {
+      return 'contact-with-qr-full-screen';
+    }
+    return 'contact-with-qr';
+  };
+
+  const defaultClassName = getDefaultClassName();
+
   return (
     <>
       {matches ? (
@@ -225,9 +236,13 @@ const ContactWithQR = ({matches}) => {
                 <Typography
                   align="left"
                   color="secondary"
-                  sx={{
+                  sx={fullScreen ? {
                     fontFamily: 'Chequersdemo',
                     fontSize: '30px',
+                    marginBottom: '10px',
+                  }:{
+                    fontFamily: 'Chequersdemo',
+                    fontSize: '26px',
                     marginBottom: '10px',
                   }}
                 >
@@ -254,11 +269,16 @@ const ContactWithQR = ({matches}) => {
                     <Typography
                       align="left"
                       color="secondary"
-                      sx={{
+                      sx={fullScreen ? {
                         fontFamily: 'BozonRegular',
                         fontSize: '18px',
                         marginBottom: '10px',
                         maxWidth: '520px',
+                      }:{
+                        fontFamily: 'BozonRegular',
+                        fontSize: '14px',
+                        marginBottom: '10px',
+                        maxWidth: '400px',
                       }}
                     >
                       ¡Estamos aquí para ayudarte!
@@ -276,25 +296,35 @@ const ContactWithQR = ({matches}) => {
                     }}
                   >
                     <IconButton
-                      sx={{
+                      sx={fullScreen ? {
                         width: '72px',
                         height: '72px',
                         border: '3px solid #98c8bb',
+                      }:{
+                        width: '50px',
+                        height: '50px',
+                        border: '2px solid #98c8bb',
                       }}
                       href="mailto:annete.patisserie@gmail.com"
                     >
                       <MailOutlineIcon
-                        fontSize='large'
+                        fontSize={fullScreen ? 'large' : 'medium'}
                         sx={{
                           color: '#98c8bb',
                         }}
                       />
                     </IconButton>
                     <Link
-                      sx={{
+                      sx={fullScreen ? {
                         marginLeft: '15px',
                         fontFamily: 'BozonRegular',
                         fontSize: '18px',
+                        color: '#98c8bb',
+                        fontWeight: '700',
+                      }:{
+                        marginLeft: '15px',
+                        fontFamily: 'BozonRegular',
+                        fontSize: '14px',
                         color: '#98c8bb',
                         fontWeight: '700',
                       }}
@@ -315,26 +345,36 @@ const ContactWithQR = ({matches}) => {
                     }}
                   >
                     <IconButton
-                      sx={{
+                      sx={fullScreen ? {
                         width: '72px',
                         height: '72px',
                         border: '3px solid #98c8bb',
+                      }:{
+                        width: '50px',
+                        height: '50px',
+                        border: '2px solid #98c8bb',
                       }}
                       href="https://instagram.com/annete_lafolieduchocolat"
                       target="_blank"
                     >
                       <InstagramIcon
-                        fontSize='large'
+                        fontSize={fullScreen ? 'large' : 'medium'}
                         sx={{
                           color: '#98c8bb',
                         }}
                       />
                     </IconButton>
                     <Link
-                      sx={{
+                      sx={fullScreen ? {
                         marginLeft: '15px',
                         fontFamily: 'BozonRegular',
                         fontSize: '18px',
+                        color: '#98c8bb',
+                        fontWeight: '700',
+                      }:{
+                        marginLeft: '15px',
+                        fontFamily: 'BozonRegular',
+                        fontSize: '14px',
                         color: '#98c8bb',
                         fontWeight: '700',
                       }}
@@ -356,26 +396,36 @@ const ContactWithQR = ({matches}) => {
                     }}
                   >
                     <IconButton
-                      sx={{
+                      sx={fullScreen ? {
                         width: '72px',
                         height: '72px',
                         border: '3px solid #98c8bb',
+                      }:{
+                        width: '50px',
+                        height: '50px',
+                        border: '2px solid #98c8bb',
                       }}
                       href="https://wa.me/56954531193?text=Hola%20Ana!"
                       target="_blank"
                     >
                       <WhatsAppIcon
-                        fontSize='large'
+                        fontSize={fullScreen ? 'large' : 'medium'}
                         sx={{
                           color: '#98c8bb',
                         }}
                       />
                     </IconButton>
                     <Link
-                      sx={{
+                      sx={fullScreen ? {
                         marginLeft: '15px',
                         fontFamily: 'BozonRegular',
                         fontSize: '18px',
+                        color: '#98c8bb',
+                        fontWeight: '700',
+                      }:{
+                        marginLeft: '15px',
+                        fontFamily: 'BozonRegular',
+                        fontSize: '14px',
                         color: '#98c8bb',
                         fontWeight: '700',
                       }}
@@ -393,18 +443,26 @@ const ContactWithQR = ({matches}) => {
                   <Avatar
                     src={Image}
                     variant="square"
-                    sx={{
+                    sx={fullScreen ? {
                       width: '300px',
                       height: '310px',
+                    }:{
+                      width: '240px',
+                      height: '250px',
                     }}
                   />
                 </div>
                 <Typography
                   align="center"
                   color="secondary"
-                  sx={{
+                  sx={fullScreen ? {
                     fontFamily: 'BozonBold',
                     fontSize: '18px',
+                    marginBottom: '10px',
+                    fontWeight: '700',
+                  }:{
+                    fontFamily: 'BozonBold',
+                    fontSize: '16px',
                     marginBottom: '10px',
                     fontWeight: '700',
                   }}
@@ -422,6 +480,7 @@ const ContactWithQR = ({matches}) => {
 
 ContactWithQR.propTypes = {
   matches: PropTypes.bool,
+  fullScreen: PropTypes.bool,
 };
 
 export default ContactWithQR;

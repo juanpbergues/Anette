@@ -1,28 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Avatar from '@mui/material/Avatar';
 
-const Page = ({image, matches}) => {
+const Page = ({
+  image,
+  fullScreen,
+}) => {
   return (
-    <Avatar
+    <img
       src={image}
-      variant="square"
-      sx={!matches ? ({
+      style={fullScreen ? {
         'width': '1020px',
         'height': '100%',
-      }):(
-        {
-          'width': '100%',
-          'height': '50vh',
-        }
-      )}
+        'aspectRatio': '4 / 3',
+      }:{
+        'maxWidth': '807px',
+        'height': '100%',
+        'aspectRatio': '3 / 2',
+      }}
     />
   );
 };
 
 Page.propTypes = {
   image: PropTypes.string,
-  matches: PropTypes.bool,
+  fullScreen: PropTypes.bool,
 };
 
 export default Page;

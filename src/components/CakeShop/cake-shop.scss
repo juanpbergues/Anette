@@ -4,6 +4,41 @@
     padding-bottom: 60px;
     
     .cake-shop-container {
+        max-width: 807px;
+        
+        .title {
+            font-family: "Chequersdemo";
+            font-size: 26px;
+            height: 10vh;
+            align-content: end;
+            padding-bottom: 10px;
+        }
+        
+        .card-container {
+            &-center {
+                display: flex;
+                justify-content: center;
+            }
+
+            &-end {
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            &-start {
+                display: flex;
+                justify-content: flex-start;
+            }
+        }
+    }
+}
+
+.cake-shop-full-screen-section {
+    display: flex;
+    place-content: center;
+    padding-bottom: 60px;
+    
+    .cake-shop-full-screen-container {
         max-width: 1020px;
         
         .title {

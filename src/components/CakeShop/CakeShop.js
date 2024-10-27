@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Typography,
   Grid,
+  useMediaQuery,
 } from '@mui/material';
 
 import './cake-shop.scss';
@@ -12,8 +13,21 @@ import * as Routes from '../../constants/routes';
 import 'swiper/css/autoplay';
 import MobileCakeShop from './MobileCakeShop/MobileCakeShop';
 
-const CakeShop = ({matches}) => {
-  const defaultClassName = matches ? 'cake-shop-mobile' : 'cake-shop';
+const CakeShop = ({matches, fullScreen}) => {
+  const mediumScreen = useMediaQuery(
+      (theme) => theme.breakpoints.between('md', 'lg'),
+  );
+  const getDefaultClassName = () => {
+    if (matches) {
+      return 'cake-shop-mobile';
+    }
+    if (fullScreen) {
+      return 'cake-shop-full-screen';
+    }
+    return 'cake-shop';
+  };
+
+  const defaultClassName = getDefaultClassName();
 
   const cards = [
     {
@@ -49,6 +63,9 @@ const CakeShop = ({matches}) => {
   ];
 
   const getCardsStyles = (index) => {
+    if (mediumScreen) {
+      return 'center';
+    }
     if (index === 0 || index === 3) {
       return 'start';
     }
@@ -68,41 +85,50 @@ const CakeShop = ({matches}) => {
         >
           PASTELERIA PREMIUM {matches && <br />}NATURAL
         </Typography>
-        <Grid
-          container
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-          sx={matches ? {
-            height: '40vh',
-          }:{
-            height: '90vh',
-          }}
-        >
-          {!matches ? (
-            <>
-              {cards.map((card, index) => (
-                <Grid
-                  item
-                  lg={4}
-                  md={6}
-                  xs={12}
-                  className={`card-container-${getCardsStyles(index)}`}
-                  spacing={0}
-                  key={card.id}
-                >
-                  <CustomCard
-                    id={card.id}
-                    title={card.title}
-                    to={card.to}
-                  />
-                </Grid>
-              ))}
-            </>
-          ) : (
+        {matches ? (
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            sx={{
+              height: '40vh',
+            }}
+          >
             <MobileCakeShop cards={cards} matches={matches} />
-          )}
-        </Grid>
+          </Grid>
+        ) : (
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            sx={!mediumScreen && {
+              height: '90vh',
+            }}
+          >
+            {cards.map((card, index) => (
+              <Grid
+                item
+                lg={4}
+                md={6}
+                xs={12}
+                className={`card-container-${getCardsStyles(index)}`}
+                spacing={0}
+                key={card.id}
+              >
+                <CustomCard
+                  id={card.id}
+                  title={card.title}
+                  to={card.to}
+                  mediumScreen={mediumScreen}
+                  fullScreen={fullScreen}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        )}
+
       </div>
     </div>
   );
@@ -110,6 +136,7 @@ const CakeShop = ({matches}) => {
 
 CakeShop.propTypes = {
   matches: PropTypes.bool,
+  fullScreen: PropTypes.bool,
 };
 
 export default CakeShop;

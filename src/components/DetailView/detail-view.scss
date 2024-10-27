@@ -12,9 +12,97 @@
 
     .title {
         margin-top: 60px;
+        font-family: "Chequersdemo";
+        font-size: 26px;
+    }
+
+    .subtitle {
+        font-family: 'BozonRegular';
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 32px;
+    }
+
+    .description {
+        font-family: 'BozonRegular';
+        font-size: 14px;
+        line-height: 18px;
+        margin-bottom: 40px;
+    }
+
+    .info-container-tortas {
+        margin-bottom: 60px;
+        display: inline-flex;
+
+        .secondary-title {
+            margin-bottom: 20px;
+        }
+
+        .v-line-container {
+            display: flex;
+            justify-content: center;
+
+            .v-line {
+                border-left: solid #708DC7;
+                height: 575px;
+            }
+        }
+    }
+
+    .info-container-other {
+        margin-bottom: 60px;
+        display: inline-flex;
+
+        .secondary-title {
+            margin-bottom: 20px;
+        }
+
+        .v-line-container {
+            display: flex;
+            justify-content: center;
+
+            .v-line {
+                border-left: solid #708DC7;
+                height: 575px;
+            }
+        }
+    }
+}
+
+.detail-view-full-screen-section {
+    .detail-view-full-screen-container {
+        background: linear-gradient(to bottom, white 0%, white 50%, #98C8BB 50%, #98C8BB 100%);
+        display: flex;
+        justify-content: center;
+        padding-bottom: 60px;
+
+        .image-container {
+            height: 90%;
+        }
+    }
+
+    .title {
+        margin-top: 60px;
         margin-bottom: 60px;
         font-family: "Chequersdemo";
         font-size: 30px;
+    }
+
+
+    .subtitle {
+        font-family: 'BozonRegular';
+        font-size: 18px;
+        line-height: 24px;
+        margin-top: 32px;
+        margin-left: 8px;
+    }
+
+    .description {
+        font-family: 'BozonRegular';
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 40px;
+        margin-left: 8px;
     }
 
     .info-container-tortas {
@@ -74,6 +162,20 @@
         margin-bottom: 60px;
         font-family: "Chequersdemo";
         font-size: 26px;
+    }
+
+    .subtitle {
+        font-family: 'BozonRegular';
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 32px;
+    }
+
+    .description {
+        font-family: 'BozonRegular';
+        font-size: 14px;
+        line-height: 18px;
+        margin-bottom: 40px;
     }
 
     .title-mobile {

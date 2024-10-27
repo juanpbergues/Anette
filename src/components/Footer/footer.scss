@@ -1,75 +1,150 @@
-.footer-section {
+.footer {
     background-color: #708DC7;
     display: flex;
     justify-content: center;
-    padding-top: 35px;
-    padding-bottom: 35px;
 
-    .footer-item-container {
-        align-self: baseline;
+    &-section {
+        width: 807px;
+        padding-top: 35px;
+        padding-bottom: 35px;
 
-        @media screen and (max-width: 992px) {
-            margin-top: 40px;
+        .footer-item-container {
+            align-self: baseline;
         }
-    }
 
-    .logo-container {
-        display: flex;
-        justify-content: flex-start;
+        .logo-container {
+            display: flex;
+            justify-content: flex-start;
 
-        .icon-button {
-            color: #FAFAFA
+            .icon-button {
+                color: #FAFAFA
+            }
         }
-    }
 
-    .footer-title {
-        font-size: 12px;
-        font-family: 'BozonRegular';
-        font-weight: bold;
-        line-height: 18px;
-    }
+        .footer-title {
+            font-size: 12px;
+            font-family: 'BozonRegular';
+            font-weight: bold;
+            line-height: 18px;
+        }
 
-    .footer-subtitle {
-        margin-top: 20px;
-        font-size: 10px;
-        font-family: 'BozonRegular';
-        font-weight: bold;
-        line-height: 18px;
-    }
+        .footer-subtitle {
+            margin-top: 20px;
+            font-size: 10px;
+            font-family: 'BozonRegular';
+            font-weight: bold;
+            line-height: 18px;
+        }
 
-    .footer-text {
-        font-size: 12px;
-        font-family: 'BozonRegular';
-        font-weight: normal;
-        line-height: 18px;
-        margin-top: 10px;
-    }
+        .footer-text {
+            font-size: 12px;
+            font-family: 'BozonRegular';
+            font-weight: normal;
+            line-height: 18px;
+            margin-top: 10px;
+        }
 
-    .link-section {
-        font-size: 12px;
-        font-family: 'BozonRegular';
-        font-weight: bold;
-        line-height: 18px;
-        color: #FAFAFA;
-        text-decoration: none;
-        cursor: pointer;
-    }
+        .link-section {
+            font-size: 12px;
+            font-family: 'BozonRegular';
+            font-weight: bold;
+            line-height: 18px;
+            color: #FAFAFA;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-    .link-section::after {
-        content: '';
-        width: 0px;
-        height: 2px;
-        display: flex;
-        background: #FAFAFA;
-        transition: 300ms;
-    }
+        .link-section::after {
+            content: '';
+            width: 0px;
+            height: 2px;
+            display: flex;
+            background: #FAFAFA;
+            transition: 300ms;
+        }
 
-    .link-section:hover::after {
-        width: 100%;
+        .link-section:hover::after {
+            width: 100%;
+        }
     }
 }
 
-.footer-section-mobile {
+.footer-full-screen {
+    background-color: #708DC7;
+    display: flex;
+    justify-content: center;
+
+    &-section {
+        width: 1020px;
+        padding-top: 35px;
+        padding-bottom: 35px;
+
+        .footer-item-container {
+            align-self: baseline;
+
+            @media screen and (max-width: 992px) {
+                margin-top: 40px;
+            }
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: flex-start;
+
+            .icon-button {
+                color: #FAFAFA
+            }
+        }
+
+        .footer-title {
+            font-size: 12px;
+            font-family: 'BozonRegular';
+            font-weight: bold;
+            line-height: 18px;
+        }
+
+        .footer-subtitle {
+            margin-top: 20px;
+            font-size: 10px;
+            font-family: 'BozonRegular';
+            font-weight: bold;
+            line-height: 18px;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            font-family: 'BozonRegular';
+            font-weight: normal;
+            line-height: 18px;
+            margin-top: 10px;
+        }
+
+        .link-section {
+            font-size: 12px;
+            font-family: 'BozonRegular';
+            font-weight: bold;
+            line-height: 18px;
+            color: #FAFAFA;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .link-section::after {
+            content: '';
+            width: 0px;
+            height: 2px;
+            display: flex;
+            background: #FAFAFA;
+            transition: 300ms;
+        }
+
+        .link-section:hover::after {
+            width: 100%;
+        }
+    }
+}
+
+.footer-mobile {
     background-color: #708DC7;
     display: flex;
     justify-content: center;

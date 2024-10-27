@@ -3,6 +3,22 @@
     place-content: center;
 
     .appbar {
+        max-width: 855px;
+        height: 15vh;
+        justify-content: center;
+
+        .button {
+            font-size: 16px;
+            font-family: "BozonRegular";
+            line-height: 20px;
+        }
+
+        .with-margin {
+            margin-right: 30px;
+        }
+    }
+
+    .appbar-full-screen {
         max-width: 1072px;
         height: 15vh;
         justify-content: center;

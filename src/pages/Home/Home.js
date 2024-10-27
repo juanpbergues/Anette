@@ -6,7 +6,7 @@ import AboutMe from '../../components/AboutMe/AboutMe';
 import ContactWithQR from '../../components/ContactWithQR/ContactWithQR';
 import {useNavigationStore} from '../../stores/useNavigationStore';
 
-const Home = ({matches}) => {
+const Home = ({matches, fullScreen}) => {
   const primary = useNavigationStore((state) => state.primary);
   useEffect(() => {
     if (primary) {
@@ -21,16 +21,17 @@ const Home = ({matches}) => {
 
   return (
     <>
-      <Carousel matches={matches} />
-      <CakeShop matches={matches} />
-      <AboutMe matches={matches} />
-      <ContactWithQR matches={matches} />
+      <Carousel matches={matches} fullScreen={fullScreen} />
+      <CakeShop matches={matches} fullScreen={fullScreen} />
+      <AboutMe matches={matches} fullScreen={fullScreen} />
+      <ContactWithQR matches={matches} fullScreen={fullScreen} />
     </>
   );
 };
 
 Home.propTypes = {
-  matches: PropTypes.string,
+  matches: PropTypes.bool,
+  fullScreen: PropTypes.bool,
 };
 
 export default Home;

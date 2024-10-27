@@ -9,6 +9,7 @@ const CustomButton = ({
   fullWidth = false,
   disabled = false,
   variant = 'contained',
+  marginTop = '10px',
 }) => {
   return (
     <Button
@@ -16,7 +17,7 @@ const CustomButton = ({
       variant={variant}
       sx={{
         'fontFamily': 'BozonBold',
-        'marginTop': '10px',
+        'marginTop': marginTop,
         'borderRadius': '0px',
         'color': 'white',
         'backgroundColor': '#98C8BB',
@@ -42,6 +43,7 @@ CustomButton.propTypes = {
   fullWidth: PropTypes.bool,
   disabled: PropTypes.bool,
   variant: PropTypes.string,
+  marginTop: PropTypes.string,
 };
 
 export default CustomButton;

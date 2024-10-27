@@ -12,8 +12,18 @@ import {
 
 import './custom-card.scss';
 
-const CustomCard = ({title, id, to, matches}) => {
-  const defaultClassName = matches ? 'custom-card-mobile' : 'custom-card';
+const CustomCard = ({title, id, to, matches, fullScreen, mediumScreen}) => {
+  const getDefaultClassName = () => {
+    if (matches) {
+      return 'custom-card-mobile';
+    }
+    if (fullScreen) {
+      return 'custom-card-full-screen';
+    }
+    return 'custom-card';
+  };
+
+  const defaultClassName = getDefaultClassName();
 
   const setPrimary = useNavigationStore((state) => state.setPrimary);
   const setSecondary = useNavigationStore((state) => state.setSecondary);
@@ -23,7 +33,10 @@ const CustomCard = ({title, id, to, matches}) => {
     navigate(to);
   };
   return (
-    <div className={defaultClassName}>
+    <div
+      className={defaultClassName}
+      style={{marginTop: mediumScreen ? '30px' : '0'}}
+    >
       <Card sx={{
         borderRadius: 0,
         boxShadow: 0,
@@ -40,10 +53,14 @@ const CustomCard = ({title, id, to, matches}) => {
             <Typography
               color="secondary"
               variant="h5"
-              sx={{
+              sx={fullScreen ? {
                 fontFamily: 'Chequersdemo',
                 fontSize: '22px',
                 lineHeight: '25px',
+              } : {
+                fontFamily: 'Chequersdemo',
+                fontSize: '20px',
+                lineHeight: '24px',
               }}
             >
               {title}
@@ -60,6 +77,8 @@ CustomCard.propTypes = {
   title: PropTypes.string,
   to: PropTypes.string,
   matches: PropTypes.bool,
+  fullScreen: PropTypes.bool,
+  mediumScreen: PropTypes.bool,
 };
 
 export default CustomCard;

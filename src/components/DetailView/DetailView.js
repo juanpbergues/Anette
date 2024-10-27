@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import {
   Typography,
   Grid,
-  Avatar,
 } from '@mui/material';
 import {useLocation} from 'react-router';
 
@@ -27,10 +26,22 @@ const DetailView = ({
   imageDown,
   title,
   show,
-  separator,
   children,
+  fullScreen,
+  subtitle = '',
+  description = '',
 }) => {
-  const defaultClassName = matches ? 'detail-view-mobile' : 'detail-view';
+  const getDefaultClassName = () => {
+    if (matches) {
+      return 'detail-view-mobile';
+    }
+    if (fullScreen) {
+      return 'detail-view-full-screen';
+    }
+    return 'detail-view';
+  };
+
+  const defaultClassName = getDefaultClassName();
 
   const location = useLocation();
 
@@ -96,53 +107,79 @@ const DetailView = ({
         <div className={`${defaultClassName}-section`}>
           <div className={`${defaultClassName}-container`}>
             <div className="image-container">
-              <Page image={imageTop} matches={matches} />
+              <Page image={imageTop} fullScreen={fullScreen} />
             </div>
           </div>
-          <Typography
-            color="secondary"
-            gutterBottom
-            variant="h4"
-            align="center"
-            className="title"
-          >
-            {title}
-          </Typography>
+          <div style={{width: '100%', display: 'flex', placeContent: 'center'}}>
+            <div
+              style={
+                {width: fullScreen ? '1020px' : '807px', marginLeft: '16px'}
+              }
+            >
+              <Typography
+                color="secondary"
+                gutterBottom
+                variant="h4"
+                align="center"
+                className="title"
+                sx={{marginBottom: !description ? '40px' : '0'}}
+              >
+                {title}
+              </Typography>
+              {subtitle && (
+                <Typography
+                  color="secondary"
+                  gutterBottom
+                  variant="h4"
+                  align="left"
+                  className="subtitle"
+                >
+                  {subtitle}
+                </Typography>
+              )}
+              {description && (
+                <Typography
+                  color="secondary"
+                  gutterBottom
+                  variant="h4"
+                  align="left"
+                  className="description"
+                >
+                  {description}
+                </Typography>
+              )}
+            </div>
+          </div>
           <Grid
             container
             direction="row"
             justifyContent="center"
             alignItems="center"
             className={`info-container-${id === 'tortas' ? 'tortas' : 'other'}`}
-            sx={matches ? {
-              width: '100%',
-              paddingLeft: '16px',
-              paddingRight: '16px',
-            } : {
+            sx={fullScreen ? {
               width: '1024px',
+            } : {
+              width: '807px',
             }}
           >
             {show && (
               <Grid item xs={12} md={6}>
-                <Avatar
+                <img
                   src={imageDown}
-                  variant="square"
-                  sx={!matches ? {
+                  style={fullScreen ? {
                     width: '460px',
-                    height: '575px',
+                    height: '100%',
                     border: 'solid #98C8BB',
-                    objectFit: 'fill',
+                    aspectRatio: '3 / 4',
                   } : {
-                    width: '98%',
-                    height: '50vh',
+                    width: '380px',
+                    height: '100%',
+                    aspectRatio: '3 / 4',
                     border: 'solid #98C8BB',
                   }}
                 />
               </Grid>
             )}
-            {separator && (<Grid item md={1} className="v-line-container">
-              {!matches && <div className="v-line" />}
-            </Grid>)}
             {children}
           </Grid>
         </div>
@@ -160,6 +197,9 @@ DetailView.propTypes = {
   title: PropTypes.string,
   show: PropTypes.bool,
   separator: PropTypes.bool,
+  fullScreen: PropTypes.bool,
+  subtitle: PropTypes.string,
+  description: PropTypes.string,
 };
 
 export default DetailView;

@@ -3,9 +3,11 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 import {
+  Divider,
   Grid,
+  List,
+  ListItem,
   Typography,
-  Avatar,
 } from '@mui/material';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {
@@ -19,15 +21,16 @@ import DetailView from '../../components/DetailView/DetailView';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
 // Desktop images
-import ImageTop from '../../assets/annete-tortas-detail-sup.jpg';
+import ImageTop from '../../assets/annete-detail-banner-tortas-normal.jpg';
+import ImageTopFull from '../../assets/annete-detail-banner-tortas-full.jpg';
 import FirstImageDown
-  from '../../assets/annete-tortas-detail-first-inferior.jpg';
+  from '../../assets/annete-detail-inferior-tortas-1.jpg';
 import SecondImageDown
-  from '../../assets/annete-tortas-detail-second-inferior.jpg';
+  from '../../assets/annete-detail-inferior-tortas-2.jpg';
 import ThirdImageDown
-  from '../../assets/annete-tortas-detail-third-inferior.jpg';
+  from '../../assets/annete-detail-inferior-tortas-3.jpg';
 import FourthImageDown
-  from '../../assets/annete-tortas-detail-fourth-inferior.jpg';
+  from '../../assets/annete-detail-inferior-tortas-4.jpg';
 
 import './tortas.scss';
 import 'swiper/css';
@@ -80,7 +83,7 @@ const content = {
         },
         {
           id: 7,
-          text: 'Almendras - Pistachos o Avellanas',
+          text: <>Almendras - Pistachos o<br /> Avellanas</>,
           color: '#98C8BB',
         },
         {
@@ -100,7 +103,7 @@ const content = {
       items: [
         {
           id: 1,
-          text: 'Chocolate negro, blanco o leche',
+          text: <>Chocolate negro, <br />blanco o leche</>,
           color: '#98C8BB',
         },
         {
@@ -125,7 +128,7 @@ const content = {
         },
         {
           id: 6,
-          text: 'Mango - Maracuyá',
+          text: <>Mango -<br /> Maracuyá</>,
           color: '#98C8BB',
         },
         {
@@ -180,7 +183,7 @@ const content = {
         },
         {
           id: 6,
-          text: 'Mango - Maracuya',
+          text: <>Mango -<br /> Maracuya</>,
           color: '#98C8BB',
         },
       ],
@@ -188,13 +191,16 @@ const content = {
   ],
 };
 
-const Tortas = ({matches}) => {
+const Tortas = ({matches, fullScreen}) => {
   return (
     <DetailView
       matches={matches}
       title="ARMA TU TORTA"
-      imageTop={ImageTop}
+      imageTop={fullScreen ? ImageTopFull : ImageTop}
       id="tortas"
+      fullScreen={fullScreen}
+      subtitle={!matches ? '¡Convertimos tus deseos en realidad personalizando tu torta!' : ''}
+      description={!matches ? 'Si ya tienes un diseño en mente, realiza tu pedido especificando cómo te gustaría que sea la decoración. Además, elige una opción de bizcocho y uno o dos rellenos de entre las opciones 2 y 3.' : ''}
     >
       {!matches && (
         <Grid item xs={12} md={6}>
@@ -218,12 +224,17 @@ const Tortas = ({matches}) => {
             <SwiperSlide
               className="tortas-detail-view"
             >
-              <Avatar
+              <img
                 src={FirstImageDown}
-                variant="square"
-                sx={{
+                style={fullScreen ? {
                   width: '460px',
-                  height: '575px',
+                  height: '100%',
+                  border: 'solid #98C8BB',
+                  aspectRatio: '3 / 4',
+                } : {
+                  width: '380px',
+                  height: '100%',
+                  aspectRatio: '3 / 4',
                   border: 'solid #98C8BB',
                 }}
               />
@@ -231,12 +242,17 @@ const Tortas = ({matches}) => {
             <SwiperSlide
               className="tortas-detail-view"
             >
-              <Avatar
+              <img
                 src={SecondImageDown}
-                variant="square"
-                sx={{
+                style={fullScreen ? {
                   width: '460px',
-                  height: '575px',
+                  height: '100%',
+                  border: 'solid #98C8BB',
+                  aspectRatio: '3 / 4',
+                } : {
+                  width: '380px',
+                  height: '100%',
+                  aspectRatio: '3 / 4',
                   border: 'solid #98C8BB',
                 }}
               />
@@ -244,12 +260,17 @@ const Tortas = ({matches}) => {
             <SwiperSlide
               className="tortas-detail-view"
             >
-              <Avatar
+              <img
                 src={ThirdImageDown}
-                variant="square"
-                sx={{
+                style={fullScreen ? {
                   width: '460px',
-                  height: '575px',
+                  height: '100%',
+                  border: 'solid #98C8BB',
+                  aspectRatio: '3 / 4',
+                } : {
+                  width: '380px',
+                  height: '100%',
+                  aspectRatio: '3 / 4',
                   border: 'solid #98C8BB',
                 }}
               />
@@ -257,12 +278,17 @@ const Tortas = ({matches}) => {
             <SwiperSlide
               className="tortas-detail-view"
             >
-              <Avatar
+              <img
                 src={FourthImageDown}
-                variant="square"
-                sx={{
+                style={fullScreen ? {
                   width: '460px',
-                  height: '575px',
+                  height: '100%',
+                  border: 'solid #98C8BB',
+                  aspectRatio: '3 / 4',
+                } : {
+                  width: '380px',
+                  height: '100%',
+                  aspectRatio: '3 / 4',
                   border: 'solid #98C8BB',
                 }}
               />
@@ -271,135 +297,363 @@ const Tortas = ({matches}) => {
         </Grid>
       )}
       <Grid item xs={12} md={6}>
-        <Grid
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="flex-start"
-          spacing={0}
-        >
-          <Typography
-            color="secondary"
-            gutterBottom
-            variant="h5"
-            align="center"
-            sx={matches ? ({
-              fontFamily: 'BozonBold',
-              fontSize: '17px',
-              fontWeight: 'bold',
-              lineHeight: '24px',
-              marginBottom: '8px',
-              marginTop: '32px',
-            }):({
-              fontFamily: 'BozonBold',
-              fontSize: '17px',
-              fontWeight: 'bold',
-              lineHeight: '18px',
-              marginBottom: '8px',
-              marginTop: '40px',
-            })}
+        {matches ? (
+          <Grid
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="flex-start"
+            spacing={0}
           >
-                ¡Convertimos tus deseos en realidad personalizando tu torta!
-          </Typography>
-          <Typography
-            color="secondary"
-            gutterBottom
-            variant="h5"
-            align="r"
-            sx={matches ? ({
-              fontFamily: 'BozonRegular',
-              fontSize: '16px',
-              lineHeight: '24px',
-              marginBottom: '16px',
-              marginTop: '8px',
-              width: '100%',
-            }):({
-              fontFamily: 'BozonRegular',
-              fontSize: '16px',
-              lineHeight: '18px',
-              marginBottom: '8px',
-              marginTop: '8px',
-              width: '95%',
-            })}
-          >
-                Si ya tienes un diseño en mente, realiza tu pedido especificando cómo te gustaría que sea la decoración. Además, elige una opción de bizcocho y uno o dos rellenos de entre las opciones 2 y 3.
-          </Typography>
-          {content.steps.map((step) => (
-            <Grid
-              item
-              xs={12}
-              md={4}
-              key={step.id}
-              sx={
-                step.id === 1 && matches ?
-                  {marginBottom: '20px', marginTop: '20px'} :
-                  {marginBottom: '20px', marginTop: '20px'}
-              }
+            <Typography
+              color="secondary"
+              gutterBottom
+              variant="h5"
+              align="center"
+              sx={{
+                fontFamily: 'BozonBold',
+                fontSize: '17px',
+                fontWeight: 'bold',
+                lineHeight: '24px',
+                marginBottom: '8px',
+                marginTop: '32px',
+              }}
             >
-              <Typography
-                color={step.color}
-                gutterBottom
-                variant="h3"
-                align="center"
-                sx={{
-                  fontFamily: 'BozonRegular',
-                  fontSize: '52px',
-                  fontWeight: 'normal',
-                  lineHeight: '48px',
-                }}
+              ¡Convertimos tus deseos en realidad personalizando tu torta!
+            </Typography>
+            <Typography
+              color="secondary"
+              gutterBottom
+              variant="h5"
+              align="r"
+              sx={{
+                fontFamily: 'BozonRegular',
+                fontSize: '16px',
+                lineHeight: '24px',
+                marginBottom: '16px',
+                marginTop: '8px',
+                width: '100%',
+              }}
+            >
+              Si ya tienes un diseño en mente, realiza tu pedido especificando cómo te gustaría que sea la decoración. Además, elige una opción de bizcocho y uno o dos rellenos de entre las opciones 2 y 3.
+            </Typography>
+            {content.steps.map((step) => (
+              <Grid
+                item
+                xs={12}
+                md={4}
+                key={step.id}
+                sx={{marginBottom: '20px', marginTop: '20px'}}
               >
-                {step.id}
-              </Typography>
-              <Typography
-                color={step.title.color}
-                gutterBottom
-                variant="h5"
-                align="center"
-                sx={{
-                  fontFamily: 'BozonBold',
-                  fontSize: '17px',
-                  fontWeight: 'bold',
-                  lineHeight: '18px',
-                }}
+                <Typography
+                  color={step.color}
+                  gutterBottom
+                  variant="h3"
+                  align="center"
+                  sx={{
+                    fontFamily: 'BozonRegular',
+                    fontSize: '52px',
+                    fontWeight: 'normal',
+                    lineHeight: '48px',
+                  }}
+                >
+                  {step.id}
+                </Typography>
+                <Typography
+                  color={step.title.color}
+                  gutterBottom
+                  variant="h5"
+                  align="center"
+                  sx={{
+                    fontFamily: 'BozonBold',
+                    fontSize: '17px',
+                    fontWeight: 'bold',
+                    lineHeight: '18px',
+                  }}
+                >
+                  {step.title.text}
+                </Typography>
+                {
+                  step.items.map((item) => (
+                    <Typography
+                      key={item.id}
+                      color={item.color}
+                      gutterBottom
+                      variant="h6"
+                      align="center"
+                      sx={{
+                        fontFamily: 'BozonRegular',
+                        fontSize: '16px',
+                        fontWeight: 'normal',
+                        lineHeight: '18px',
+                        marginTop: '15px',
+                      }}
+                    >
+                      {item.text}
+                    </Typography>
+                  ))
+                }
+              </Grid>
+            ))}
+            <List sx={{border: '2px solid #708DC7', marginTop: '16px', width: '100%'}}>
+              <ListItem sx={{justifyContent: 'center'}}>
+                <Typography
+                  color="secondary"
+                  gutterBottom
+                  variant="h6"
+                  align="center"
+                  sx={{
+                    fontFamily: 'BozonRegular',
+                    fontSize: '16px',
+                    fontWeight: 'normal',
+                    lineHeight: '18px',
+                  }}
+                >
+                      10-15 porciones desde $60.000
+                </Typography>
+              </ListItem>
+              <Divider component="li" color="secondary"/>
+              <ListItem sx={{justifyContent: 'center'}}>
+                <Typography
+                  color="secondary"
+                  gutterBottom
+                  variant="h6"
+                  align="center"
+                  sx={{
+                    fontFamily: 'BozonRegular',
+                    fontSize: '16px',
+                    fontWeight: 'normal',
+                    lineHeight: '18px',
+                  }}
+                >
+                      15-20 porciones desde $70.000
+                </Typography>
+              </ListItem>
+              <Divider component="li" color='#708DC7'/>
+              <ListItem sx={{justifyContent: 'center'}}>
+                <Typography
+                  color="secondary"
+                  gutterBottom
+                  variant="h6"
+                  align="center"
+                  sx={{
+                    fontFamily: 'BozonRegular',
+                    fontSize: '16px',
+                    fontWeight: 'normal',
+                    lineHeight: '18px',
+                  }}
+                >
+                      20-25 porciones desde $80.000
+                </Typography>
+              </ListItem>
+              <Divider component="li" color='#708DC7'/>
+              <ListItem sx={{justifyContent: 'center'}}>
+                <Typography
+                  color="secondary"
+                  gutterBottom
+                  variant="h6"
+                  align="center"
+                  sx={{
+                    fontFamily: 'BozonRegular',
+                    fontSize: '16px',
+                    fontWeight: 'normal',
+                    lineHeight: '18px',
+                  }}
+                >
+                      25-30 porciones desde $90.000
+                </Typography>
+              </ListItem>
+            </List>
+          </Grid>
+        ) : (
+          <Grid
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="flex-start"
+            spacing={0}
+          >
+            {content.steps.map((step) => (
+              <Grid
+                item
+                xs={12}
+                md={4}
+                key={step.id}
+                sx={{marginBottom: '20px', marginTop: '20px'}}
               >
-                {step.title.text}
-              </Typography>
-              {
-                step.items.map((item) => (
-                  <Typography
-                    key={item.id}
-                    color={item.color}
-                    gutterBottom
-                    variant="h6"
-                    align="center"
-                    sx={{
-                      fontFamily: 'BozonRegular',
-                      fontSize: '16px',
-                      fontWeight: 'normal',
-                      lineHeight: '18px',
-                      marginTop: '15px',
-                    }}
-                  >
-                    {item.text}
-                  </Typography>
-                ))
-              }
-            </Grid>
-          ))}
-          <CustomButton
-            href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20una%20Torta!"
-            size="large"
-            text="HAZ TU PEDIDO"
-            fullWidth={matches}
-          />
-        </Grid>
+                <Typography
+                  color={step.color}
+                  gutterBottom
+                  variant="h3"
+                  align="center"
+                  sx={fullScreen ? {
+                    fontFamily: 'BozonRegular',
+                    fontSize: '52px',
+                    fontWeight: 'normal',
+                    lineHeight: '48px',
+                  } : {
+                    fontFamily: 'BozonRegular',
+                    fontSize: '46px',
+                    fontWeight: 'normal',
+                    lineHeight: '42px',
+                  }}
+                >
+                  {step.id}
+                </Typography>
+                <Typography
+                  color={step.title.color}
+                  gutterBottom
+                  variant="h5"
+                  align="center"
+                  sx={fullScreen ? {
+                    fontFamily: 'BozonBold',
+                    fontSize: '17px',
+                    fontWeight: 'bold',
+                    lineHeight: '18px',
+                  } : {
+                    fontFamily: 'BozonBold',
+                    fontSize: '15px',
+                    fontWeight: 'bold',
+                    lineHeight: '16px',
+                    marginBottom: step.id === 1 || step.id === 3 ? '32px' : '0',
+                  }}
+                >
+                  {step.title.text}
+                </Typography>
+                {
+                  step.items.map((item) => (
+                    <Typography
+                      key={item.id}
+                      color={item.color}
+                      gutterBottom
+                      variant="h6"
+                      align="center"
+                      sx={fullScreen ? {
+                        fontFamily: 'BozonRegular',
+                        fontSize: '16px',
+                        fontWeight: 'normal',
+                        lineHeight: '18px',
+                        marginTop: '15px',
+                      } : {
+                        fontFamily: 'BozonRegular',
+                        fontSize: '14px',
+                        fontWeight: 'normal',
+                        lineHeight: '16px',
+                        marginTop: '15px',
+                      }}
+                    >
+                      {item.text}
+                    </Typography>
+                  ))
+                }
+              </Grid>
+            ))}
+            <List sx={{border: '2px solid #708DC7', marginTop: '15px'}}>
+              <ListItem>
+                <Typography
+                  color="secondary"
+                  gutterBottom
+                  variant="h6"
+                  align="center"
+                  sx={fullScreen ? {
+                    fontFamily: 'BozonRegular',
+                    fontSize: '16px',
+                    fontWeight: 'normal',
+                    lineHeight: '18px',
+                  } : {
+                    fontFamily: 'BozonRegular',
+                    fontSize: '14px',
+                    fontWeight: 'normal',
+                    lineHeight: '16px',
+                  }}
+                >
+                      10-15 porciones desde $60.000
+                </Typography>
+              </ListItem>
+              <Divider component="li" color="secondary"/>
+              <ListItem>
+                <Typography
+                  color="secondary"
+                  gutterBottom
+                  variant="h6"
+                  align="center"
+                  sx={fullScreen ? {
+                    fontFamily: 'BozonRegular',
+                    fontSize: '16px',
+                    fontWeight: 'normal',
+                    lineHeight: '18px',
+                  } : {
+                    fontFamily: 'BozonRegular',
+                    fontSize: '14px',
+                    fontWeight: 'normal',
+                    lineHeight: '16px',
+                  }}
+                >
+                      15-20 porciones desde $70.000
+                </Typography>
+              </ListItem>
+              <Divider component="li" color='#708DC7'/>
+              <ListItem>
+                <Typography
+                  color="secondary"
+                  gutterBottom
+                  variant="h6"
+                  align="center"
+                  sx={fullScreen ? {
+                    fontFamily: 'BozonRegular',
+                    fontSize: '16px',
+                    fontWeight: 'normal',
+                    lineHeight: '18px',
+                  } : {
+                    fontFamily: 'BozonRegular',
+                    fontSize: '14px',
+                    fontWeight: 'normal',
+                    lineHeight: '16px',
+                  }}
+                >
+                      20-25 porciones desde $80.000
+                </Typography>
+              </ListItem>
+              <Divider component="li" color='#708DC7'/>
+              <ListItem>
+                <Typography
+                  color="secondary"
+                  gutterBottom
+                  variant="h6"
+                  align="center"
+                  sx={fullScreen ? {
+                    fontFamily: 'BozonRegular',
+                    fontSize: '16px',
+                    fontWeight: 'normal',
+                    lineHeight: '18px',
+                  } : {
+                    fontFamily: 'BozonRegular',
+                    fontSize: '14px',
+                    fontWeight: 'normal',
+                    lineHeight: '16px',
+                  }}
+                >
+                      25-30 porciones desde $90.000
+                </Typography>
+              </ListItem>
+            </List>
+          </Grid>
+        )}
       </Grid>
+      <CustomButton
+        href="https://wa.me/56954531193?text=Hola%20Ana!%20Quisiera%20reservar%20una%20Torta!"
+        size="large"
+        text="HAZ TU PEDIDO"
+        marginTop="40px"
+        fullWidth={matches}
+      />
     </DetailView >
   );
 };
 
 Tortas.propTypes = {
   matches: PropTypes.bool,
+  fullScreen: PropTypes.bool,
 };
 
 export default Tortas;
