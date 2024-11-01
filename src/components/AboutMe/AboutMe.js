@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {Grid, Typography, Avatar, IconButton} from '@mui/material';
+import {Grid, Typography, IconButton} from '@mui/material';
 import Image from '../../assets/anette-about-me.jpeg';
 import './about-me.scss';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -41,10 +41,9 @@ const AboutMe = ({matches, fullScreen}) => {
             textAlign: '-webkit-center',
           }}>
             {matches ? (
-              <Avatar
+              <img
                 src={Image}
-                variant="square"
-                sx={{
+                style={{
                   width: '100%',
                   height: '50vh',
                 }}
