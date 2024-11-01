@@ -99,7 +99,6 @@ const MobileSideOptions = () => {
                                 fontFamily: 'BozonBold',
                                 fontSize: '30px',
                                 color: '#FAFAFA',
-                                fontWeight: '700',
                                 lineHeight: '36px',
                               } : {
                                 fontFamily: 'BozonRegular',
@@ -131,7 +130,7 @@ const MobileSideOptions = () => {
                                   fontFamily: 'BozonBold',
                                   fontSize: '24px',
                                   color: '#FAFAFA',
-                                  fontWeight: '700',
+
                                   lineHeight: '30px',
                                 } : {
                                   fontFamily: 'BozonRegular',

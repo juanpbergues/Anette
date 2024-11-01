@@ -44,6 +44,7 @@ const CarouselTravelCakes = () => {
       autoplay={{delay: 3000}}
       grabCursor={true}
       effect={'fade'}
+      lazy={true}
     >
       <SwiperSlide
         className="tortas-detail-view"

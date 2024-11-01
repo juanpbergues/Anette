@@ -320,13 +320,11 @@ const ContactWithQR = ({matches, fullScreen}) => {
                         fontFamily: 'BozonRegular',
                         fontSize: '18px',
                         color: '#98c8bb',
-                        fontWeight: '700',
                       }:{
                         marginLeft: '15px',
                         fontFamily: 'BozonRegular',
                         fontSize: '14px',
                         color: '#98c8bb',
-                        fontWeight: '700',
                       }}
                       underline="none"
                       href="mailto:annete.patisserie@gmail.com"
@@ -370,13 +368,11 @@ const ContactWithQR = ({matches, fullScreen}) => {
                         fontFamily: 'BozonRegular',
                         fontSize: '18px',
                         color: '#98c8bb',
-                        fontWeight: '700',
                       }:{
                         marginLeft: '15px',
                         fontFamily: 'BozonRegular',
                         fontSize: '14px',
                         color: '#98c8bb',
-                        fontWeight: '700',
                       }}
                       underline="none"
                       href="https://instagram.com/annete_lafolieduchocolat"
@@ -421,13 +417,11 @@ const ContactWithQR = ({matches, fullScreen}) => {
                         fontFamily: 'BozonRegular',
                         fontSize: '18px',
                         color: '#98c8bb',
-                        fontWeight: '700',
                       }:{
                         marginLeft: '15px',
                         fontFamily: 'BozonRegular',
                         fontSize: '14px',
                         color: '#98c8bb',
-                        fontWeight: '700',
                       }}
                       underline="none"
                       href="https://wa.me/56954531193?text=Hola%20Ana!"
@@ -459,12 +453,10 @@ const ContactWithQR = ({matches, fullScreen}) => {
                     fontFamily: 'BozonBold',
                     fontSize: '18px',
                     marginBottom: '10px',
-                    fontWeight: '700',
                   }:{
                     fontFamily: 'BozonBold',
                     fontSize: '16px',
                     marginBottom: '10px',
-                    fontWeight: '700',
                   }}
                 >
                   ¡Escanea el código QR y siguenos

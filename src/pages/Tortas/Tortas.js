@@ -220,6 +220,7 @@ const Tortas = ({matches, fullScreen}) => {
             autoplay={{delay: 3000}}
             grabCursor={true}
             effect={'fade'}
+            lazy={true}
           >
             <SwiperSlide
               className="tortas-detail-view"
@@ -325,10 +326,10 @@ const Tortas = ({matches, fullScreen}) => {
               color="secondary"
               gutterBottom
               variant="h5"
-              align="r"
+              align="left"
               sx={{
                 fontFamily: 'BozonRegular',
-                fontSize: '16px',
+                fontSize: '15px',
                 lineHeight: '24px',
                 marginBottom: '16px',
                 marginTop: '8px',
@@ -340,7 +341,7 @@ const Tortas = ({matches, fullScreen}) => {
             {content.steps.map((step) => (
               <Grid
                 item
-                xs={12}
+                xs={4}
                 md={4}
                 key={step.id}
                 sx={{marginBottom: '20px', marginTop: '20px'}}
@@ -369,6 +370,7 @@ const Tortas = ({matches, fullScreen}) => {
                     fontSize: '17px',
                     fontWeight: 'bold',
                     lineHeight: '18px',
+                    marginBottom: step.id === 1 || step.id === 3 ? '32px' : '0',
                   }}
                 >
                   {step.title.text}
@@ -383,7 +385,7 @@ const Tortas = ({matches, fullScreen}) => {
                       align="center"
                       sx={{
                         fontFamily: 'BozonRegular',
-                        fontSize: '16px',
+                        fontSize: '15px',
                         fontWeight: 'normal',
                         lineHeight: '18px',
                         marginTop: '15px',

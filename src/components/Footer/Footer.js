@@ -172,7 +172,9 @@ const Footer = ({matches, fullScreen}) => {
                 <hr style={{
                   marginTop: '20px',
                   width: '100%',
-                  color: '#FAFAFA',
+                  backgroundColor: '#FAFAFA',
+                  height: '1px',
+                  border: 0,
                 }} />
               </Grid>
               <Grid item md={12} xs={12} style={{alignSelf: 'start'}}>

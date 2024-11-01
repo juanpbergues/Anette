@@ -100,54 +100,49 @@ const content = {
       text: 'Sablés bañadas',
       color: '#98C8BB',
       title: true,
+      price: '$6.000 x 6u',
     },
     {
       id: 10,
       text: 'Chocolate Nibs',
       color: '#98C8BB',
-      price: '$6.000 x 6u',
     },
     {
       id: 11,
       text: 'Almendra Chocolate con leche',
       color: '#98C8BB',
-      price: '$6.000 x 6u',
     },
     {
       id: 12,
       text: 'Avellanas Chocolate blanco',
       color: '#98C8BB',
-      price: '$6.000 x 6u',
     },
     {
       id: 13,
       text: 'Sablés rellenas',
       color: '#98C8BB',
       title: true,
+      price: '$10.500 x 6u',
     },
     {
       id: 14,
       text: 'Almendra-Cedron',
       color: '#98C8BB',
-      price: '$10.500 x 6u',
     },
     {
       id: 15,
       text: 'Chocolate-avellanas',
       color: '#98C8BB',
-      price: '$10.500  x 6u',
     },
     {
       id: 16,
       text: 'Pistacho-Frambuesa',
       color: '#98C8BB',
-      price: '$10.500 x 6u',
     },
     {
       id: 17,
       text: 'Nuez-Chocolate Bariloche',
       color: '#98C8BB',
-      price: '$10.500 x 6u',
     },
   ],
 };
@@ -180,6 +175,7 @@ const Cookies = ({matches, fullScreen}) => {
             autoplay={{delay: 3000}}
             grabCursor={true}
             effect={'fade'}
+            lazy={true}
           >
             <SwiperSlide
               className="tortas-detail-view"
@@ -326,13 +322,13 @@ const Cookies = ({matches, fullScreen}) => {
                 fontSize: '16px',
                 fontWeight: 'normal',
                 lineHeight: '16px',
-                marginTop: item.title ? '24px' : '15px',
+                marginTop: item.title ? '15px' : '15px',
                 width: 'fit-content',
               }}
             >
               {item.text}
             </Typography>
-            {!item.title && (
+            {item.price && (
               <>
                 <HorizontalLine />
                 <Typography
