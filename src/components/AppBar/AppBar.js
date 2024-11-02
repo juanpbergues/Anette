@@ -1,54 +1,70 @@
 import React from 'react';
-// import React, {useState} from 'react';
+
+import PropTypes from 'prop-types';
 import {
   Grid,
   AppBar,
   Toolbar,
-  // Button,
-  // IconButton,
-  Avatar,
-  // Typography,
-  // Drawer,
-  // List,
-  // ListItem,
-  // ListItemButton,
-  // Collapse,
+  Button,
 } from '@mui/material';
-// import {useNavigate} from 'react-router-dom';
-// import {HashLink as Link} from 'react-router-hash-link';
-import PropTypes from 'prop-types';
+import {HashLink as Link} from 'react-router-hash-link';
+import {useNavigationStore} from '../../stores/useNavigationStore';
+
 import * as Routes from '../../constants/routes';
-// import MenuIcon from '@mui/icons-material/Menu';
-// import CloseIcon from '@mui/icons-material/Close';
-import Image from '../../assets/anette-logo-with-letters-only.png';
+
+import Logo from '../../assets/annete-logo-with-letters-only.png';
+
 import './appbar.scss';
+import MobileSideOptions from './MobileSideOptions/MobileSideOptions';
 
-const CustomAppBar = ({matches}) => {
-  // const navigate = useNavigate();
-  // const handleClick = (to) => {
-  //   navigate(to);
-  // };
-  // const [currentOption, setCurrentOption] = useState({
-  //   primary: null,
-  //   secondary: null,
-  // });
-  // const [open, setOpen] = useState(false);
-  // const [openPatisserie, setOpenPatisserie] = useState(false);
+const CustomAppBar = ({matches, fullScreen}) => {
+  const getDefaultClassName = () => {
+    if (matches) {
+      return 'appbar-mobile';
+    }
+    if (fullScreen) {
+      return 'appbar-full-screen';
+    }
+    return 'appbar';
+  };
+  const defaultClassName = getDefaultClassName();
 
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
+  const primary = useNavigationStore((state) => state.primary);
+  const setPrimary = useNavigationStore((state) => state.setPrimary);
+  const setSecondary = useNavigationStore((state) => state.setSecondary);
 
-  // const handleOpen = () => {
-  //   setOpen(true);
-  // };
+  const getLogoToRender = () => {
+    if (matches) {
+      return (
+        <img src={Logo} style={{
+          width: 160,
+          height: '100%',
+          marginLeft: '10px',
+        }} />
+      );
+    } else if (fullScreen) {
+      return (
+        <img src={Logo} style={{
+          width: 200,
+          height: '100%',
+        }} />
+      );
+    } else {
+      return (
+        <img src={Logo} style={{
+          width: 180,
+          height: '100%',
+        }} />
+      );
+    };
+  };
 
   return (
     <section className="appbar-section">
       <AppBar
         position="static"
         color="transparent"
-        className="appbar"
+        className={defaultClassName}
         sx={{
           boxShadow: 'none',
         }}
@@ -60,352 +76,77 @@ const CustomAppBar = ({matches}) => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <a href={Routes.HOME}>
-              <Grid item>
-                <Avatar
-                  src={Image}
-                  variant="square"
-                  sx={{
-                    width: 200,
-                    height: '100%',
-                  }}
-                />
-              </Grid>
-            </a>
-            {/* <Grid item sx={matches && {display: 'none'}}>
-              <Button
-                variant="text"
-                color="secondary"
-                size="large"
-                href='/#patisserie'
-                className="button  with-margin"
-                sx={
-                  currentOption.primary === 'patisserie' && {
-                    color: '#98C8BB',
-                    fontWeight: '700',
-                  }}
+            <Grid item>
+              <Link
                 onClick={() => {
-                  setCurrentOption({primary: 'patisserie'});
+                  setPrimary('');
+                  setSecondary('');
                 }}
+                to={Routes.HOME}
               >
-                PÂTISSERIE
-              </Button>
-              <Button
-                variant="text"
-                color="secondary"
-                size="large"
-                href='/#about-me'
-                className="button with-margin"
-                sx={
-                  currentOption === 'nosotros' && {
-                    color: '#98C8BB',
-                    fontWeight: '700',
+                {getLogoToRender()}
+              </Link>
+            </Grid>
+            {!matches && (
+              <Grid item>
+                <Button
+                  variant="text"
+                  color="secondary"
+                  size="large"
+                  href='/#patisserie'
+                  className="button  with-margin"
+                  sx={
+                    primary === 'patisserie' && {
+                      color: '#98C8BB',
+                      fontWeight: 'bold',
+                    }}
+                  onClick={() => {
+                    setPrimary('patisserie');
                   }}
-                onClick={() => setCurrentOption('nosotros')}
-              >
-                NOSOTROS
-              </Button>
-              <Button
-                variant="text"
-                size="large"
-                color="secondary"
-                href='/#contacto'
-                className="button"
-                sx={
-                  currentOption === 'contacto' && {
-                    color: '#98C8BB',
-                    fontWeight: '700',
+                >
+                  PÂTISSERIE
+                </Button>
+                <Button
+                  variant="text"
+                  color="secondary"
+                  size="large"
+                  href='/#nosotros'
+                  className="button with-margin"
+                  sx={
+                    primary === 'nosotros' && {
+                      color: '#98C8BB',
+                      fontWeight: 'bold',
+                    }}
+                  onClick={() => {
+                    setPrimary('nosotros');
+                    setSecondary('');
                   }}
-                onClick={() => setCurrentOption('contacto')}
-              >
-                CONTACTO
-              </Button>
-            </Grid> */}
-            {/* <Grid item sx={!matches && {display: 'none'}}>
-              <IconButton
-                id="menu-button"
-                onClick={handleOpen}
-                color="secondary"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Drawer
-                anchor='right'
-                open={open}
-                PaperProps={{
-                  sx: {
-                    width: '100%',
-                    backgroundColor: '#F2E0E5',
-                  },
-                }}
-              >
-                <Grid
-                  container
-                  direction="column"
-                  justifyContent="center"
-                  alignItems="flex-end"
-                  sx={{
-                    paddingLeft: '50px',
-                    paddingRight: '50px',
-                    paddingTop: '40px',
-                  }}>
-                  <IconButton
-                    id="menu-button"
-                    onClick={handleClose}
-                    color="secondary"
-                    size="large"
-                  >
-                    <CloseIcon fontSize="large" />
-                  </IconButton>
-                  <List sx={{paddingTop: '50px'}}>
-                    <ListItem disablePadding>
-                      <ListItemButton
-                        onClick={() => {
-                          setOpenPatisserie(!openPatisserie);
-                          setCurrentOption({
-                            ...currentOption,
-                            primary: 'patisserie',
-                          });
-                        }}
-                        sx={{justifyContent: 'flex-end'}}
-                      >
-                        <Typography
-                          align="right"
-                          variant="h5"
-                          color="secondary"
-                          sx={
-                            (
-                              openPatisserie ||
-                              currentOption.primary === 'patisserie'
-                            ) && {
-                              color: '#FAFAFA',
-                              fontWeight: '700',
-                            }}
-                        >
-                          PÂTISSERIE
-                        </Typography>
-                      </ListItemButton>
-                    </ListItem>
-                    <Collapse in={openPatisserie}>
-                      <List component="div" disablePadding>
-                        <ListItemButton
-                          onClick={() => {
-                            setCurrentOption({
-                              primary: 'patisserie',
-                              secondary: 'tortas',
-                            });
-                            handleClick(Routes.TORTAS);
-                            handleClose();
-                          }}
-                          sx={{justifyContent: 'flex-end'}}
-                        >
-                          <Typography
-                            align="right"
-                            variant="h6"
-                            color="secondary"
-                            sx={
-                              currentOption.secondary === 'tortas' && {
-                                color: '#FAFAFA',
-                                fontWeight: '700',
-                              }}
-                          >
-                            <em>TORTAS</em>
-                          </Typography>
-                        </ListItemButton>
-                        <ListItemButton
-                          onClick={() => {
-                            setCurrentOption({
-                              primary: 'patisserie',
-                              secondary: 'tartas-clasicas',
-                            });
-                            handleClick(Routes.TARTAS_CLASICAS);
-                            handleClose();
-                          }}
-                          sx={{justifyContent: 'flex-end'}}
-                        >
-                          <Typography
-                            align="right"
-                            variant="h6"
-                            color="secondary"
-                            sx={
-                              currentOption.secondary === 'tartas-clasicas' && {
-                                color: '#FAFAFA',
-                                fontWeight: '700',
-                              }}
-                          >
-                            <em>TARTAS CLASICAS</em>
-                          </Typography>
-                        </ListItemButton>
-                        <ListItemButton
-                          onClick={() => {
-                            setCurrentOption({
-                              primary: 'patisserie',
-                              secondary: 'macarons',
-                            });
-                            handleClick(Routes.MACARONS);
-                            handleClose();
-                          }}
-                          sx={{justifyContent: 'flex-end'}}
-                        >
-                          <Typography
-                            align="right"
-                            variant="h6"
-                            color="secondary"
-                            sx={
-                              currentOption.secondary === 'macarons' && {
-                                color: '#FAFAFA',
-                                fontWeight: '700',
-                              }}
-                          >
-                            <em>MACARONS</em>
-                          </Typography>
-                        </ListItemButton>
-                        <ListItemButton
-                          sx={{justifyContent: 'flex-end'}}
-                          onClick={() => {
-                            setCurrentOption({
-                              primary: 'patisserie',
-                              secondary: 'cookies',
-                            });
-                            handleClick(Routes.COOKIES);
-                            handleClose();
-                          }}
-                        >
-                          <Typography
-                            align="right"
-                            variant="h6"
-                            color="secondary"
-                            sx={
-                              currentOption.secondary === 'cookies' && {
-                                color: '#FAFAFA',
-                                fontWeight: '700',
-                              }}
-                          >
-                            <em>COOKIES</em>
-                          </Typography>
-                        </ListItemButton>
-                        <ListItemButton
-                          onClick={() => {
-                            setCurrentOption({
-                              primary: 'patisserie',
-                              secondary: 'travel-cakes',
-                            });
-                            handleClick(Routes.TRAVEL_CAKES);
-                            handleClose();
-                          }}
-                          sx={{justifyContent: 'flex-end'}}
-                        >
-                          <Typography
-                            align="right"
-                            variant="h6"
-                            color="secondary"
-                            sx={
-                              currentOption.secondary === 'travel-cakes' && {
-                                color: '#FAFAFA',
-                                fontWeight: '700',
-                              }}
-                          >
-                            <em>TRAVEL CAKES</em>
-                          </Typography>
-                        </ListItemButton>
-                        <ListItemButton
-                          onClick={() => {
-                            setCurrentOption({
-                              primary: 'patisserie',
-                              secondary: 'tartas-vitrina',
-                            });
-                            handleClick(Routes.TARTAS_VITRINA);
-                            handleClose();
-                          }}
-                          sx={{
-                            justifyContent: 'flex-end',
-                            marginBottom: '20px',
-                          }}
-                        >
-                          <Typography
-                            align="right"
-                            variant="h6"
-                            color="secondary"
-                            sx={
-                              currentOption.secondary === 'tartas-vitrina' && {
-                                color: '#FAFAFA',
-                                fontWeight: '700',
-                              }}
-                          >
-                            <em>TARTAS DE VITRINA</em>
-                          </Typography>
-                        </ListItemButton>
-                      </List>
-                    </Collapse>
-                    <ListItem disablePadding sx={{paddingTop: '20px'}}>
-                      <ListItemButton
-                        sx={{justifyContent: 'flex-end'}}
-                        onClick={
-                          () => {
-                            setCurrentOption({
-                              primary: 'nosotros',
-                              secondary: null,
-                            });
-                            handleClose();
-                          }
-                        }
-                      >
-                        <Link
-                          smooth
-                          to={`${Routes.HOME}#about-me`}
-                          style={{textDecoration: 'none'}}
-                        >
-
-                          <Typography
-                            align="right"
-                            variant="h5"
-                            color="secondary"
-                            sx={
-                              currentOption.primary === 'nosotros' && {
-                                color: '#FAFAFA',
-                                fontWeight: '700',
-                              }}
-                          >
-                            NOSOTROS
-                          </Typography>
-                        </Link>
-                      </ListItemButton>
-                    </ListItem>
-                    <ListItem disablePadding sx={{paddingTop: '20px'}}>
-                      <ListItemButton
-                        sx={{justifyContent: 'flex-end'}}
-                        onClick={() => {
-                          setCurrentOption({
-                            primary: 'contacto',
-                            secondary: null,
-                          });
-                          handleClose();
-                        }}
-                      >
-                        <Link
-                          smooth
-                          to={`${Routes.HOME}#contacto`}
-                          style={{textDecoration: 'none'}}
-                        >
-                          <Typography
-                            align="right"
-                            variant="h5"
-                            color="secondary"
-                            sx={
-                              currentOption.primary === 'contacto' && {
-                                color: '#FAFAFA',
-                                fontWeight: '700',
-                              }}
-                          >
-                            CONTACTO
-                          </Typography>
-                        </Link>
-                      </ListItemButton>
-                    </ListItem>
-                  </List>
-                </Grid>
-              </Drawer>
-            </Grid> */}
+                >
+                  SOBRE MI
+                </Button>
+                <Button
+                  variant="text"
+                  size="large"
+                  color="secondary"
+                  href='/#contacto'
+                  className="button"
+                  sx={
+                    primary === 'contacto' && {
+                      color: '#98C8BB',
+                      fontWeight: 'bold',
+                    }}
+                  onClick={() => {
+                    setPrimary('contacto');
+                    setSecondary('');
+                  }}
+                >
+                  CONTACTO
+                </Button>
+              </Grid>
+            )}
+            {matches && (
+              <MobileSideOptions />
+            )}
           </Grid>
         </Toolbar>
       </AppBar >
@@ -415,6 +156,7 @@ const CustomAppBar = ({matches}) => {
 
 CustomAppBar.propTypes = {
   matches: PropTypes.bool,
+  fullScreen: PropTypes.bool,
 };
 
 

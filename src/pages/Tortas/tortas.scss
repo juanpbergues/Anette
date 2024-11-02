@@ -1,0 +1,10 @@
+.tortas-detail-view {
+    display: inline-flex;
+    justify-content: center;
+
+    .MuiAvatar-root {
+        .MuiAvatar-img {
+            object-fit: fill;
+        }
+    }
+}

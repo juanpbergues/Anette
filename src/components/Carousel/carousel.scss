@@ -1,4 +1,12 @@
-.carousel {
+.carousel-container {
     background: linear-gradient(to bottom, white 0%, white 50%, #F2E0E5 50%, #F2E0E5 100%);
-    padding-bottom: 100px;
+    padding-bottom: 60px;
+    display: flex;
+}
+
+.carousel-container-mobile {
+    background: linear-gradient(to bottom, white 0%, white 50%, #F2E0E5 50%, #F2E0E5 100%);
+    padding-bottom: 60px;
+    padding-left: 16px;
+    padding-right: 16px;
 }

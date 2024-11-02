@@ -1,3 +1,16 @@
+$green-color-primary: #98c8bb;
+$green-color-content: #223f37;
+$green-color-light: #b9dad1;
+$green-color-dark: #77b6a5;
+$blue-color-primary: #708DC7;
+$blue-color-content: #101828;
+$blue-color-light: #95aad5;
+$blue-color-dark: #4b70b9;
+$pink-color-primary: #f2e0e5;
+$pink-color-content: #953e56;
+$pink-color-light: #ffffff;
+$pink-color-dark: #e3bcc7;
+
 html {
   scroll-behavior: smooth;
 }
@@ -22,7 +35,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: #98C8BB;
+  background: $green-color-primary;
   border: 5px solid transparent;
   border-radius: 9px;
   background-clip: content-box;

@@ -1,0 +1,23 @@
+.terms-and-conditions-mobile {
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 40px;
+}
+
+.terms-and-conditions {
+    margin-bottom: 40px;
+    display: flex;
+    place-content: center;
+    &-container {
+        width: 807px;
+    }
+}
+
+.terms-and-conditions-full-screen {
+    margin-bottom: 40px;
+    display: flex;
+    place-content: center;
+    &-container {
+        width: 1020px;
+    }
+}

@@ -1,66 +1,84 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
+import {useNavigate} from 'react-router-dom';
+
+import {useNavigationStore} from '../../stores/useNavigationStore';
 import {
   CardActionArea,
   Card,
-  CardContent,
-  CardMedia,
   Typography,
 } from '@mui/material';
-import './custom-card.scss';
-import {useNavigate} from 'react-router-dom';
 
-const CustomCard = ({title, image, to}) => {
+import './custom-card.scss';
+
+const CustomCard = ({title, id, to, matches, fullScreen, mediumScreen}) => {
+  const getDefaultClassName = () => {
+    if (matches) {
+      return 'custom-card-mobile';
+    }
+    if (fullScreen) {
+      return 'custom-card-full-screen';
+    }
+    return 'custom-card';
+  };
+
+  const defaultClassName = getDefaultClassName();
+
+  const setPrimary = useNavigationStore((state) => state.setPrimary);
+  const setSecondary = useNavigationStore((state) => state.setSecondary);
+
   const navigate = useNavigate();
   const handleClick = (to) => {
     navigate(to);
   };
   return (
-    <Card
-      sx={{
-        borderRadius: 0,
-        border: 'solid #708DC7',
-        boxShadow: 0,
-        width: '300px',
-        height: '400px',
-      }}
-      className="custom-card"
+    <div
+      className={defaultClassName}
+      style={{marginTop: mediumScreen ? '30px' : '0'}}
     >
-      <CardActionArea onClick={() => handleClick(to)}>
-        <CardMedia
-          component="img"
-          height="270"
-          width="100%"
-          image={image}
-          alt="macarons"
-        />
-        <CardContent>
-          <hr
-            size="8px"
-            color="#708DC7"
-            width="40%"
-            style={{marginBottom: '20px', marginTop: '30px'}}
-            className="card-separator"
+      <Card sx={{
+        borderRadius: 0,
+        boxShadow: 0,
+      }}>
+        <CardActionArea onClick={() => {
+          handleClick(to);
+          setPrimary('patisserie');
+          setSecondary(id);
+        }}>
+          <div
+            className={`${defaultClassName}__media-${id}`}
           />
-          <Typography
-            color="secondary"
-            gutterBottom
-            variant="h6"
-            component="div"
-            className="card-title"
-          >
-            {title}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+          <div className={`${defaultClassName}__title-container`}>
+            <Typography
+              color="secondary"
+              variant="h5"
+              sx={fullScreen ? {
+                fontFamily: 'Chequersdemo',
+                fontSize: '22px',
+                lineHeight: '25px',
+              } : {
+                fontFamily: 'Chequersdemo',
+                fontSize: '20px',
+                lineHeight: '24px',
+              }}
+            >
+              {title}
+            </Typography>
+          </div>
+        </CardActionArea>
+      </Card>
+    </div>
   );
 };
 
 CustomCard.propTypes = {
-  image: PropTypes.string,
+  id: PropTypes.string,
   title: PropTypes.string,
   to: PropTypes.string,
+  matches: PropTypes.bool,
+  fullScreen: PropTypes.bool,
+  mediumScreen: PropTypes.bool,
 };
 
 export default CustomCard;

@@ -1,23 +1,37 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import Carousel from '../../components/Carousel/Carousel';
 import CakeShop from '../../components/CakeShop/CakeShop';
 import AboutMe from '../../components/AboutMe/AboutMe';
-import ContactUs from '../../components/ContactUs/ContactUs';
+import ContactWithQR from '../../components/ContactWithQR/ContactWithQR';
+import {useNavigationStore} from '../../stores/useNavigationStore';
 
-const Home = ({matches}) => {
+const Home = ({matches, fullScreen}) => {
+  const primary = useNavigationStore((state) => state.primary);
+  useEffect(() => {
+    if (primary) {
+      const element = document.getElementById(primary);
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      });
+    }
+  }, []);
+
   return (
     <>
-      <Carousel matches={matches} />
-      <CakeShop matches={matches} />
-      <AboutMe matches={matches} />
-      <ContactUs matches={matches} />
+      <Carousel matches={matches} fullScreen={fullScreen} />
+      <CakeShop matches={matches} fullScreen={fullScreen} />
+      <AboutMe matches={matches} fullScreen={fullScreen} />
+      <ContactWithQR matches={matches} fullScreen={fullScreen} />
     </>
   );
 };
 
 Home.propTypes = {
-  matches: PropTypes.string,
+  matches: PropTypes.bool,
+  fullScreen: PropTypes.bool,
 };
 
 export default Home;

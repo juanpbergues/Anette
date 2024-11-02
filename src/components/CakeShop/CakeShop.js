@@ -3,135 +3,140 @@ import PropTypes from 'prop-types';
 import {
   Typography,
   Grid,
+  useMediaQuery,
 } from '@mui/material';
-import {Swiper, SwiperSlide} from 'swiper/react';
-import {EffectCards, Autoplay} from 'swiper';
+
 import './cake-shop.scss';
 import CustomCard from '../Card/CustomCard';
-import CookiesImage from '../../assets/anette-cookies-card.jpg';
-import TortasImage from '../../assets/anette-tortas-card.jpg';
-import MacaronsImage from '../../assets/anette-macarons-card.jpg';
-import TravelImage from '../../assets/anette-travel-card.jpg';
-import TartasImage from '../../assets/anette-carousel-2.jpg';
 import * as Routes from '../../constants/routes';
 
 import 'swiper/css/autoplay';
+import MobileCakeShop from './MobileCakeShop/MobileCakeShop';
 
-const CakeShop = ({matches}) => {
+const CakeShop = ({matches, fullScreen}) => {
+  const mediumScreen = useMediaQuery(
+      (theme) => theme.breakpoints.between('md', 'lg'),
+  );
+  const getDefaultClassName = () => {
+    if (matches) {
+      return 'cake-shop-mobile';
+    }
+    if (fullScreen) {
+      return 'cake-shop-full-screen';
+    }
+    return 'cake-shop';
+  };
+
+  const defaultClassName = getDefaultClassName();
+
   const cards = [
     {
-      id: 1,
+      id: 'tortas',
       title: 'TORTAS',
-      image: TortasImage,
       to: Routes.TORTAS,
     },
     {
-      id: 2,
+      id: 'tartas',
       title: 'TARTAS CLASICAS',
-      image: TartasImage,
       to: Routes.TARTAS_CLASICAS,
     },
     {
-      id: 3,
+      id: 'macarons',
       title: 'MACARONS',
-      image: MacaronsImage,
       to: Routes.MACARONS,
     },
     {
-      id: 4,
+      id: 'cookies',
       title: 'COOKIES',
-      image: CookiesImage,
       to: Routes.COOKIES,
     },
     {
-      id: 5,
+      id: 'travel-cakes',
       title: 'TRAVEL CAKES',
-      image: TravelImage,
       to: Routes.TRAVEL_CAKES,
     },
     {
-      id: 6,
-      title: 'TARTAS DE VITRINA',
-      image: TartasImage,
-      to: Routes.TARTAS_VITRINA,
+      id: 'tortas-vitrina',
+      title: 'TORTAS MODERNAS',
+      to: Routes.TORTAS_VITRINA,
     },
   ];
 
+  const getCardsStyles = (index) => {
+    if (mediumScreen) {
+      return 'center';
+    }
+    if (index === 0 || index === 3) {
+      return 'start';
+    }
+    if (index === 1 || index === 4) {
+      return 'center';
+    }
+    return 'end';
+  };
+
   return (
-    <div className="cake-shop-section" id="patisserie">
-      <div className="cake-shop-container">
+    <div className={`${defaultClassName}-section`} id="patisserie">
+      <div className={`${defaultClassName}-container`}>
         <Typography
           color="secondary"
-          gutterBottom
           variant="h5"
           className="title"
         >
-          PASTELERÍA {matches && <br/>}PREMIUM NATURAL
+          PASTELERIA PREMIUM {matches && <br />}NATURAL
         </Typography>
-        <Grid
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-        >
-          {!matches ? (
-            <>
-              {cards.map((card) => (
-                <Grid
-                  item
-                  lg={4}
-                  md={6}
-                  xs={12}
-                  className="card-container"
-                  spacing={0}
-                  key={card.id}
-                >
-                  <CustomCard
-                    image={card.image}
-                    title={card.title}
-                    to={card.to}
-                  />
-                </Grid>
-              ))}
-            </>
-          ) : (
-            <Grid
-              item
-              xs={12}
-              className="card-container"
-              spacing={0}
-            >
-              <Swiper
-                effect={'cards'}
-                grabCursor={true}
-                modules={[EffectCards, Autoplay]}
-                autoplay={{delay: 3000}}
+        {matches ? (
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            sx={{
+              height: '40vh',
+            }}
+          >
+            <MobileCakeShop cards={cards} matches={matches} />
+          </Grid>
+        ) : (
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            sx={!mediumScreen && {
+              height: '90vh',
+            }}
+          >
+            {cards.map((card, index) => (
+              <Grid
+                item
+                lg={4}
+                md={6}
+                xs={12}
+                className={`card-container-${getCardsStyles(index)}`}
+                spacing={0}
+                key={card.id}
               >
-                {cards.map((card) => (
-                  <SwiperSlide style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                  }}
-                  key={card.id}
-                  >
-                    <CustomCard
-                      image={card.image}
-                      title={card.title}
-                      to={card.to}
-                    />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </Grid>
-          )}
-        </Grid>
+                <CustomCard
+                  id={card.id}
+                  title={card.title}
+                  to={card.to}
+                  mediumScreen={mediumScreen}
+                  fullScreen={fullScreen}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        )}
+
       </div>
     </div>
   );
 };
 
 CakeShop.propTypes = {
-  matches: PropTypes.string,
+  matches: PropTypes.bool,
+  fullScreen: PropTypes.bool,
 };
 
 export default CakeShop;

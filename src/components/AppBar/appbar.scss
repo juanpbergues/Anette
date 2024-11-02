@@ -3,23 +3,40 @@
     place-content: center;
 
     .appbar {
-        padding-left: 80px;
-        padding-right: 80px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        max-width: 1800px;
+        max-width: 855px;
+        height: 15vh;
+        justify-content: center;
 
         .button {
-            font-size: large;
+            font-size: 16px;
+            font-family: "BozonRegular";
+            line-height: 20px;
         }
 
         .with-margin {
             margin-right: 30px;
         }
+    }
 
-        @media screen and (max-width: 992px) {
-            padding-left: 10px;
-            padding-right: 20px;
+    .appbar-full-screen {
+        max-width: 1072px;
+        height: 15vh;
+        justify-content: center;
+
+        .button {
+            font-size: 18px;
+            font-family: "BozonRegular";
+            line-height: 22px;
         }
+
+        .with-margin {
+            margin-right: 30px;
+        }
+    }
+
+    .appbar-mobile {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        width: 100%;
     }
 }
