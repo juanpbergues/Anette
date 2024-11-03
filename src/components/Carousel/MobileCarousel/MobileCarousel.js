@@ -1,6 +1,6 @@
 import React from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {Navigation, Pagination, A11y, Autoplay, EffectFade} from 'swiper';
+import {Navigation, Pagination, A11y, Autoplay, EffectCreative} from 'swiper';
 
 import FirstImage from '../../../assets/annete-banner-mobile-1.jpg';
 import SecondImage from '../../../assets/annete-banner-mobile-2.jpg';
@@ -18,12 +18,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
-import 'swiper/css/effect-fade';
+import 'swiper/css/effect-creative';
 
 const MobileCarousel = () => {
   return (
     <Swiper
-      modules={[Navigation, Pagination, A11y, Autoplay, EffectFade]}
+      modules={[Navigation, Pagination, A11y, Autoplay, EffectCreative]}
       spaceBetween={50}
       loop={true}
       slidesPerView={1}
@@ -34,7 +34,16 @@ const MobileCarousel = () => {
       }}
       autoplay={{delay: 3000}}
       grabCursor={true}
-      effect={'fade'}
+      effect={'creative'}
+      creativeEffect={{
+        prev: {
+          shadow: true,
+          translate: [0, 0, -400],
+        },
+        next: {
+          translate: ['100%', 0, 0],
+        },
+      }}
     >
       <SwiperSlide style={{
         display: 'flex',

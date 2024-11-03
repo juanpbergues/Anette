@@ -2,7 +2,8 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Grid, Typography, IconButton} from '@mui/material';
-import Image from '../../assets/anette-about-me.jpeg';
+import ImageMobile from '../../assets/annete-about-me-mobile.jpg';
+import ImageWeb from '../../assets/annete-about-me-web.jpg';
 import './about-me.scss';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
@@ -42,21 +43,23 @@ const AboutMe = ({matches, fullScreen}) => {
           }}>
             {matches ? (
               <img
-                src={Image}
+                src={ImageMobile}
                 style={{
                   width: '100%',
-                  height: '50vh',
+                  aspectRatio: '3 / 4',
                 }}
               />
             ):(
               <img
-                src={Image}
+                src={ImageWeb}
                 style={fullScreen ? {
-                  width: '420px',
+                  maxWidth: '420px',
                   height: '100%',
+                  aspectRatio: '3 / 4',
                 } : {
-                  width: '350px',
+                  maxWidth: '350px',
                   height: '100%',
+                  aspectRatio: '3 / 4',
                 }}
               />
             )}

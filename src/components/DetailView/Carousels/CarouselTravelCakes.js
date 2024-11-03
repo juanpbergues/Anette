@@ -6,7 +6,7 @@ import {
   Navigation,
   Pagination,
   Autoplay,
-  EffectFade,
+  EffectCreative,
 } from 'swiper';
 
 // Mobiles images
@@ -24,7 +24,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
-import 'swiper/css/effect-fade';
+import 'swiper/css/effect-creative';
 
 const CarouselTravelCakes = () => {
   return (
@@ -33,7 +33,7 @@ const CarouselTravelCakes = () => {
         Navigation,
         Pagination,
         Autoplay,
-        EffectFade,
+        EffectCreative,
       ]}
       spaceBetween={50}
       slidesPerView={1}
@@ -43,8 +43,17 @@ const CarouselTravelCakes = () => {
       }}
       autoplay={{delay: 3000}}
       grabCursor={true}
-      effect={'fade'}
+      effect={'creative'}
       lazy={true}
+      creativeEffect={{
+        prev: {
+          shadow: true,
+          translate: [0, 0, -400],
+        },
+        next: {
+          translate: ['100%', 0, 0],
+        },
+      }}
     >
       <SwiperSlide
         className="tortas-detail-view"
