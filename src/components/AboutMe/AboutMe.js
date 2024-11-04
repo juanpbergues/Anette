@@ -107,18 +107,16 @@ const AboutMe = ({matches, fullScreen}) => {
                 color="secondary"
                 gutterBottom
                 variant="h6"
-                align="left"
+                align="justify"
                 sx={fullScreen ? {
                   fontFamily: 'BozonRegular',
                   fontSize: '18px',
                   marginLeft: '60px',
-                  textAlign: 'left',
                   lineHeight: '1.8',
                 }:{
                   fontFamily: 'BozonRegular',
                   fontSize: '14px',
                   marginLeft: '60px',
-                  textAlign: 'left',
                   lineHeight: '1.8',
                 }}
               >
@@ -135,9 +133,8 @@ const AboutMe = ({matches, fullScreen}) => {
                   sx={{
                     fontFamily: 'BozonRegular',
                     fontSize: '16px',
-                    textAlign: 'left',
                   }}
-                  align="center"
+                  align="justify"
                 >
                   Soy Ana, Licenciada en Relaciones Internacionales. Hace diez años, cuando llegué a Chile, mi vida cambió radicalmente. Me sumergí por completo en mi pasión de siempre, la gastronomía. Comencé a estudiar la carrera y posteriormente, me especialicé en pastelería que es lo que más amo hacer.
                 </Typography>
@@ -154,9 +151,8 @@ const AboutMe = ({matches, fullScreen}) => {
                   sx={{
                     fontFamily: 'BozonRegular',
                     fontSize: '16px',
-                    textAlign: 'left',
                   }}
-                  align="center"
+                  align="justify"
                 >
                   Durante estos años, he adoptado técnicas y tendencias que garantizan que mi trabajo sea de la más alta calidad. Por eso, quiero contarles que en Annete utilizamos solo materia prima premium y natural. <br></br>
                   El concepto de Annete es que un pastel no solo debe verse bien, sino también saber maravilloso. Cada bocado debe ser una combinación única de texturas y sabores. Para lograr esto, trabajo de manera artesanal y con mucho amor, asegurando que cada uno de nuestros productos sea una experiencia única.

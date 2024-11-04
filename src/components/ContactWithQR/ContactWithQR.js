@@ -62,7 +62,7 @@ const ContactWithQR = ({matches, fullScreen}) => {
                       CONTACTO
                     </Typography>
                     <Typography
-                      align="left"
+                      align="justify"
                       color="secondary"
                       sx={{
                         fontFamily: 'BozonRegular',
@@ -197,15 +197,19 @@ const ContactWithQR = ({matches, fullScreen}) => {
               </Grid>
               <Grid item xs={12} md={5}>
                 <div className={`${defaultClassName}-container__avatar`}>
-                  <Avatar
-                    src={ImageMobile}
-                    variant="square"
-                    sx={{
-                      marginTop: '20px',
-                      width: '210px',
-                      height: '210px',
-                    }}
-                  />
+                  <Link
+                    href="https://instagram.com/annete_lafolieduchocolat"
+                  >
+                    <Avatar
+                      src={ImageMobile}
+                      variant="square"
+                      sx={{
+                        marginTop: '20px',
+                        width: '210px',
+                        height: '210px',
+                      }}
+                    />
+                  </Link>
                 </div>
                 <Typography
                   align="center"
@@ -434,17 +438,21 @@ const ContactWithQR = ({matches, fullScreen}) => {
               </Grid>
               <Grid item xs={12} md={5}>
                 <div className={`${defaultClassName}-container__avatar`}>
-                  <Avatar
-                    src={Image}
-                    variant="square"
-                    sx={fullScreen ? {
-                      width: '300px',
-                      height: '310px',
-                    }:{
-                      width: '240px',
-                      height: '250px',
-                    }}
-                  />
+                  <Link
+                    href="https://instagram.com/annete_lafolieduchocolat"
+                  >
+                    <Avatar
+                      src={Image}
+                      variant="square"
+                      sx={fullScreen ? {
+                        width: '300px',
+                        height: '310px',
+                      }:{
+                        width: '240px',
+                        height: '250px',
+                      }}
+                    />
+                  </Link>
                 </div>
                 <Typography
                   align="center"

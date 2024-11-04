@@ -326,7 +326,7 @@ const Tortas = ({matches, fullScreen}) => {
               color="secondary"
               gutterBottom
               variant="h5"
-              align="left"
+              align="justify"
               sx={{
                 fontFamily: 'BozonRegular',
                 fontSize: '15px',

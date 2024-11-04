@@ -142,7 +142,7 @@ const DetailView = ({
                   color="secondary"
                   gutterBottom
                   variant="h4"
-                  align="left"
+                  align="justify"
                   className="description"
                 >
                   {description}
